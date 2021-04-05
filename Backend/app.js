@@ -4,6 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const bodyParser = require('body-parser');
+
+const operadoresRouter = require('./routes/operadores');
+const equipamentosRouter = require('./routes/equipamentos');
+const movimentacoesRouter = require('./routes/movimentacoes');
+const obrasRouter = require('./routes/obras');
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -12,6 +20,19 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+app.use('/operadores', operadoresRouter);
+app.use('/equipamentos', equipamentosRouter);
+app.use('/movimentacoes', movimentacoesRouter);
+app.use('/obras', obrasRouter);
+
 
 app.use(logger('dev'));
 app.use(express.json());
