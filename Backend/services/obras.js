@@ -18,6 +18,28 @@ async function getAll(page = 1){
   }
 }
 
+async function create(obra){
+  const result = await db.query(
+    `INSERT INTO obras 
+    (Nome) 
+    VALUES 
+    (?)`, 
+    [
+	obra.Nome
+    ]
+  );
+
+  let message = 'Erro ao adicionar';
+
+  if (result.affectedRows) {
+    message = 'Adicionado com Sucesso';
+  }
+
+  return {message};
+}
+
+
 module.exports = {
-  getAll
+  getAll,
+  create
 }

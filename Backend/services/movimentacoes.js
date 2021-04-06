@@ -18,6 +18,27 @@ async function getAll(page = 1){
   }
 }
 
+async function create(movimento){
+  const result = await db.query(
+    `INSERT INTO movimentacoes 
+    (Tipo, Data, idOperador, idObra, idEquipamento, EstadoNaEntregaFunciona, EstadoNaEntregaLimpar) 
+    VALUES 
+    (?, current_timestamp(), ?, ?, ?, ?, ?)`, 
+    [
+	movimento.Tipo, movimento.idOperador, movimento.idObra, movimento.idEquipamento, movimento.EstadoNaEntregaFunciona, movimento.EstadoNaEntregaLimpar
+    ]
+  );
+
+  let message = 'Erro ao adicionar';
+
+  if (result.affectedRows) {
+    message = 'Adicionado com Sucesso';
+  }
+
+  return {message};
+}
+
 module.exports = {
-  getAll
+  getAll,
+  create
 }

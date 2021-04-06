@@ -7,7 +7,7 @@ router.get('/', async function(req, res, next) {
   try {
     res.json(await operadores.getAll(req.query.page));
   } catch (err) {
-    console.error(`Error while getting programming languages `, err.message);
+    console.error(`Erro a receber operadores`, err.message);
     next(err);
   }
 });
@@ -17,7 +17,7 @@ router.post('/', async function(req, res, next) {
   try {
     res.json(await operadores.create(req.body));
   } catch (err) {
-    console.error(`Error while creating programming language`, err.message);
+    console.error(`Erro a criar operadores`, err.message);
     next(err);
   }
 });
