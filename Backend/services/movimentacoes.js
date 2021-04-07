@@ -38,7 +38,29 @@ async function create(movimento){
   return {message};
 }
 
+/* UPDATE */
+
+async function update(id, movimento){
+  const result = await db.query(
+    `UPDATE movimentacoes 
+    SET Tipo=?, Data=current_timestamp(), idOperador=?, idObra=?, idEquipamento=?, EstadoNaEntregaFunciona=?, EstadoNaEntregaLimpar=?
+    WHERE idMovimento=?`, 
+    [
+      movimento.Tipo, movimento.idOperador, movimento.idObra, movimento.idEquipamento, movimento.EstadoNaEntregaFunciona, movimento.EstadoNaEntregaLimpar , id
+    ]
+  );
+
+  let message = 'Error in updating movimentacoes';
+
+  if (result.affectedRows) {
+    message = 'Movimentacoes updated successfully';
+  }
+
+  return {message};
+}
+
 module.exports = {
   getAll,
-  create
+  create,
+  update
 }

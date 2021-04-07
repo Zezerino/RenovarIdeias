@@ -38,7 +38,29 @@ async function create(equipamento){
   return {message};
 }
 
+/* UPDATE */
+
+async function update(id, equip){
+  const result = await db.query(
+    `UPDATE equipamentos 
+    SET Nome=?, Codigo=?, CodigoLongo=?
+    WHERE idEquipamento=?`, 
+    [
+      equip.Nome, equip.Codigo,equip.CodigoLongo , id
+    ]
+  );
+
+  let message = 'Error in updating Equipamentos';
+
+  if (result.affectedRows) {
+    message = 'Equipamentos updated successfully';
+  }
+
+  return {message};
+}
+
 module.exports = {
   getAll,
-  create
+  create,
+  update
 }

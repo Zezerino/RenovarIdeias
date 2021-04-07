@@ -2,6 +2,7 @@ const db = require('./db');
 const helper = require('../helper');
 const config = require('../config');
 
+/* GET */
 async function getAll(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
@@ -18,6 +19,7 @@ async function getAll(page = 1){
   }
 }
 
+/* POST */
 async function create(obra){
   const result = await db.query(
     `INSERT INTO obras 
@@ -38,8 +40,30 @@ async function create(obra){
   return {message};
 }
 
+/* UPDATE */
+
+async function update(id, obra){
+  const result = await db.query(
+    `UPDATE obras 
+    SET Nome=?
+    WHERE idObra=?`, 
+    [
+      obra.Nome, id
+    ]
+  );
+
+  let message = 'Error in updating obras';
+
+  if (result.affectedRows) {
+    message = 'Obras updated successfully';
+  }
+
+  return {message};
+}
+
 
 module.exports = {
   getAll,
-  create
+  create,
+  update
 }

@@ -22,5 +22,15 @@ router.post('/', async function(req, res, next) {
   }
 });
 
+/* PUT operadores */
+router.put('/:id', async function(req, res, next) {
+  try {
+    res.json(await operadores.update(req.params.id, req.body));
+  } catch (err) {
+    console.error(`Error while updating obras`, err.message);
+    next(err);
+  }
+});
+
 
 module.exports = router;

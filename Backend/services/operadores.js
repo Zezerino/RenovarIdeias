@@ -39,7 +39,29 @@ async function create(operador){
 }
 
 
+/* UPDATE */
+
+async function update(id, operador){
+  const result = await db.query(
+    `UPDATE operadores 
+    SET Nome=?
+    WHERE idOperador=?`, 
+    [
+      operador.Nome, id
+    ]
+  );
+
+  let message = 'Error in updating operadores';
+
+  if (result.affectedRows) {
+    message = 'Operadores updated successfully';
+  }
+
+  return {message};
+}
+
 module.exports = {
   getAll,
-  create
+  create,
+  update
 }

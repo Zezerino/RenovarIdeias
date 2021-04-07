@@ -23,4 +23,14 @@ router.post('/', async function(req, res, next) {
   }
 });
 
+/* PUT equipamentos */
+router.put('/:id', async function(req, res, next) {
+  try {
+    res.json(await equipamentos.update(req.params.id, req.body));
+  } catch (err) {
+    console.error(`Error while updating equipamentos`, err.message);
+    next(err);
+  }
+});
+
 module.exports = router;
