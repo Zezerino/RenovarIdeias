@@ -18,6 +18,22 @@ async function getAll(page = 1){
   }
 }
 
+async function getView(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT m.tipo, m.Data, w.Nome as nomeOperador, o.Nome as nomeObra, e.Nome as nomeEquipamento, m.EstadoNaEntregaFunciona, m.EstadoNaEntregaLimpar FROM movimentacoes m, obras o, equipamentos e, operadores w where m.idOperador = w.idOperador and m.idEquipamento = e.idEquipamento and m.idObra = o.idObra`, 
+    [offset, config.listPerPage]
+  );
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+
 async function create(movimento){
   const result = await db.query(
     `INSERT INTO movimentacoes 
@@ -81,5 +97,6 @@ module.exports = {
   getAll,
   create,
   update,
-  remove
+  remove,
+  getView
 }
