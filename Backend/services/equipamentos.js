@@ -59,8 +59,26 @@ async function update(id, equip){
   return {message};
 }
 
+/* DELETE */
+
+async function remove(id){
+  const result = await db.query(
+    `DELETE FROM equipamentos WHERE idEquipamento=?`, 
+    [id]
+  );
+
+  let message = 'Error in deleting equipamento';
+
+  if (result.affectedRows) {
+    message = 'Equipamentos language deleted successfully';
+  }
+
+  return {message};
+}
+
 module.exports = {
   getAll,
   create,
-  update
+  update,
+  remove
 }

@@ -60,8 +60,27 @@ async function update(id, operador){
   return {message};
 }
 
+/* DELETE */
+
+
+async function remove(id){
+  const result = await db.query(
+    `DELETE FROM operadores WHERE idOperador=?`, 
+    [id]
+  );
+
+  let message = 'Error in deleting operadores';
+
+  if (result.affectedRows) {
+    message = 'Operadores language deleted successfully';
+  }
+
+  return {message};
+}
+
 module.exports = {
   getAll,
   create,
-  update
+  update,
+  remove
 }

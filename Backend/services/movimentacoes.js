@@ -59,8 +59,27 @@ async function update(id, movimento){
   return {message};
 }
 
+/* DELETE */
+
+async function remove(id){
+  const result = await db.query(
+    `DELETE FROM movimentacoes WHERE idMovimento=?`, 
+    [id]
+  );
+
+  let message = 'Error in deleting movimentacoes';
+
+  if (result.affectedRows) {
+    message = 'Movimentacoes language deleted successfully';
+  }
+
+  return {message};
+}
+
+
 module.exports = {
   getAll,
   create,
-  update
+  update,
+  remove
 }

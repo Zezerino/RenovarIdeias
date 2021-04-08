@@ -32,5 +32,15 @@ router.put('/:id', async function(req, res, next) {
   }
 });
 
+/* DELETE operadores */
+router.delete('/:id', async function(req, res, next) {
+  try {
+    res.json(await operadores.remove(req.params.id));
+  } catch (err) {
+    console.error(`Error while deleting operadores`, err.message);
+    next(err);
+  }
+});
+
 
 module.exports = router;
