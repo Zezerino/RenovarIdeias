@@ -11,7 +11,7 @@ $( document ).ready(function() {
 
 function fillEquip(){
 
-	fetch("http://localhost:3000/equipamentos",{
+	fetch("http://25.83.4.101:3000/equipamentos",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -50,7 +50,7 @@ function fillEquip(){
 
 function fillObra(){
 
-	fetch("http://localhost:3000/obras",{
+	fetch("http://25.83.4.101:3000/obras",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -89,7 +89,7 @@ function fillObra(){
 
 function fillOperador(){
 
-	fetch("http://localhost:3000/operadores",{
+	fetch("http://25.83.4.101:3000/operadores",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'

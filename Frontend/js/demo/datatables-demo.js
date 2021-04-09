@@ -1,7 +1,7 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
 
-  	fetch("http://localhost:3000/movimentacoes/view",{
+  	fetch("http://25.83.4.101:3000/movimentacoes/view",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
