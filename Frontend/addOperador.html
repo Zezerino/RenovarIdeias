@@ -144,9 +144,13 @@
 								<div class="row justify-content-center align-items-center">
 							  
                                   <div class="form-group">
+
                                     <label for="exampleInputEmail1">Nome do novo operador</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome">
-                                    <input type="submit" value=" Adicionar " class="btn btn-primary btn-block py-3 mt-3">
+
+                                    <form name="formOperador" id="formOperador">
+                                        <input type="text" class="form-control" id="nomeOperador" aria-describedby="nomeOperador" placeholder="Nome">
+                                        <input type="button" value=" Adicionar " class="btn btn-primary btn-block py-3 mt-3" onclick="javascript:postOperador();">
+                                    </form>
 
                                 </div>
 							  
@@ -226,10 +230,9 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/index.js"></script>
-
-</body>
+<!--     <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script> -->
+    <script src="js/addOperador.js"></script>
+ </body>
 
 </html>
