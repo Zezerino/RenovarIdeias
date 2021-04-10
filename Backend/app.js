@@ -5,6 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
+
+const app = express();
+app.use(cors());
+
 const bodyParser = require('body-parser');
 
 const operadoresRouter = require('./routes/operadores');
@@ -16,7 +20,7 @@ const obrasRouter = require('./routes/obras');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,8 +32,6 @@ app.use(
     extended: true,
   })
 );
-
-app.use(cors());
 
 app.use('/operadores', operadoresRouter);
 app.use('/equipamentos', equipamentosRouter);
@@ -61,5 +63,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 module.exports = app;

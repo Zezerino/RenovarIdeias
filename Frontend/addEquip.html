@@ -146,8 +146,16 @@
 							  
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nome do novo Equipamento</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome">
-                                    <input type="submit" value=" Adicionar " class="btn btn-primary btn-block py-3 mt-3">
+                                    <form name="formEquip" id="formEquip">
+
+                                    <input type="text" class="form-control mt-3" id="nomeEquip" aria-describedby="nomeEquip" placeholder="Nome">
+
+                                    <input type="text" class="form-control mt-3" id="codigoEquip" aria-describedby="codigoEquip" placeholder="Codigo">
+
+                                    <input type="text" class="form-control mt-3" id="codigoLEquip" aria-describedby="codigoLEquip" placeholder="Codigo Longo">
+
+                                    <input type="button" value=" Adicionar " class="btn btn-primary btn-block py-3 mt-3" onclick="javascript:postEquip();">
+                                    </form>
 
                                 </div>
 								</div>
@@ -217,9 +225,9 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/index.js"></script>
+<!--     <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script> -->
+    <script src="js/addEquip.js"></script>
 
 </body>
 
