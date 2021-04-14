@@ -21,7 +21,7 @@ async function getAll(page = 1){
 async function getView(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT m.tipo, m.Data, w.Nome as nomeOperador, o.Nome as nomeObra, e.Nome as nomeEquipamento, m.EstadoNaEntregaFunciona, m.EstadoNaEntregaLimpar FROM movimentacoes m, obras o, equipamentos e, operadores w where m.idOperador = w.idOperador and m.idEquipamento = e.idEquipamento and m.idObra = o.idObra`, 
+    `SELECT m.tipo, m.Data, w.Nome as nomeOperador, o.Nome as nomeObra, e.Nome as nomeEquipamento, IF(EstadoNaEntregaFunciona, 'Funciona', 'Não Funciona') EstadoNaEntregaFunciona, IF(EstadoNaEntregaLimpar, 'Limpo', 'Sujo') EstadoNaEntregaLimpar FROM movimentacoes m, obras o, equipamentos e, operadores w where m.idOperador = w.idOperador and m.idEquipamento = e.idEquipamento and m.idObra = o.idObra`, 
     [offset, config.listPerPage]
   );
   const data = helper.emptyOrRows(rows);

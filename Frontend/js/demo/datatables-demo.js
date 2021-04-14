@@ -26,8 +26,8 @@ $(document).ready(function() {
 	}
 	).then(result=>{
 		
-		console.log(result.data[0]);
-		console.log(moment(result.data[0].data).format('MMMM Do YYYY'));
+		//console.log(result.data[0]);
+		//console.log(moment(result.data[0].data).format('LLL'));
 
 		$('#dataTableMovimentacoes').DataTable({
 			data: result.data,
@@ -41,7 +41,9 @@ $(document).ready(function() {
 			{ data: 'EstadoNaEntregaLimpar'}
 			],
 			columnDefs: [
-       		 	{ targets: [1], render:function(data){return moment(data).format('MMMM Do YYYY');}}	
+       		 	{ targets: [1], render:function(data){return moment(data).format('LLL');}},
+       		 	//{ targets: [5], render:function(data){return moment(data).format('LLL');}},
+       		 	//{ targets: [6], render:function(data){return ;}}
     		],		
 			"order": [[ 2, "desc" ]]
 		}
