@@ -47,6 +47,15 @@
   box-sizing: border-box;
 }
 
+
+.greenClass{
+  background-color: #cce5cc;
+}
+
+.redClass{
+  background-color: #ffcccc;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;

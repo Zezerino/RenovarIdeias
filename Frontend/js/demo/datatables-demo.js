@@ -29,8 +29,17 @@ $(document).ready(function() {
 		//console.log(result.data[0]);
 		//console.log(moment(result.data[0].data).format('LLL'));
 
+		
 		$('#dataTableMovimentacoes').DataTable({
 			data: result.data,
+			"createdRow": function( row, data, dataIndex){
+				console.log(row);
+                if( data.tipo ==  'entrada'){
+                    $(row).addClass('greenClass');
+                }else{
+                	$(row).addClass('redClass');
+                }
+            },
 			columns: [
 			{ data: 'tipo' },
 			{ data: 'Data'},
@@ -42,8 +51,19 @@ $(document).ready(function() {
 			],
 			columnDefs: [
        		 	{ targets: [1], render:function(data){return moment(data).format('LLL');}},
-       		 	//{ targets: [5], render:function(data){return moment(data).format('LLL');}},
-       		 	//{ targets: [6], render:function(data){return ;}}
+       		 	{ targets: [5], render:function(data){
+       		 		if(data == "Funciona"){
+       		 			return  "<i class='fas fa-check'></i>";
+       		 		}
+       		 		}},
+       		 	{ targets: [6], render:function(data){
+       		 		if(data == "Limpo"){
+       		 			return  "<i class='fas fa-check'></i>";
+       		 		}else{
+       		 			return "";
+       		 		}
+       		 	}
+       		 }
     		],		
 			"order": [[ 2, "desc" ]]
 		}
