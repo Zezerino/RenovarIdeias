@@ -180,7 +180,7 @@ function fillObra(){
 function fillOperador(){
 
 	fetch("http://localhost:3000/operadores",{
-		headvers:{
+		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
 		},       
@@ -298,7 +298,7 @@ function fillObraS(){
 function fillOperadorS(){
 
 	fetch("http://localhost:3000/operadores",{
-		headvers:{
+		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
 		},       
