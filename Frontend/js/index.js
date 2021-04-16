@@ -46,11 +46,12 @@ function postEntrada(){
 		if(response.ok){
 			return response.json();
 		}else{
+			alert("Erro ao adicionar uma nova Entrada");
 			throw new Error("something went wrong movimentacoes");
 		}
 	}
 	).then(result=>{
-		
+		alert("Entrada feita com sucesso");
 		console.log("fixe");
 
 
@@ -80,11 +81,13 @@ function postSaida(){
 		if(response.ok){
 			return response.json();
 		}else{
+			alert("Erro ao adicionar uma nova Saída");
 			throw new Error("something went wrong movimentacoes");
 		}
 	}
 	).then(result=>{
-		
+		alert("Saida feita com sucesso");
+
 		console.log("fixe");
 
 
