@@ -54,6 +54,8 @@ $(document).ready(function() {
        		 	{ targets: [5], render:function(data){
        		 		if(data == "Funciona"){
        		 			return  "<i class='fas fa-check'></i>";
+       		 		}else{
+       		 			return "";
        		 		}
        		 		}},
        		 	{ targets: [6], render:function(data){
