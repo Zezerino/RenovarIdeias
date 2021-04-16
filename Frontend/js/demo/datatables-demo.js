@@ -52,15 +52,15 @@ $(document).ready(function() {
 			columnDefs: [
        		 	{ targets: [1], render:function(data){return moment(data).format('LLL');}},
        		 	{ targets: [5], render:function(data){
-       		 		if(data == "Funciona"){
-       		 			return  "<i class='fas fa-check'></i>";
+       		 		if(data == "Funciona" || data.tipo ==  'funciona' ){
+       		 			return  "<i class='fas fa-check d-flex justify-content-center mt-1'></i>";
        		 		}else{
        		 			return "";
        		 		}
        		 		}},
        		 	{ targets: [6], render:function(data){
-       		 		if(data == "Limpo"){
-       		 			return  "<i class='fas fa-check'></i>";
+       		 		if(data == "Limpo" || data.tipo ==  'limpo'){
+       		 			return  "<i class='fas fa-check d-flex justify-content-center mt-1'></i>";
        		 		}else{
        		 			return "";
        		 		}
