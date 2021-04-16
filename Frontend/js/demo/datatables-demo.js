@@ -34,7 +34,7 @@ $(document).ready(function() {
 			data: result.data,
 			"createdRow": function( row, data, dataIndex){
 				console.log(row);
-                if( data.tipo ==  'entrada'){
+                if( data.tipo ==  'entrada' || data.tipo ==  'Entrada'){
                     $(row).addClass('greenClass');
                 }else{
                 	$(row).addClass('redClass');
