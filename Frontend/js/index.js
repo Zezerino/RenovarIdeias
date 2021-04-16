@@ -123,6 +123,7 @@ function fillEquip(){
 		//console.log(result.data[0].idEquipamento);
 
 		var comboEquip = document.getElementById("comboEquip");
+		var equipamentosDataList = document.getElementById("equipamentosDataList");
 
 		for (var i= 0; i < (result.data).length; i++){
 
@@ -131,8 +132,10 @@ function fillEquip(){
 			option.value = result.data[i].Nome;
 			option.innerHTML = result.data[i].Nome;
 			comboEquip.appendChild(option);
-
+			equipamentosDataList.innerHTML +=  '<option value="'+result.data[i].idEquipamento +'">' + result.data[i].Nome + '</option>';
 		}
+
+	
 
 
 	});

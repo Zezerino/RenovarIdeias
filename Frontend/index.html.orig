@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    
+	
     <title>Menu</title>
 
     <!-- Custom fonts for this template-->
@@ -116,7 +116,7 @@
             <!-- Sidebar Message -->
 
         </ul>
-        
+		
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -132,75 +132,148 @@
 
                     <!-- Page Heading Entrada de Equipamento-->
                     <div class="d-sm-flex align-items-center justify-content-center mb-4">
+<<<<<<< HEAD
+                        <h1 class="h3 mb-0 text-gray-800 mt-5">Menu</h1> 
+                        <i class="bi bi-alarm"></i>
+=======
                         <h1 class="h3 mb-0 text-success mt-5">Entrada de Equipamento</h1>
+>>>>>>> 38dfa8e385b1f383a8ba00e1553c227c0b78c177
                     </div>
-                    
-                    
-                     <div class="row justify-content-center align-items-center">
-                        <div class="col-lg-7">
-                             <form class="trip-form">
-                        
-                                <div class="row align-items-center">
-                                 
+					
+					
+					 <div class="row justify-content-center align-items-center">
+						<div class="col-lg-7">
+							 <form class="trip-form">
+						
+								<div class="row align-items-center">
+							     
                                 <form name="formMovimento" id="formMovimento">
 
-                                <div class="mb-3 mb-md-0 col-md-3.5 mr-3">
-                                    <select name="" id="comboEquip" class="custom-select form-control">
+								<div class="mb-3 mb-md-0 col-md-3.5 mr-3">
+									<select name="" id="comboEquip" class="custom-select form-control">
                                         <option value="">Select Equipamento</option>
 
-                                    </select>
-                                </div>
-                              
-                                  <div class="mb-3 mb-md-0 col-md-3.5">
-                                    <select name="" id="comboObra" class="custom-select form-control">
-                                      <option value="">Select Obra</option>
-                                    </select>
-                                  </div>
-                          
-                                  <div class="mb-3 mb-md-0 col-md-4">
-                                    <select name="" id="comboOperador" class="custom-select form-control">
-                                      <option value="">Select Operador</option>
-                                    </select>
-                                  </div>
-                                  
-<!--                                  <div class="mb-3 mb-md-0 col-md-3.5">
-                                    <select name="" id="comboTipo" class="custom-select form-control">
-                                      <option value="">Select Movimento</option>
-                                      <option value="Entrada">Entrada</option>
-                                      <option value="Saida">Saida</option>
-                                    </select>
-                                  </div> -->
-                                  
-                                <div class="mb-3 mb-md-0 col-md-3 m-3 ml-5 mr-5">
-                                    <input class="form-check-input" type="checkbox" value=1 id="checkboxFunciona">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Funciona
-                                    </label>
-                                </div>
-                                
-                                <div class="mb-3 mb-md-0 col-md-3 m-3 ml-5">
-                                    <input class="form-check-input" type="checkbox" value=1 id="checkboxLimpar">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Limpo
-                                    </label>
-                                </div>
+									</select>
+								</div>
+							  
+								  <div class="mb-3 mb-md-0 col-md-3.5">
+									<select name="" id="comboObra" class="custom-select form-control">
+									  <option value="">Select Obra</option>
+									</select>
+								  </div>
+						  
+								  <div class="mb-3 mb-md-0 col-md-4">
+									<select name="" id="comboOperador" class="custom-select form-control">
+									  <option value="">Select Operador</option>
+									</select>
+								  </div>
+								  
+<<<<<<< HEAD
+
+								  <!--
+								  <div class="mb-3 mb-md-0 col-md-3.5">
+									<select name="" id="" class="custom-select form-control">
+									  <option value="">Select Movimento</option>
+									  <option value="">Entrada</option>
+									  <option value="">Saida</option>
+									</select>
+								  </div>-->
+								  
+								<div class="mb-3 mb-md-0 col-md-3 m-3">
+									<input class="form-check-input" type="checkbox" value="" id="">
+									<label class="form-check-label" for="flexCheckDefault">
+										Funciona
+									</label>
+								</div>
+								
+								<div class="mb-3 mb-md-0 col-md-3 m-3">
+									<input class="form-check-input" type="checkbox" value="" id="">
+									<label class="form-check-label" for="flexCheckDefault">
+										Limpar
+									</label>
+								</div>
+				<!--                   <div class="mb-3 mb-md-0 col-md-3">
+									<div class="form-control-wrap">
+									  <input type="text" id="cf-3" placeholder="Pick up" class="form-control datepicker px-3">
+									  <span class="icon icon-date_range"></span>
+
+									</div>
+								  </div> -->
+								  <div class="mb-3 mb-md-0 col-md-3">
+									<input type="submit" value=" Adicionar " class="btn btn-primary btn-block py-3 m-3">
+								  </div>
+								</div>
+						
+							</form>
+
+
+
+							 <form class="trip-form">
+						
+								<div class="row align-items-center">
+							  
+								<div class="mb-3 mb-md-0 col-md-3">
+									<select name="" id="comboEquipSaida" class="custom-select form-control">
+                                        <option value="">Select Equipamento</option>
+
+									</select>
+								</div>
+							  
+								  <div class="mb-3 mb-md-0 col-md-3">
+									<select name="" id="comboObra" class="custom-select form-control">
+									  <option value="">Select Obra</option>
+									</select>
+								  </div>
+						  
+								  <div class="mb-3 mb-md-0 col-md-3">
+									<select name="" id="comboOperador" class="custom-select form-control">
+									  <option value="">Select Operador</option>
+									</select>
+								  </div>
+								  
+								  <div class="mb-3 mb-md-0 col-md-3.5">
+									<select name="" id="" class="custom-select form-control">
+=======
+<!-- 								  <div class="mb-3 mb-md-0 col-md-3.5">
+									<select name="" id="comboTipo" class="custom-select form-control">
+>>>>>>> 38dfa8e385b1f383a8ba00e1553c227c0b78c177
+									  <option value="">Select Movimento</option>
+									  <option value="Entrada">Entrada</option>
+									  <option value="Saida">Saida</option>
+									</select>
+								  </div> -->
+								  
+								<div class="mb-3 mb-md-0 col-md-3 m-3 ml-5 mr-5">
+									<input class="form-check-input" type="checkbox" value=1 id="checkboxFunciona">
+									<label class="form-check-label" for="flexCheckDefault">
+										Funciona
+									</label>
+								</div>
+								
+								<div class="mb-3 mb-md-0 col-md-3 m-3 ml-5">
+									<input class="form-check-input" type="checkbox" value=1 id="checkboxLimpar">
+									<label class="form-check-label" for="flexCheckDefault">
+										Limpo
+									</label>
+								</div>
 
                                 </form>
 
-                <!--                   <div class="mb-3 mb-md-0 col-md-3">
-                                    <div class="form-control-wrap">
-                                      <input type="text" id="cf-3" placeholder="Pick up" class="form-control datepicker px-3">
-                                      <span class="icon icon-date_range"></span>
-                                    </div>
-                                  </div> -->
-                                  <div class="mb-3 mb-md-0 col-md-10">
-                                    <input id="adicionarEntrada" type="button" value=" Adicionar " class="btn btn-primary btn-block py-1.5 m-3" onclick="javascript:postEntrada();">
-                                  </div>
-                                </div>
-                        
-                            </form>
-                         </div>
-                    </div>
+				<!--                   <div class="mb-3 mb-md-0 col-md-3">
+									<div class="form-control-wrap">
+									  <input type="text" id="cf-3" placeholder="Pick up" class="form-control datepicker px-3">
+									  <span class="icon icon-date_range"></span>
+
+									</div>
+								  </div> -->
+								  <div class="mb-3 mb-md-0 col-md-10">
+									<input id="adicionarEntrada" type="button" value=" Adicionar " class="btn btn-primary btn-block py-1.5 m-3" onclick="javascript:postEntrada();">
+								  </div>
+								</div>
+						
+							</form>
+						 </div>
+					</div>
 
 
 
@@ -251,13 +324,6 @@
                             </form>
                          </div>
                     </div>
-
-                    <form>
-	               		<label for="browser">Escolha o produto que quer comparar:</label>
-	                    <input list="equipamentosDataList" name="browser" id="browser">
-	                	<datalist id="equipamentosDataList">
-                		</datalist>
-                	</form>
 
                 
 
