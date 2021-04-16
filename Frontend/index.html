@@ -145,10 +145,18 @@
                                 <form name="formMovimento" id="formMovimento">
 
                                 <div class="mb-3 mb-md-0 col-md-3.5 mr-3">
+<!-- 
                                     <select name="" id="comboEquip" class="custom-select form-control">
                                         <option value="">Select Equipamento</option>
 
-                                    </select>
+                                    </select> -->
+
+                                   	<input placeholder="Select Equipamento" list="comboEquip" class="form-control">
+
+                                   	<datalist id="comboEquip"></datalist>
+
+
+
                                 </div>
                               
                                   <div class="mb-3 mb-md-0 col-md-3.5">
@@ -251,14 +259,6 @@
                             </form>
                          </div>
                     </div>
-
-                    <form>
-	               		<label for="browser">Escolha o produto que quer comparar:</label>
-	                    <input list="equipamentosDataList" name="browser" id="browser">
-	                	<datalist id="equipamentosDataList">
-                		</datalist>
-                	</form>
-
                 
 
             </div>

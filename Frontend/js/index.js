@@ -32,7 +32,14 @@ function postEntrada(){
 
   	}
 
-	var form = {"idEquipamento":comboE[comboE.selectedIndex].id, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "Tipo":"Entrada", "EstadoNaEntregaFunciona":checkF, "EstadoNaEntregaLimpar":checkL};
+  	console.log("comboE");
+  	console.log(comboE);
+  	console.log("comboE ID");
+
+  	console.log(comboE.options[1].id);
+
+
+	var form = {"idEquipamento":comboE[comboE.selectedOption].id, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "Tipo":"Entrada", "EstadoNaEntregaFunciona":checkF, "EstadoNaEntregaLimpar":checkL};
 
 	fetch("http://localhost:3000/movimentacoes",{
 		headers:{
@@ -122,17 +129,20 @@ function fillEquip(){
 		//console.log((result.data).length);
 		//console.log(result.data[0].idEquipamento);
 
+		//var comboEquip = document.getElementById("comboEquip");
 		var comboEquip = document.getElementById("comboEquip");
-		var equipamentosDataList = document.getElementById("equipamentosDataList");
 
 		for (var i= 0; i < (result.data).length; i++){
 
-			var option = document.createElement("option");
+/*			var option = document.createElement("option");
 			option.id = result.data[i].idEquipamento;
 			option.value = result.data[i].Nome;
 			option.innerHTML = result.data[i].Nome;
 			comboEquip.appendChild(option);
-			equipamentosDataList.innerHTML +=  '<option value="'+result.data[i].idEquipamento +'">' + result.data[i].Nome + '</option>';
+*/
+			comboEquip.innerHTML +=  "<option id='" + result.data[i].idEquipamento + "'>" + result.data[i].Nome + "</option>";
+
+			///*value="'+result.data[i].idEquipamento +'"*/ --------------
 		}
 
 	
