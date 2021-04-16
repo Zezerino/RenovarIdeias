@@ -67,7 +67,7 @@ $(document).ready(function() {
        		 	}
        		 }
     		],		
-			"order": [[ 2, "desc" ]]
+			"order": [[ 1, "desc" ]]
 		}
 		);
 

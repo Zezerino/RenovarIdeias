@@ -18,9 +18,11 @@ function postEntrada(){
 	var comboE = document.getElementById("comboEquip");
 	var comboO = document.getElementById("comboObra");
 	var comboW = document.getElementById("comboOperador");
+	var idEquipamento = document.getElementById("equipamentoInput").value;
 	var checkF = 0;
 	var checkL = 0;
 
+	console.log(idEquipamento);
 
   	if(document.getElementById("checkboxFunciona").checked){
   		checkF = 1;
@@ -32,14 +34,7 @@ function postEntrada(){
 
   	}
 
-  	console.log("comboE");
-  	console.log(comboE);
-  	console.log("comboE ID");
-
-  	console.log(comboE.options[1].id);
-
-
-	var form = {"idEquipamento":comboE[comboE.selectedOption].id, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "Tipo":"Entrada", "EstadoNaEntregaFunciona":checkF, "EstadoNaEntregaLimpar":checkL};
+	var form = {"idEquipamento":idEquipamento, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "Tipo":"Entrada", "EstadoNaEntregaFunciona":checkF, "EstadoNaEntregaLimpar":checkL};
 
 	fetch("http://localhost:3000/movimentacoes",{
 		headers:{
@@ -140,7 +135,8 @@ function fillEquip(){
 			option.innerHTML = result.data[i].Nome;
 			comboEquip.appendChild(option);
 */
-			comboEquip.innerHTML +=  "<option id='" + result.data[i].idEquipamento + "'>" + result.data[i].Nome + "</option>";
+			//comboEquip.innerHTML +=  "<option id='" + result.data[i].idEquipamento + "'>" + result.data[i].Nome + "</option>";
+			comboEquip.innerHTML +=  '<option value="'+result.data[i].idEquipamento +'">' + result.data[i].Nome + '</option>';
 
 			///*value="'+result.data[i].idEquipamento +'"*/ --------------
 		}
