@@ -13,7 +13,7 @@ function postEquip(){
 
 	
 	//console.log(document.getElementById('nomeEquip').value);
-	var form = {"idEquipamento":document.getElementById('idEquipamento').value, "codigoLongo":document.getElementById('codigoLongo').value, "nomeEquipamento":document.getElementById('nomeEquipamento').value};
+	var form = {"idEquipamento":document.getElementById('idEquipamento').value, "codigoLongo":document.getElementById('codigoLongo').value, "nomeEquipamento":document.getElementById('nomeEquipamento').value, "estadoEquipamento":1};
 
 	console.log(form);
 

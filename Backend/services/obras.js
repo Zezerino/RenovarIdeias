@@ -23,11 +23,11 @@ async function getAll(page = 1){
 async function create(obra){
   const result = await db.query(
     `INSERT INTO obras 
-    (nomeObra, localObra) 
+    (nomeObra, localObra, estadoObra) 
     VALUES 
-    (?, ?)`, 
+    (?, ?, ?)`, 
     [
-	obra.nomeObra, obra.localObra
+	obra.nomeObra, obra.localObra, obra.estadoObra
     ]
   );
 

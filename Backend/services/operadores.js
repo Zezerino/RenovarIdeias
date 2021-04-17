@@ -21,11 +21,11 @@ async function getAll(page = 1){
 async function create(operador){
   const result = await db.query(
     `INSERT INTO operadores 
-    (nomeOperador) 
+    (nomeOperador, estadoOperador) 
     VALUES 
-    (?)`, 
+    (?, ?)`, 
     [
-	operador.Nome
+	operador.nomeOperador, operador.estadoOperador
     ]
   );
 

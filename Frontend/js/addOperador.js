@@ -13,7 +13,7 @@ function postOperador(){
 
 	
 	console.log(document.getElementById('nomeOperador').value);
-	var form = {"Nome":document.getElementById('nomeOperador').value};
+	var form = {"nomeOperador":document.getElementById('nomeOperador').value, "estadoOperador":1};
 
 	console.log(form);
 
