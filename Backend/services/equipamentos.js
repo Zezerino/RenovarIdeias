@@ -18,6 +18,22 @@ async function getAll(page = 1){
   }
 }
 
+async function getView(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT e.idEquipamento, e.codigoLongo, e.nomeEquipamento, e.estadoEquipamento FROM equipamentos e`, 
+    [offset, config.listPerPage]
+  );
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+
 async function create(equipamento){
   const result = await db.query(
     `INSERT INTO equipamentos 

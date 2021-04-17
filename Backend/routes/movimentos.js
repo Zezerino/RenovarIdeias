@@ -17,7 +17,7 @@ router.get('/view', async function(req, res, next) {
   try {
     res.json(await movimentos.getView(req.query.page));
   } catch (err) {
-    console.error(`Erro a receber movimentos`, err.message);
+    console.error(`Erro a receber movimentos table`, err.message);
     next(err);
   }
 });

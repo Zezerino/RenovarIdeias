@@ -19,6 +19,24 @@ async function getAll(page = 1){
   }
 }
 
+
+async function getView(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT o.idObra, o.nomeObra, o.localObra, o.estadoObra FROM obras o`, 
+    [offset, config.listPerPage]
+  );
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+
+
 /* POST */
 async function create(obra){
   const result = await db.query(
@@ -85,5 +103,6 @@ module.exports = {
   getAll,
   create,
   update,
-  remove
+  remove,
+  getView
 }

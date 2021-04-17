@@ -12,6 +12,15 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+router.get('/view', async function(req, res, next) {
+  try {
+    res.json(await obras.getView(req.query.page));
+  } catch (err) {
+    console.error(`Erro a receber obras table`, err.message);
+    next(err);
+  }
+});
+
 /* POST obras */
 router.post('/', async function(req, res, next) {
   try {
