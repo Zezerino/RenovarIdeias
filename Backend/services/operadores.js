@@ -21,7 +21,7 @@ async function getAll(page = 1){
 async function create(operador){
   const result = await db.query(
     `INSERT INTO operadores 
-    (Nome) 
+    (nomeOperador) 
     VALUES 
     (?)`, 
     [
@@ -44,7 +44,7 @@ async function create(operador){
 async function update(id, operador){
   const result = await db.query(
     `UPDATE operadores 
-    SET Nome=?
+    SET nomeOperador=?
     WHERE idOperador=?`, 
     [
       operador.Nome, id

@@ -13,7 +13,7 @@ function postObra(){
 
 	
 	console.log(document.getElementById('nomeObra').value);
-	var form = {"Nome":document.getElementById('nomeObra').value};
+	var form = {"nomeObra":document.getElementById('nomeObra').value, "localObra":document.getElementById('localObra').value};
 
 	console.log(form);
 

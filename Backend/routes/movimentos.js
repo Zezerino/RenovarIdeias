@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const movimentacoes = require('../services/movimentacoes');
+const movimentos = require('../services/movimentos');
 
 /* GET movimentos. */
 router.get('/', async function(req, res, next) {
   try {
-    res.json(await movimentacoes.getAll(req.query.page));
+    res.json(await movimentos.getAll(req.query.page));
   } catch (err) {
     console.error(`Erro a receber movimentos`, err.message);
     next(err);
@@ -15,7 +15,7 @@ router.get('/', async function(req, res, next) {
 
 router.get('/view', async function(req, res, next) {
   try {
-    res.json(await movimentacoes.getView(req.query.page));
+    res.json(await movimentos.getView(req.query.page));
   } catch (err) {
     console.error(`Erro a receber movimentos`, err.message);
     next(err);
@@ -26,7 +26,7 @@ router.get('/view', async function(req, res, next) {
 /* POST movimentos */
 router.post('/', async function(req, res, next) {
   try {
-    res.json(await movimentacoes.create(req.body));
+    res.json(await movimentos.create(req.body));
   } catch (err) {
     console.error(`Erro a criar movimentos`, err.message);
     next(err);
@@ -36,7 +36,7 @@ router.post('/', async function(req, res, next) {
 /* PUT movimentos */
 router.put('/:id', async function(req, res, next) {
   try {
-    res.json(await movimentacoes.update(req.params.id, req.body));
+    res.json(await movimentos.update(req.params.id, req.body));
   } catch (err) {
     console.error(`Error while updating movimentos`, err.message);
     next(err);
@@ -46,9 +46,9 @@ router.put('/:id', async function(req, res, next) {
 /* DELETE obras */
 router.delete('/:id', async function(req, res, next) {
   try {
-    res.json(await movimentacoes.remove(req.params.id));
+    res.json(await movimentos.remove(req.params.id));
   } catch (err) {
-    console.error(`Error while deleting movimentacoes`, err.message);
+    console.error(`Error while deleting movimentos`, err.message);
     next(err);
   }
 });

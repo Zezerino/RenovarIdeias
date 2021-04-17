@@ -34,9 +34,9 @@ function postEntrada(){
 
   	}
 
-	var form = {"idEquipamento":idEquipamento, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "Tipo":"Entrada", "EstadoNaEntregaFunciona":checkF, "EstadoNaEntregaLimpar":checkL};
+	var form = {"idEquipamento":idEquipamento, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "tipo":"Entrada", "estadoFunciona":checkF, "estadoLimpo":checkL};
 
-	fetch("http://localhost:3000/movimentacoes",{
+	fetch("http://localhost:3000/movimentos",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -49,7 +49,7 @@ function postEntrada(){
 			return response.json();
 		}else{
 			alert("Erro ao adicionar uma nova Entrada");
-			throw new Error("something went wrong movimentacoes");
+			throw new Error("something went wrong movimentos");
 		}
 	}
 	).then(result=>{
@@ -69,9 +69,9 @@ function postSaida(){
 	var comboWS = document.getElementById("comboOperadorS");
 
 
-	var form = {"idEquipamento":comboES[comboES.selectedIndex].id, "idObra":comboOS[comboOS.selectedIndex].id, "idOperador":comboWS[comboWS.selectedIndex].id, "Tipo":"Saida", "EstadoNaEntregaFunciona":null, "EstadoNaEntregaLimpar":null};
+	var form = {"idEquipamento":comboES[comboES.selectedIndex].id, "idObra":comboOS[comboOS.selectedIndex].id, "idOperador":comboWS[comboWS.selectedIndex].id, "tipo":"Saida", "estadoFunciona":null, "estadoLimpo":null};
 
-	fetch("http://localhost:3000/movimentacoes",{
+	fetch("http://localhost:3000/movimentos",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -84,7 +84,7 @@ function postSaida(){
 			return response.json();
 		}else{
 			alert("Erro ao adicionar uma nova Saída");
-			throw new Error("something went wrong movimentacoes");
+			throw new Error("something went wrong movimentos");
 		}
 	}
 	).then(result=>{
@@ -136,7 +136,7 @@ function fillEquip(){
 			comboEquip.appendChild(option);
 */
 			//comboEquip.innerHTML +=  "<option id='" + result.data[i].idEquipamento + "'>" + result.data[i].Nome + "</option>";
-			comboEquip.innerHTML +=  '<option value="'+result.data[i].idEquipamento +'">' + result.data[i].Nome + '</option>';
+			comboEquip.innerHTML +=  '<option value="'+result.data[i].idEquipamento +'">' + result.data[i].nomeEquipamento + '</option>';
 
 			///*value="'+result.data[i].idEquipamento +'"*/ --------------
 		}
@@ -177,8 +177,8 @@ function fillObra(){
 
 			var option = document.createElement("option");
 			option.id = result.data[i].idObra;
-			option.value = result.data[i].Nome;
-			option.innerHTML = result.data[i].Nome;
+			option.value = result.data[i].nomeObra;
+			option.innerHTML = result.data[i].nomeObra;
 			comboObra.appendChild(option);
 
 		}
@@ -217,8 +217,8 @@ function fillOperador(){
 
 			var option = document.createElement("option");
 			option.id = result.data[i].idOperador;
-			option.value = result.data[i].Nome;
-			option.innerHTML = result.data[i].Nome;
+			option.value = result.data[i].nomeOperador;
+			option.innerHTML = result.data[i].nomeOperador;
 			comboOperador.appendChild(option);
 		}
 
@@ -255,8 +255,8 @@ function fillEquipS(){
 
 			var option = document.createElement("option");
 			option.id = result.data[i].idEquipamento;
-			option.value = result.data[i].Nome;
-			option.innerHTML = result.data[i].Nome;
+			option.value = result.data[i].nomeEquipamento	;
+			option.innerHTML = result.data[i].nomeEquipamento	;
 			comboEquip.appendChild(option);
 
 		}
@@ -295,8 +295,8 @@ function fillObraS(){
 
 			var option = document.createElement("option");
 			option.id = result.data[i].idObra;
-			option.value = result.data[i].Nome;
-			option.innerHTML = result.data[i].Nome;
+			option.value = result.data[i].nomeObra;
+			option.innerHTML = result.data[i].nomeObra;
 			comboObra.appendChild(option);
 
 		}
@@ -335,8 +335,8 @@ function fillOperadorS(){
 
 			var option = document.createElement("option");
 			option.id = result.data[i].idOperador;
-			option.value = result.data[i].Nome;
-			option.innerHTML = result.data[i].Nome;
+			option.value = result.data[i].nomeOperador;
+			option.innerHTML = result.data[i].nomeOperador;
 			comboOperador.appendChild(option);
 		}
 

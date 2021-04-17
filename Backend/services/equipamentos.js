@@ -21,11 +21,11 @@ async function getAll(page = 1){
 async function create(equipamento){
   const result = await db.query(
     `INSERT INTO equipamentos 
-    (Nome, Codigo, CodigoLongo) 
+    (idEquipamento, codigoLongo, nomeEquipamento) 
     VALUES 
     (?, ?, ?)`, 
     [
-	equipamento.Nome, equipamento.Codigo, equipamento.CodigoLongo
+	equipamento.idEquipamento, equipamento.codigoLongo, equipamento.nomeEquipamento
     ]
   );
 
@@ -43,10 +43,10 @@ async function create(equipamento){
 async function update(id, equip){
   const result = await db.query(
     `UPDATE equipamentos 
-    SET Nome=?, Codigo=?, CodigoLongo=?
+    SET idEquipamento=?, codigoLongo=?, nomeEquipamento=?
     WHERE idEquipamento=?`, 
     [
-      equip.Nome, equip.Codigo,equip.CodigoLongo , id
+      equip.idEquipamento, equip.codigoLongo,equip.nomeEquipamento , id
     ]
   );
 

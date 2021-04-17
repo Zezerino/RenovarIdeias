@@ -10,7 +10,7 @@ $(document).ready(function() {
     ]
 	});
 
-  	fetch("http://localhost:3000/movimentacoes/view",{
+  	fetch("http://localhost:3000/movimentos/view",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -19,14 +19,18 @@ $(document).ready(function() {
 	}).then(
 	response=>{
 		if(response.ok){
+					//console.log("cenas1");
+
 			return response.json();
 		}else{
+					//console.log("cenas2");
+
 			throw new Error("something went wrong");
 		}
 	}
 	).then(result=>{
 		
-		//console.log(result.data[0]);
+		//console.log("cenas");
 		//console.log(moment(result.data[0].data).format('LLL'));
 
 		
@@ -42,12 +46,12 @@ $(document).ready(function() {
             },
 			columns: [
 			{ data: 'tipo' },
-			{ data: 'Data'},
+			{ data: 'data'},
 			{ data: 'nomeOperador' },
 			{ data: 'nomeObra'},
 			{ data: 'nomeEquipamento'},
-			{ data: 'EstadoNaEntregaFunciona'},
-			{ data: 'EstadoNaEntregaLimpar'}
+			{ data: 'estadoFunciona'},
+			{ data: 'estadoLimpo'}
 			],
 			columnDefs: [
        		 	{ targets: [1], render:function(data){return moment(data).format('LLL');}},

@@ -6,7 +6,7 @@ async function getAll(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
     `SELECT * 
-    FROM movimentacoes`, 
+    FROM movimentos`, 
     [offset, config.listPerPage]
   );
   const data = helper.emptyOrRows(rows);
@@ -21,7 +21,7 @@ async function getAll(page = 1){
 async function getView(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT m.tipo, m.Data, w.Nome as nomeOperador, o.Nome as nomeObra, e.Nome as nomeEquipamento, IF(EstadoNaEntregaFunciona, 'Funciona', 'Não Funciona') EstadoNaEntregaFunciona, IF(EstadoNaEntregaLimpar, 'Limpo', 'Sujo') EstadoNaEntregaLimpar FROM movimentacoes m, obras o, equipamentos e, operadores w where m.idOperador = w.idOperador and m.idEquipamento = e.idEquipamento and m.idObra = o.idObra`, 
+    `SELECT m.tipo, m.data, w.nomeOperador as nomeOperador, o.nomeObra as nomeObra, e.nomeEquipamento as nomeEquipamento, IF(estadoFunciona, 'Funciona', 'Não Funciona') estadoFunciona, IF(estadoLimpo, 'Limpo', 'Sujo') estadoLimpo FROM movimentos m, obras o, equipamentos e, operadores w where m.idOperador = w.idOperador and m.idEquipamento = e.idEquipamento and m.idObra = o.idObra`, 
     [offset, config.listPerPage]
   );
   const data = helper.emptyOrRows(rows);
@@ -36,12 +36,12 @@ async function getView(page = 1){
 
 async function create(movimento){
   const result = await db.query(
-    `INSERT INTO movimentacoes 
-    (Tipo, Data, idOperador, idObra, idEquipamento, EstadoNaEntregaFunciona, EstadoNaEntregaLimpar) 
+    `INSERT INTO movimentos 
+    (tipo, data, idOperador, idObra, idEquipamento, estadoFunciona, estadoLimpo) 
     VALUES 
     (?, current_timestamp(), ?, ?, ?, ?, ?)`, 
     [
-	movimento.Tipo, movimento.idOperador, movimento.idObra, movimento.idEquipamento, movimento.EstadoNaEntregaFunciona, movimento.EstadoNaEntregaLimpar
+	movimento.tipo, movimento.idOperador, movimento.idObra, movimento.idEquipamento, movimento.estadoFunciona, movimento.estadoLimpo
     ]
   );
 
@@ -58,18 +58,18 @@ async function create(movimento){
 
 async function update(id, movimento){
   const result = await db.query(
-    `UPDATE movimentacoes 
-    SET Tipo=?, Data=current_timestamp(), idOperador=?, idObra=?, idEquipamento=?, EstadoNaEntregaFunciona=?, EstadoNaEntregaLimpar=?
+    `UPDATE movimentos 
+    SET tipo=?, data=current_timestamp(), idOperador=?, idObra=?, idEquipamento=?, estadoFunciona=?, estadoLimpo=?
     WHERE idMovimento=?`, 
     [
-      movimento.Tipo, movimento.idOperador, movimento.idObra, movimento.idEquipamento, movimento.EstadoNaEntregaFunciona, movimento.EstadoNaEntregaLimpar , id
+      movimento.tipo, movimento.idOperador, movimento.idObra, movimento.idEquipamento, movimento.estadoFunciona, movimento.estadoLimpo , id
     ]
   );
 
-  let message = 'Error in updating movimentacoes';
+  let message = 'Error in updating movimentos';
 
   if (result.affectedRows) {
-    message = 'Movimentacoes updated successfully';
+    message = 'movimentos updated successfully';
   }
 
   return {message};
@@ -79,14 +79,14 @@ async function update(id, movimento){
 
 async function remove(id){
   const result = await db.query(
-    `DELETE FROM movimentacoes WHERE idMovimento=?`, 
+    `DELETE FROM movimentos WHERE idMovimento=?`, 
     [id]
   );
 
-  let message = 'Error in deleting movimentacoes';
+  let message = 'Error in deleting movimentos';
 
   if (result.affectedRows) {
-    message = 'Movimentacoes language deleted successfully';
+    message = 'movimentos language deleted successfully';
   }
 
   return {message};

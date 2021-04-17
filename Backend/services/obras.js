@@ -23,11 +23,11 @@ async function getAll(page = 1){
 async function create(obra){
   const result = await db.query(
     `INSERT INTO obras 
-    (Nome) 
+    (nomeObra, localObra) 
     VALUES 
-    (?)`, 
+    (?, ?)`, 
     [
-	obra.Nome
+	obra.nomeObra, obra.localObra
     ]
   );
 
@@ -45,7 +45,7 @@ async function create(obra){
 async function update(id, obra){
   const result = await db.query(
     `UPDATE obras 
-    SET Nome=?
+    SET nomeObra=?
     WHERE idObra=?`, 
     [
       obra.Nome, id

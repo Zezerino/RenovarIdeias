@@ -13,7 +13,7 @@ const bodyParser = require('body-parser');
 
 const operadoresRouter = require('./routes/operadores');
 const equipamentosRouter = require('./routes/equipamentos');
-const movimentacoesRouter = require('./routes/movimentacoes');
+const movimentosRouter = require('./routes/movimentos');
 const obrasRouter = require('./routes/obras');
 
 
@@ -35,7 +35,7 @@ app.use(
 
 app.use('/operadores', operadoresRouter);
 app.use('/equipamentos', equipamentosRouter);
-app.use('/movimentacoes', movimentacoesRouter);
+app.use('/movimentos', movimentosRouter);
 app.use('/obras', obrasRouter);
 
 
