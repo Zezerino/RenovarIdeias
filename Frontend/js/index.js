@@ -104,7 +104,7 @@ function postSaida(){
 
 function fillEquip(){
 
-	fetch("http://localhost:3000/equipamentos",{
+	fetch("http://localhost:3000/equipamentos/disponivel",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -120,25 +120,13 @@ function fillEquip(){
 	}
 	).then(result=>{
 		
-		//console.log(result);
-		//console.log((result.data).length);
-		//console.log(result.data[0].idEquipamento);
 
-		//var comboEquip = document.getElementById("comboEquip");
 		var comboEquip = document.getElementById("comboEquip");
 
 		for (var i= 0; i < (result.data).length; i++){
 
-/*			var option = document.createElement("option");
-			option.id = result.data[i].idEquipamento;
-			option.value = result.data[i].Nome;
-			option.innerHTML = result.data[i].Nome;
-			comboEquip.appendChild(option);
-*/
-			//comboEquip.innerHTML +=  "<option id='" + result.data[i].idEquipamento + "'>" + result.data[i].Nome + "</option>";
 			comboEquip.innerHTML +=  '<option value="'+result.data[i].idEquipamento +'">' + result.data[i].nomeEquipamento + '</option>';
 
-			///*value="'+result.data[i].idEquipamento +'"*/ --------------
 		}
 
 	
@@ -151,7 +139,7 @@ function fillEquip(){
 
 function fillObra(){
 
-	fetch("http://localhost:3000/obras",{
+	fetch("http://localhost:3000/obras/disponivel",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -168,7 +156,7 @@ function fillObra(){
 	).then(result=>{
 		
 		//console.log(result);
-		//console.log((result.data).length);
+		//console.log(result.data);
 		//console.log(result.data[0].idObra);
 
 		var comboObra = document.getElementById("comboObra");
@@ -191,7 +179,7 @@ function fillObra(){
 
 function fillOperador(){
 
-	fetch("http://localhost:3000/operadores",{
+	fetch("http://localhost:3000/operadores/disponivel",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -207,9 +195,6 @@ function fillOperador(){
 	}
 	).then(result=>{
 		
-		//console.log(result);
-		//console.log((result.data).length);
-		//console.log(result.data[0].idOperador);
 
 		var comboOperador = document.getElementById("comboOperador");
 
@@ -229,7 +214,7 @@ function fillOperador(){
 
 function fillEquipS(){
 
-	fetch("http://localhost:3000/equipamentos",{
+	fetch("http://localhost:3000/equipamentos/disponivel",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -245,22 +230,13 @@ function fillEquipS(){
 	}
 	).then(result=>{
 		
-		//console.log(result);
-		//console.log((result.data).length);
-		//console.log(result.data[0].idEquipamento);
-
-		var comboEquip = document.getElementById("comboEquipS");
+		var comboEquipS = document.getElementById("comboEquipS");
 
 		for (var i= 0; i < (result.data).length; i++){
 
-			var option = document.createElement("option");
-			option.id = result.data[i].idEquipamento;
-			option.value = result.data[i].nomeEquipamento	;
-			option.innerHTML = result.data[i].nomeEquipamento	;
-			comboEquip.appendChild(option);
+			comboEquipS.innerHTML +=  '<option value="'+result.data[i].idEquipamento +'">' + result.data[i].nomeEquipamento + '</option>';
 
 		}
-
 
 	});
 
@@ -269,7 +245,7 @@ function fillEquipS(){
 
 function fillObraS(){
 
-	fetch("http://localhost:3000/obras",{
+	fetch("http://localhost:3000/obras/disponivel",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -309,7 +285,7 @@ function fillObraS(){
 
 function fillOperadorS(){
 
-	fetch("http://localhost:3000/operadores",{
+	fetch("http://localhost:3000/operadores/disponivel",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'

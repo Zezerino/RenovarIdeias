@@ -35,6 +35,39 @@ async function getView(page = 1){
   }
 }
 
+async function getId(id){
+  const offset = helper.getOffset(config.listPerPage);
+  const rows = await db.query(
+    `SELECT * 
+    FROM obras
+    WHERE idObra=?`, 
+    [id
+    ]
+  );
+  const data = helper.emptyOrRows(rows);
+
+  return {
+    data
+  }
+}
+
+
+async function getAllDisponivel(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * 
+    FROM obras
+    WHERE estadoObra = 1`, 
+    [offset, config.listPerPage]
+  );
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
 
 
 /* POST */
@@ -63,10 +96,10 @@ async function create(obra){
 async function update(id, obra){
   const result = await db.query(
     `UPDATE obras 
-    SET nomeObra=?
+    SET nomeObra=?, localObra=?, estadoObra=?
     WHERE idObra=?`, 
     [
-      obra.Nome, id
+      obra.nomeObra, obra.localObra, obra.estadoObra, id
     ]
   );
 
@@ -104,5 +137,7 @@ module.exports = {
   create,
   update,
   remove,
-  getView
+  getView,
+  getId,
+  getAllDisponivel
 }

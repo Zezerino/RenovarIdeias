@@ -12,6 +12,36 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+router.get('/disponivel', async function(req, res, next) {
+  try {
+    res.json(await operadores.getAllDisponivel(req.query.page));
+  } catch (err) {
+    console.error(`Erro a receber operadores disponivel`, err.message);
+    next(err);
+  }
+});
+
+router.get('/view', async function(req, res, next) {
+  try {
+    res.json(await operadores.getView(req.query.page));
+  } catch (err) {
+    console.error(`Erro a receber operadores table`, err.message);
+    next(err);
+  }
+});
+
+
+//ficar sempre no fim dos gets
+router.get('/:id', async function(req, res, next) {
+  try {
+    res.json(await operadores.getId(req.params.id));
+  } catch (err) {
+    console.error(`Erro a receber operadores id`, err.message);
+    next(err);
+  }
+});
+
+
 /* POST operadores */
 router.post('/', async function(req, res, next) {
   try {

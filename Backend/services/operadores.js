@@ -18,6 +18,58 @@ async function getAll(page = 1){
   }
 }
 
+async function getView(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT w.idOperador, w.nomeOperador, w.estadoOperador FROM operadores w`, 
+    [offset, config.listPerPage]
+  );
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+
+async function getId(id){
+  const offset = helper.getOffset(config.listPerPage);
+  const rows = await db.query(
+    `SELECT * 
+    FROM operadores
+    WHERE idOperador=?`, 
+    [id
+    ]
+  );
+  const data = helper.emptyOrRows(rows);
+
+  return {
+    data
+  }
+}
+
+
+async function getAllDisponivel(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * 
+    FROM operadores
+    WHERE estadoOperador = 1`, 
+    [offset, config.listPerPage]
+  );
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+
+
 async function create(operador){
   const result = await db.query(
     `INSERT INTO operadores 
@@ -47,7 +99,7 @@ async function update(id, operador){
     SET nomeOperador=?
     WHERE idOperador=?`, 
     [
-      operador.Nome, id
+      operador.nomeOperador, id
     ]
   );
 
@@ -82,5 +134,8 @@ module.exports = {
   getAll,
   create,
   update,
-  remove
+  remove,
+  getView,
+  getId,
+  getAllDisponivel
 }

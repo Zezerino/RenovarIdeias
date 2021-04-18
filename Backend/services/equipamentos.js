@@ -34,6 +34,41 @@ async function getView(page = 1){
 }
 
 
+async function getId(id){
+  const offset = helper.getOffset(config.listPerPage);
+  const rows = await db.query(
+    `SELECT * 
+    FROM equipamentos
+    WHERE idEquipamento=?`, 
+    [id
+    ]
+  );
+  const data = helper.emptyOrRows(rows);
+
+  return {
+    data
+  }
+}
+
+
+async function getAllDisponivel(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * 
+    FROM equipamentos
+    WHERE estadoEquipamento = 1`, 
+    [offset, config.listPerPage]
+  );
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+
 async function create(equipamento){
   const result = await db.query(
     `INSERT INTO equipamentos 
@@ -96,5 +131,9 @@ module.exports = {
   getAll,
   create,
   update,
-  remove
+  remove,
+  getView,
+  getId,
+  getAllDisponivel
+
 }
