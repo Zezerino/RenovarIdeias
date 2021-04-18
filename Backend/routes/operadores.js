@@ -57,7 +57,7 @@ router.put('/:id', async function(req, res, next) {
   try {
     res.json(await operadores.update(req.params.id, req.body));
   } catch (err) {
-    console.error(`Error while updating obras`, err.message);
+    console.error(`Error while updating operadores`, err.message);
     next(err);
   }
 });
