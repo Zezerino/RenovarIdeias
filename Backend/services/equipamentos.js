@@ -89,9 +89,9 @@ async function getAllInDisponivel(page = 1){
 async function create(equipamento){
   const result = await db.query(
     `INSERT INTO equipamentos 
-    (idEquipamento, codigoLongo, nomeEquipamento, estadoEquipamento) 
+    (idEquipamento, codigoLongo, nomeEquipamento, estadoEquipamento, estadoEntrega) 
     VALUES 
-    (?, ?, ?, ?)`, 
+    (?, ?, ?, ?, 0)`, 
     [
 	equipamento.idEquipamento, equipamento.codigoLongo, equipamento.nomeEquipamento, equipamento.estadoEquipamento
     ]

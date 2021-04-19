@@ -64,7 +64,6 @@ function postEntrada(){
 
 
 	var idEquipamento = document.getElementById("equipamentoInput").value;
-	//var comboE = document.getElementById("comboEquip");
 	var comboO = document.getElementById("comboObra");
 	var comboW = document.getElementById("comboOperador");
 	
@@ -76,48 +75,68 @@ function postEntrada(){
 	var checkE = 1;
 
 
-	changeEntrega(checkE, idEquipamento);
+	var validar = document.getElementById("comboEquip").children;
+	var souValido = false;
 
+	for(var i=0; i < validar.length; i++ ){
 
-	console.log(idEquipamento);
+		if (idEquipamento == validar[i].value){
+			souValido = true;
 
-  	if(document.getElementById("checkboxFunciona").checked){
-  		checkF = 1;
-
-  	}
-
-  	if(document.getElementById("checkboxLimpar").checked){
-  		checkL = 1;
-
-  	}
-
-
-
-	var form = {"idEquipamento":idEquipamento, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "tipo":"Entrada", "estadoFunciona":checkF, "estadoLimpo":checkL, "estadoEntrega":checkE};
-
-	fetch("http://localhost:3000/movimentos",{
-		headers:{
-			'Accept': 'application/json',
-			'Content-Type': 'application/json; charset=utf-8'
-		},       
-		method: 'POST',
-		body: JSON.stringify(form)
-	}).then(
-	response=>{
-		if(response.ok){
-			return response.json();
-		}else{
-			alert("Erro ao adicionar uma nova Entrada");
-			throw new Error("something went wrong movimentos");
 		}
+
 	}
-	).then(result=>{
-		alert("Entrada feita com sucesso");
-		console.log("fixe");
+
+	
+	if(souValido){
 
 
-	});
 
+
+		if(document.getElementById("checkboxFunciona").checked){
+			checkF = 1;
+
+		}
+
+		if(document.getElementById("checkboxLimpar").checked){
+			checkL = 1;
+
+		}
+
+
+
+
+
+		var form = {"idEquipamento":idEquipamento, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "tipo":"Entrada", "estadoFunciona":checkF, "estadoLimpo":checkL, "estadoEntrega":checkE};
+
+		fetch("http://localhost:3000/movimentos",{
+			headers:{
+				'Accept': 'application/json',
+				'Content-Type': 'application/json; charset=utf-8'
+			},       
+			method: 'POST',
+			body: JSON.stringify(form)
+		}).then(
+		response=>{
+			if(response.ok){
+				return response.json();
+			}else{
+				alert("Erro ao adicionar uma nova Entrada");
+				throw new Error("something went wrong movimentos");
+			}
+		}
+		).then(result=>{
+
+			changeEntrega(checkE, idEquipamento);
+			alert("Entrada feita com sucesso");
+			console.log("fixe");
+
+
+		});
+	}else{
+		$( "#formMovimento" ).effect( "shake" );
+		//alert(" Este equipamento já se encontra no armazem ou não existe");
+	}
 
 
 }
@@ -128,42 +147,61 @@ function postEntrada(){
 
 function postSaida(){
 
-
 	var idEquipamentoS = document.getElementById("equipamentoInputS").value;
-	//var comboES = document.getElementById("comboEquipS");
 	var comboOS = document.getElementById("comboObraS");
 	var comboWS = document.getElementById("comboOperadorS");
 	var checkE = 0;
 
-	changeEntrega(checkE, idEquipamentoS);
+	var validar = document.getElementById("comboEquipS").children;
+	var souValido = false;
 
+	for(var i=0; i < validar.length; i++ ){
 
-	var form = {"idEquipamento":idEquipamentoS, "idObra":comboOS[comboOS.selectedIndex].id, "idOperador":comboWS[comboWS.selectedIndex].id, "tipo":"Saida", "estadoFunciona":null, "estadoLimpo":null, "estadoEntrega":checkE};
+		if (idEquipamentoS == validar[i].value){
+			souValido = true;
 
-	fetch("http://localhost:3000/movimentos",{
-		headers:{
-			'Accept': 'application/json',
-			'Content-Type': 'application/json; charset=utf-8'
-		},       
-		method: 'POST',
-		body: JSON.stringify(form)
-	}).then(
-	response=>{
-		if(response.ok){
-			return response.json();
-		}else{
-			alert("Erro ao adicionar uma nova Saída");
-			throw new Error("something went wrong movimentos");
 		}
+
 	}
-	).then(result=>{
-		alert("Saida feita com sucesso");
-
-		console.log("fixe");
 
 
-	});
+	if(souValido){
 
+
+
+		var form = {"idEquipamento":idEquipamentoS, "idObra":comboOS[comboOS.selectedIndex].id, "idOperador":comboWS[comboWS.selectedIndex].id, "tipo":"Saida", "estadoFunciona":null, "estadoLimpo":null, "estadoEntrega":checkE};
+
+		fetch("http://localhost:3000/movimentos",{
+			headers:{
+				'Accept': 'application/json',
+				'Content-Type': 'application/json; charset=utf-8'
+			},       
+			method: 'POST',
+			body: JSON.stringify(form)
+		}).then(
+		response=>{
+			if(response.ok){
+				return response.json();
+			}else{
+				alert("Erro ao adicionar uma nova Saída");
+				throw new Error("something went wrong movimentos");
+			}
+		}
+		).then(result=>{
+			changeEntrega(checkE, idEquipamentoS);
+
+			alert("Saida feita com sucesso");
+
+			console.log("fixe");
+
+
+		});
+
+	}else{
+
+		alert(" Este equipamento já se encontra fora do armazem ou não existe");
+
+	}
 }
 
 
@@ -192,13 +230,17 @@ function fillEquip(){
 
 		var comboEquip = document.getElementById("comboEquip");
 
+		//console.log(result.data).length;
+
+		comboEquip.innerHTML = "";
+
 		for (var i= 0; i < (result.data).length; i++){
 
 			comboEquip.innerHTML +=  '<option value="'+result.data[i].idEquipamento +'">' + result.data[i].nomeEquipamento + '</option>';
 
 		}
 
-	
+
 
 
 	});
@@ -300,6 +342,8 @@ function fillEquipS(){
 	).then(result=>{
 		
 		var comboEquipS = document.getElementById("comboEquipS");
+
+		comboEquipS.innerHTML = "";
 
 		for (var i= 0; i < (result.data).length; i++){
 
