@@ -134,8 +134,8 @@ function postEntrada(){
 
 		});
 	}else{
-		$( "#formMovimento" ).effect( "shake" );
-		//alert(" Este equipamento já se encontra no armazem ou não existe");
+		$("#formMovEntrada" ).effect("shake");
+		alert(" Este equipamento já se encontra no armazem ou não existe");
 	}
 
 
@@ -199,6 +199,7 @@ function postSaida(){
 
 	}else{
 
+		$("#formMovSaida" ).effect("shake");
 		alert(" Este equipamento já se encontra fora do armazem ou não existe");
 
 	}
