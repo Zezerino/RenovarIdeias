@@ -22,6 +22,14 @@ router.get('/disponivel', async function(req, res, next) {
   }
 });
 
+router.get('/ndisponivel', async function(req, res, next) {
+  try {
+    res.json(await equipamentos.getAllInDisponivel(req.query.page));
+  } catch (err) {
+    console.error(`Erro a receber equipamentos indisponivel`, err.message);
+    next(err);
+  }
+});
 
 
 router.get('/view', async function(req, res, next) {

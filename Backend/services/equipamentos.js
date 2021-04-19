@@ -56,7 +56,24 @@ async function getAllDisponivel(page = 1){
   const rows = await db.query(
     `SELECT * 
     FROM equipamentos
-    WHERE estadoEquipamento = 1`, 
+    WHERE estadoEquipamento = 1 && estadoEntrega = 0`, 
+    [offset, config.listPerPage]
+  );
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+async function getAllInDisponivel(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * 
+    FROM equipamentos
+    WHERE estadoEquipamento = 1 && estadoEntrega = 1`, 
     [offset, config.listPerPage]
   );
   const data = helper.emptyOrRows(rows);
@@ -91,13 +108,15 @@ async function create(equipamento){
 
 /* UPDATE */
 
+
+//update all
 async function update(id, equip){
   const result = await db.query(
     `UPDATE equipamentos 
-    SET idEquipamento=?, codigoLongo=?, nomeEquipamento=?
+    SET idEquipamento=?, codigoLongo=?, nomeEquipamento=?, estadoEntrega=?
     WHERE idEquipamento=?`, 
     [
-      equip.idEquipamento, equip.codigoLongo,equip.nomeEquipamento , id
+      equip.idEquipamento, equip.codigoLongo,equip.nomeEquipamento, equip.estadoEntrega , id
     ]
   );
 
@@ -109,6 +128,29 @@ async function update(id, equip){
 
   return {message};
 }
+
+
+//update estado entrega
+async function update(id, equip){
+  const result = await db.query(
+    `UPDATE equipamentos 
+    SET estadoEntrega=?
+    WHERE idEquipamento=?`, 
+    [
+      equip.estadoEntrega, id
+    ]
+  );
+
+  let message = 'Error in updating Equipamentos entrega';
+
+  if (result.affectedRows) {
+    message = 'Equipamentos entrega updated successfully';
+  }
+
+  return {message};
+}
+
+
 
 /* DELETE */
 
@@ -134,6 +176,7 @@ module.exports = {
   remove,
   getView,
   getId,
-  getAllDisponivel
+  getAllDisponivel,
+  getAllInDisponivel
 
 }

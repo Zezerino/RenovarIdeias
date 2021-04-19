@@ -13,14 +13,71 @@ $( document ).ready(function() {
 
 
 
-function postEntrada(){
+
+function changeEntrega(estadoEntrega, id){
+
+
+
+	console.log(estadoEntrega)
+	console.log(id)
+
 
 	var comboE = document.getElementById("comboEquip");
 	var comboO = document.getElementById("comboObra");
 	var comboW = document.getElementById("comboOperador");
 	var idEquipamento = document.getElementById("equipamentoInput").value;
+
+
+	var form = {"estadoEntrega":estadoEntrega};
+
+	console.log(form);
+
+	fetch("http://localhost:3000/equipamentos/" + id,{
+		headers:{
+			'Accept': 'application/json',
+			'Content-Type': 'application/json; charset=utf-8'
+		},       
+		method: 'PUT',
+		body: JSON.stringify(form)
+	}).then(
+	response=>{
+		if(response.ok){
+			return response.json();
+		}else{
+			throw new Error("something went wrong estadoEntrega");
+		}
+	}
+	).then(result=>{
+		
+		location.reload();
+		console.log("fixe");
+
+
+	});
+
+
+}
+
+
+
+function postEntrada(){
+
+
+	var idEquipamento = document.getElementById("equipamentoInput").value;
+	//var comboE = document.getElementById("comboEquip");
+	var comboO = document.getElementById("comboObra");
+	var comboW = document.getElementById("comboOperador");
+	
+	//check funciona
 	var checkF = 0;
+	//check limpar
 	var checkL = 0;
+	//check entrega
+	var checkE = 1;
+
+
+	changeEntrega(checkE, idEquipamento);
+
 
 	console.log(idEquipamento);
 
@@ -34,7 +91,9 @@ function postEntrada(){
 
   	}
 
-	var form = {"idEquipamento":idEquipamento, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "tipo":"Entrada", "estadoFunciona":checkF, "estadoLimpo":checkL};
+
+
+	var form = {"idEquipamento":idEquipamento, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "tipo":"Entrada", "estadoFunciona":checkF, "estadoLimpo":checkL, "estadoEntrega":checkE};
 
 	fetch("http://localhost:3000/movimentos",{
 		headers:{
@@ -64,14 +123,22 @@ function postEntrada(){
 }
 
 
+
+
+
 function postSaida(){
 
-	var comboES = document.getElementById("comboEquipS");
+
+	var idEquipamentoS = document.getElementById("equipamentoInputS").value;
+	//var comboES = document.getElementById("comboEquipS");
 	var comboOS = document.getElementById("comboObraS");
 	var comboWS = document.getElementById("comboOperadorS");
+	var checkE = 0;
+
+	changeEntrega(checkE, idEquipamentoS);
 
 
-	var form = {"idEquipamento":comboES[comboES.selectedIndex].id, "idObra":comboOS[comboOS.selectedIndex].id, "idOperador":comboWS[comboWS.selectedIndex].id, "tipo":"Saida", "estadoFunciona":null, "estadoLimpo":null};
+	var form = {"idEquipamento":idEquipamentoS, "idObra":comboOS[comboOS.selectedIndex].id, "idOperador":comboWS[comboWS.selectedIndex].id, "tipo":"Saida", "estadoFunciona":null, "estadoLimpo":null, "estadoEntrega":checkE};
 
 	fetch("http://localhost:3000/movimentos",{
 		headers:{
@@ -216,7 +283,7 @@ function fillOperador(){
 
 function fillEquipS(){
 
-	fetch("http://localhost:3000/equipamentos/disponivel",{
+	fetch("http://localhost:3000/equipamentos/ndisponivel",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'

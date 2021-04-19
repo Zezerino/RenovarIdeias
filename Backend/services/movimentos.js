@@ -37,11 +37,11 @@ async function getView(page = 1){
 async function create(movimento){
   const result = await db.query(
     `INSERT INTO movimentos 
-    (tipo, data, idOperador, idObra, idEquipamento, estadoFunciona, estadoLimpo) 
+    (tipo, data, idOperador, idObra, idEquipamento, estadoFunciona, estadoLimpo, estadoEntrega) 
     VALUES 
-    (?, current_timestamp(), ?, ?, ?, ?, ?)`, 
+    (?, current_timestamp(), ?, ?, ?, ?, ?, ?)`, 
     [
-	movimento.tipo, movimento.idOperador, movimento.idObra, movimento.idEquipamento, movimento.estadoFunciona, movimento.estadoLimpo
+	movimento.tipo, movimento.idOperador, movimento.idObra, movimento.idEquipamento, movimento.estadoFunciona, movimento.estadoLimpo, movimento.estadoEntrega
     ]
   );
 
