@@ -113,10 +113,10 @@ async function create(equipamento){
 async function update(id, equip){
   const result = await db.query(
     `UPDATE equipamentos 
-    SET idEquipamento=?, codigoLongo=?, nomeEquipamento=?, estadoEntrega=?
+    SET idEquipamento=?, codigoLongo=?, nomeEquipamento=?
     WHERE idEquipamento=?`, 
     [
-      equip.idEquipamento, equip.codigoLongo,equip.nomeEquipamento, equip.estadoEntrega , id
+      equip.idEquipamento, equip.codigoLongo,equip.nomeEquipamento, id
     ]
   );
 
