@@ -33,6 +33,8 @@ function postEquip(){
 		}
 	}
 	).then(result=>{
+		location.reload();
+
 		
 		console.log("fixe");
 

@@ -86,12 +86,14 @@ async function getAllInDisponivel(page = 1){
 }
 
 
+// POST
+
 async function create(equipamento){
   const result = await db.query(
     `INSERT INTO equipamentos 
     (idEquipamento, codigoLongo, nomeEquipamento, estadoEquipamento, estadoEntrega) 
     VALUES 
-    (?, ?, ?, ?, 0)`, 
+    (?, ?, ?, ?, 1)`, 
     [
 	equipamento.idEquipamento, equipamento.codigoLongo, equipamento.nomeEquipamento, equipamento.estadoEquipamento
     ]
@@ -113,10 +115,10 @@ async function create(equipamento){
 async function update(id, equip){
   const result = await db.query(
     `UPDATE equipamentos 
-    SET idEquipamento=?, codigoLongo=?, nomeEquipamento=?
+    SET idEquipamento=?, codigoLongo=?, nomeEquipamento=?, estadoEquipamento=?
     WHERE idEquipamento=?`, 
     [
-      equip.idEquipamento, equip.codigoLongo,equip.nomeEquipamento, id
+      equip.idEquipamento, equip.codigoLongo,equip.nomeEquipamento, equip.estadoEquipamento , id
     ]
   );
 
@@ -131,7 +133,7 @@ async function update(id, equip){
 
 
 //update estado entrega
-async function update(id, equip){
+async function updateEntradas(id, equip){
   const result = await db.query(
     `UPDATE equipamentos 
     SET estadoEntrega=?
@@ -173,6 +175,7 @@ module.exports = {
   getAll,
   create,
   update,
+  updateEntradas,
   remove,
   getView,
   getId,

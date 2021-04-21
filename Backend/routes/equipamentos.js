@@ -72,6 +72,15 @@ router.put('/:id', async function(req, res, next) {
   }
 });
 
+router.put('/entradas/:id', async function(req, res, next) {
+  try {
+    res.json(await equipamentos.updateEntradas(req.params.id, req.body));
+  } catch (err) {
+    console.error(`Error while updating equipamentos entradas`, err.message);
+    next(err);
+  }
+});
+
 /* DELETE obras */
 router.delete('/:id', async function(req, res, next) {
   try {

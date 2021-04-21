@@ -33,6 +33,7 @@ function postObra(){
 		}
 	}
 	).then(result=>{
+		location.reload();
 		
 		console.log("fixe");
 

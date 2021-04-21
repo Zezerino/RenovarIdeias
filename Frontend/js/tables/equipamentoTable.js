@@ -55,7 +55,7 @@ $(document).ready(function() {
 		}
 	},
 	{ targets: [4], render:function(data){
-		return "<button class='btn'  type='button' id='"+ data + "' onClick=editarEquipamento("+ data +")> <i class='far fa-edit'> </i> </button>"
+		return "<button class='btn'  type='button' id='"+ data + "' onClick=editarEquipamento('"+data+"')> <i class='far fa-edit'> </i> </button>"
 	}
 }
 ],		
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 
 function editarEquipamento(id){
-	alert(id);
+	//alert(id);
 // Get the modal
 
 fetch("http://localhost:3000/equipamentos/"+ id,{
@@ -148,7 +148,7 @@ window.onclick = function(event) {
 }
 };
 
-$('#botaoOEquipamento').click(function(){
+$('#botaoEquipamento').click(function(){
 
 
 

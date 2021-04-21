@@ -32,7 +32,7 @@ function changeEntrega(estadoEntrega, id){
 
 	console.log(form);
 
-	fetch("http://localhost:3000/equipamentos/" + id,{
+	fetch("http://localhost:3000/equipamentos/entradas/" + id,{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'

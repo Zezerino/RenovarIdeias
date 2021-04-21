@@ -34,6 +34,7 @@ function postOperador(){
 	}
 	).then(result=>{
 		
+		location.reload();
 		console.log("fixe");
 
 
