@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
 
-	fetch("http://localhost:3000/equipamento/view",{
+	fetch("http://localhost:3000/equipamentos/view",{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
@@ -23,6 +23,7 @@ $(document).ready(function() {
 	).then(result=>{
 		console.log("cenas3");
 		console.log(result.data)
+
 
 		$('#dataTableEquipamento').DataTable({
 
@@ -70,10 +71,10 @@ $(document).ready(function() {
 
 
 function editarEquipamento(id){
-	//alert(id);
+	alert(id);
 // Get the modal
 
-fetch("http://localhost:3000/equipamento/"+ id,{
+fetch("http://localhost:3000/equipamentos/"+ id,{
 	headers:{
 		'Accept': 'application/json',
 		'Content-Type': 'application/json; charset=utf-8'
@@ -92,20 +93,24 @@ response=>{
 			}
 			).then(result=>{
 
+				console.log("editar")
 				console.log(result.data)
 
-				var idText = document.getElementById("idOperadorEditar");
-				var nomeText = document.getElementById("nomeOperadorEditar");
-				var estadoCheck = document.getElementById("checkBoxOperadorEditar");
+				var idText = document.getElementById("idEquipamentoEditar");
+				var codigoText = document.getElementById("idCodigoEditar");
+				var nomeText = document.getElementById("nomeEquipamentoEditar");
+				var estadoCheck = document.getElementById("checkBoxEquipamentoEditar");
 
 
-				idText.value = result.data[0].idOperador;
+				idText.value = result.data[0].idEquipamento;
 				idText.disabled = true;
 
-				nomeText.value = result.data[0].nomeOperador;
+				codigoText.value = result.data[0].codigoLongo;
+
+				nomeText.value = result.data[0].nomeEquipamento;
 
 
-				if(result.data[0].estadoOperador == 1){
+				if(result.data[0].estadoEquipamento == 1){
 					estadoCheck.checked = true;
 				}else{
 					estadoCheck.checked = false;
@@ -143,16 +148,18 @@ window.onclick = function(event) {
 }
 };
 
-$('#botaoOperador').click(function(){
+$('#botaoOEquipamento').click(function(){
 
 
 
 
-	var idText = document.getElementById("idOperadorEditar");
-	var nomeText = document.getElementById("nomeOperadorEditar");
-	var estadoCheck = document.getElementById("checkBoxOperadorEditar");
+	var idText = document.getElementById("idEquipamentoEditar");
+	var codigoText = document.getElementById("idCodigoEditar");
+	var nomeText = document.getElementById("nomeEquipamentoEditar");
+	var estadoCheck = document.getElementById("checkBoxEquipamentoEditar");
 	var checkF = 0;
 
+	console.log("botao")
 	console.log(estadoCheck.checked)
 
 	if(estadoCheck.checked){
@@ -161,11 +168,11 @@ $('#botaoOperador').click(function(){
 	}
 
 
-	var form = {"idOperador":idText.value, "nomeOperador":nomeText.value, "estadoOperador":checkF};
+	var form = {"idEquipamento":idText.value, "codigoLongo":codigoText.value , "nomeEquipamento":nomeText.value, "estadoEquipamento":checkF};
 
 	console.log(form);
 
-	fetch("http://localhost:3000/operadores/" + idText.value,{
+	fetch("http://localhost:3000/equipamentos/" + idText.value,{
 		headers:{
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
