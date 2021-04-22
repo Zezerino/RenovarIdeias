@@ -54,6 +54,14 @@ $(document).ready(function() {
 			{ data: 'estadoLimpo'}
 			],
 			columnDefs: [
+				{ targets: [0], render:function(data){
+					 if(data ==  'entrada' || data ==  'Entrada'){
+					 	console.log("yooooooooooo");
+					 	return "<div class='entradaText'><p>" + data +"<p></div>";
+					 }else{
+					 	return "<div class='saidaText'><p>" + data +"<p></div>";
+					 }
+				}},
        		 	{ targets: [1], render:function(data){return moment(data).format('LLL');}},
        		 	{ targets: [5], render:function(data){
        		 		if(data == "Funciona" || data.tipo ==  'funciona' ){

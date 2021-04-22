@@ -37,8 +37,10 @@ $(document).ready(function() {
 		$('#dataTableMovimentacoes').DataTable({
 			data: result.data,
 			"createdRow": function( row, data, dataIndex){
-				console.log(row);
+				//console.log(row);
+				console.log("yooooooooooo");
                 if( data.tipo ==  'entrada' || data.tipo ==  'Entrada'){
+                	console.log("yooooooooooo");
                     $(row).addClass('greenClass');
                 }else{
                 	$(row).addClass('redClass');
@@ -54,6 +56,14 @@ $(document).ready(function() {
 			{ data: 'estadoLimpo'}
 			],
 			columnDefs: [
+				{ targets: [0], render:function(data){
+					 if(data.tipo ==  'entrada' || data.tipo ==  'Entrada'){
+					 	console.log("yooooooooooo");
+					 	return "<p class='entradaText'>" + data +"<p>";
+					 }else{
+					 	return "<p class='saidaText'>" + data +"<p>";
+					 }
+				}},
        		 	{ targets: [1], render:function(data){return moment(data).format('LLL');}},
        		 	{ targets: [5], render:function(data){
        		 		if(data == "Funciona" || data.tipo ==  'funciona' ){
