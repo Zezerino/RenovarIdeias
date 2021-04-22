@@ -99,7 +99,7 @@ async function create(equipamento){
     ]
   );
 
-  let message = 'Erro ao adicionar';
+  let message = 'Erro ao adicionar um novo equipamento';
 
   if (result.affectedRows) {
     message = 'Adicionado com Sucesso';

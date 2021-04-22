@@ -9,8 +9,6 @@ $( document ).ready(function() {
 
 function postObra(){
 
-	console.log("yo");
-
 	
 	console.log(document.getElementById('nomeObra').value);
 	var form = {"nomeObra":document.getElementById('nomeObra').value, "localObra":document.getElementById('localObra').value, "estadoObra":1};
@@ -29,15 +27,13 @@ function postObra(){
 		if(response.ok){
 			return response.json();
 		}else{
-			throw new Error("something went wrong 1");
+			throw new Error(" Problema ao adicionar uma nova obra ");
 		}
 	}
 	).then(result=>{
+		
 		location.reload();
 		
-		console.log("fixe");
-
-
 	});
 
 }

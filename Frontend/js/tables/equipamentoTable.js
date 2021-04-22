@@ -11,19 +11,12 @@ $(document).ready(function() {
 	}).then(
 	response=>{
 		if(response.ok){
-			console.log("cenas1");
-
 			return response.json();
 		}else{
-			console.log("cenas2");
-
-			throw new Error("something went wrong 1");
+			throw new Error(" Erro a receber dados da BD da tabela equipamentos ");
 		}
 	}
 	).then(result=>{
-		console.log("cenas3");
-		console.log(result.data)
-
 
 		$('#dataTableEquipamento').DataTable({
 
@@ -64,7 +57,7 @@ $(document).ready(function() {
 );
 
 	})
-	.catch(error => alert('Error! ' + error.message));
+	.catch(error => alert(' Erro a colocar os dados na tabela equipamento ' + error.message));
 
 
 });
@@ -86,43 +79,40 @@ response=>{
 
 		return response.json();
 	}else{
-					//console.log("cenas2");
 
-					throw new Error("something went wrong");
-				}
-			}
-			).then(result=>{
-
-				console.log("editar")
-				console.log(result.data)
-
-				var idText = document.getElementById("idEquipamentoEditar");
-				var codigoText = document.getElementById("idCodigoEditar");
-				var nomeText = document.getElementById("nomeEquipamentoEditar");
-				var estadoCheck = document.getElementById("checkBoxEquipamentoEditar");
+		throw new Error(" Erro a receber dados da BD da tabela equipamentos (F: editarEquipamento) ");
+	}
+}
+).then(result=>{
 
 
-				idText.value = result.data[0].idEquipamento;
-				idText.disabled = true;
-
-				codigoText.value = result.data[0].codigoLongo;
-
-				nomeText.value = result.data[0].nomeEquipamento;
+	var idText = document.getElementById("idEquipamentoEditar");
+	var codigoText = document.getElementById("idCodigoEditar");
+	var nomeText = document.getElementById("nomeEquipamentoEditar");
+	var estadoCheck = document.getElementById("checkBoxEquipamentoEditar");
 
 
-				if(result.data[0].estadoEquipamento == 1){
-					estadoCheck.checked = true;
-				}else{
-					estadoCheck.checked = false;
-				}
+	idText.value = result.data[0].idEquipamento;
+	idText.disabled = true;
+
+	codigoText.value = result.data[0].codigoLongo;
+
+	nomeText.value = result.data[0].nomeEquipamento;
 
 
-			})
-			.catch(error => alert('Error! ' + error.message));
+	if(result.data[0].estadoEquipamento == 1){
+		estadoCheck.checked = true;
+	}else{
+		estadoCheck.checked = false;
+	}
+
+
+})
+.catch(error => alert(' Erro a colocar dados (F: editarEquipamento)' + error.message));
 
 
 
-			var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById(id);
@@ -159,8 +149,6 @@ $('#botaoEquipamento').click(function(){
 	var estadoCheck = document.getElementById("checkBoxEquipamentoEditar");
 	var checkF = 0;
 
-	console.log("botao")
-	console.log(estadoCheck.checked)
 
 	if(estadoCheck.checked){
 		checkF = 1;
@@ -169,8 +157,6 @@ $('#botaoEquipamento').click(function(){
 
 
 	var form = {"idEquipamento":idText.value, "codigoLongo":codigoText.value , "nomeEquipamento":nomeText.value, "estadoEquipamento":checkF};
-
-	console.log(form);
 
 	fetch("http://localhost:3000/equipamentos/" + idText.value,{
 		headers:{
@@ -184,14 +170,12 @@ $('#botaoEquipamento').click(function(){
 		if(response.ok){
 			return response.json();
 		}else{
-			throw new Error("something went wrong 1");
+			throw new Error(" Erro a receber dados da BD da tabela equipamentos (F: botaoEquipamento) ");
 		}
 	}
 	).then(result=>{
 		
 		location.reload();
-		console.log("fixe");
-
 
 	});
 

@@ -11,18 +11,14 @@ $(document).ready(function() {
 	}).then(
 	response=>{
 		if(response.ok){
-			console.log("cenas1");
 
 			return response.json();
 		}else{
-			console.log("cenas2");
 
-			throw new Error("something went wrong");
+			throw new Error(" Erro a receber dados da BD da tabela operadores ");
 		}
 	}
 	).then(result=>{
-		console.log("cenas3");
-		console.log(result.data)
 
 		$('#dataTableOperador').DataTable({
 
@@ -62,7 +58,7 @@ $(document).ready(function() {
 );
 
 	})
-	.catch(error => alert('Error! ' + error.message));
+	.catch(error => alert(' Erro a colocar os dados na tabela operadores ' + error.message));
 
 
 });
@@ -84,7 +80,6 @@ response=>{
 
 		return response.json();
 	}else{
-					//console.log("cenas2");
 
 					throw new Error("something went wrong");
 				}
@@ -112,7 +107,7 @@ response=>{
 
 
 			})
-			.catch(error => alert('Error! ' + error.message));
+			.catch(error => alert(' Erro a colocar dados na tabela obras' + error.message));
 
 
 
@@ -145,14 +140,10 @@ window.onclick = function(event) {
 $('#botaoOperador').click(function(){
 
 
-
-
 	var idText = document.getElementById("idOperadorEditar");
 	var nomeText = document.getElementById("nomeOperadorEditar");
 	var estadoCheck = document.getElementById("checkBoxOperadorEditar");
 	var checkF = 0;
-
-	console.log(estadoCheck.checked)
 
 	if(estadoCheck.checked){
 		checkF = 1;
@@ -162,7 +153,6 @@ $('#botaoOperador').click(function(){
 
 	var form = {"idOperador":idText.value, "nomeOperador":nomeText.value, "estadoOperador":checkF};
 
-	console.log(form);
 
 	fetch("http://localhost:3000/operadores/" + idText.value,{
 		headers:{
@@ -176,14 +166,12 @@ $('#botaoOperador').click(function(){
 		if(response.ok){
 			return response.json();
 		}else{
-			throw new Error("something went wrong 1");
+			throw new Error(" Erro a atualizar dados da BD da tabela operadores ");
 		}
 	}
 	).then(result=>{
 		
 		location.reload();
-		console.log("fixe");
-
 
 	});
 

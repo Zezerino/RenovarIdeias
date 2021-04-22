@@ -11,32 +11,30 @@ $(document).ready(function() {
 	}).then(
 	response=>{
 		if(response.ok){
-					//console.log("cenas1");
 
-					return response.json();
+			return response.json();
+		}else{
+
+			throw new Error(" Erro a receber dados da BD da tabela obras ");
+		}
+	}
+	).then(result=>{
+
+
+		$('#dataTableObras').DataTable({
+			data: result.data,
+			"createdRow": function( row, data, dataIndex){
+				if( data.estadoObra == 1){
+					$(row).addClass('greenClass');
 				}else{
-					//console.log("cenas2");
-
-					throw new Error("something went wrong");
+					$(row).addClass('redClass');
 				}
-			}
-			).then(result=>{
-
-
-				$('#dataTableObras').DataTable({
-					data: result.data,
-					"createdRow": function( row, data, dataIndex){
-						if( data.estadoObra == 1){
-							$(row).addClass('greenClass');
-						}else{
-							$(row).addClass('redClass');
-						}
-					},
-					columns: [
-					{ data: 'idObra' },
-					{ data: 'nomeObra'},
-					{ data: 'localObra' },
-					{ data: 'estadoObra'},
+			},
+			columns: [
+			{ data: 'idObra' },
+			{ data: 'nomeObra'},
+			{ data: 'localObra' },
+			{ data: 'estadoObra'},
 			{ data: 'idObra', // can be null or undefined
 			"defaultContent": ""
 		}
@@ -59,10 +57,8 @@ $(document).ready(function() {
 }
 );
 
-			})
-			.catch(error => alert('Error! ' + error.message));
-
-//"<i class='far fa-edit' id='"+ data.idObra + "'></i>"
+	})
+	.catch(error => alert(' Erro a colocar dados na tabela obras' + error.message));
 
 });
 
@@ -83,41 +79,39 @@ response=>{
 
 		return response.json();
 	}else{
-					//console.log("cenas2");
 
-					throw new Error("something went wrong");
-				}
-			}
-			).then(result=>{
-
-				console.log(result.data)
-
-				var idText = document.getElementById("idObraEditar");
-				var nomeText = document.getElementById("nomeObraEditar");
-				var localText = document.getElementById("localObraEditar");
-				var estadoCheck = document.getElementById("checkBoxObraEditar");
+		throw new Error("  Erro a receber dados da BD da tabela obras ");
+	}
+}
+).then(result=>{
 
 
-				idText.value = result.data[0].idObra;
-				idText.disabled = true;
-
-				nomeText.value = result.data[0].nomeObra;
-				localText.value = result.data[0].localObra;
-
-
-				if(result.data[0].estadoObra == 1){
-					estadoCheck.checked = true;
-				}else{
-					estadoCheck.checked = false;
-				}
+	var idText = document.getElementById("idObraEditar");
+	var nomeText = document.getElementById("nomeObraEditar");
+	var localText = document.getElementById("localObraEditar");
+	var estadoCheck = document.getElementById("checkBoxObraEditar");
 
 
-			})
-			.catch(error => alert('Error! ' + error.message));
+	idText.value = result.data[0].idObra;
+	idText.disabled = true;
+
+	nomeText.value = result.data[0].nomeObra;
+	localText.value = result.data[0].localObra;
+
+
+	if(result.data[0].estadoObra == 1){
+		estadoCheck.checked = true;
+	}else{
+		estadoCheck.checked = false;
+	}
+
+
+})
+.catch(error => alert(' Erro a colocar os dados na tabela obras ' + error.message));
 
 
 
-			var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById(id);
@@ -146,25 +140,20 @@ window.onclick = function(event) {
 $('#botaoObra').click(function(){
 
 
-
-
 	var idText = document.getElementById("idObraEditar");
 	var nomeText = document.getElementById("nomeObraEditar");
 	var localText = document.getElementById("localObraEditar");
 	var estadoCheck = document.getElementById("checkBoxObraEditar");
 	var checkF = 0;
 
-	console.log(estadoCheck.checked)
 
 	if(estadoCheck.checked){
-  		checkF = 1;
+		checkF = 1;
 
-  	}
+	}
 
 
 	var form = {"idObra":idText.value, "nomeObra":nomeText.value, "localObra":localText.value, "estadoObra":checkF};
-
-	console.log(form);
 
 	fetch("http://localhost:3000/obras/" + idText.value,{
 		headers:{
@@ -178,14 +167,12 @@ $('#botaoObra').click(function(){
 		if(response.ok){
 			return response.json();
 		}else{
-			throw new Error("something went wrong 1");
+			throw new Error(" Erro a atualizar dados da BD da tabela obra ");
 		}
 	}
 	).then(result=>{
 		
 		location.reload();
-		console.log("fixe");
-
 
 	});
 

@@ -9,13 +9,9 @@ $( document ).ready(function() {
 
 function postEquip(){
 
-	console.log("yo");
 
-	
-	//console.log(document.getElementById('nomeEquip').value);
 	var form = {"idEquipamento":document.getElementById('idEquipamento').value, "codigoLongo":document.getElementById('codigoLongo').value, "nomeEquipamento":document.getElementById('nomeEquipamento').value, "estadoEquipamento":1};
 
-	console.log(form);
 
 	fetch("http://localhost:3000/equipamentos",{
 		headers:{
@@ -29,19 +25,13 @@ function postEquip(){
 		if(response.ok){
 			return response.json();
 		}else{
-			throw new Error("something went wrong equipamentos");
+			throw new Error(" Problema ao adicionar um novo equipamento ");
 		}
 	}
 	).then(result=>{
+
 		location.reload();
-
-		
-		console.log("fixe");
-
 
 	});
 
 }
-
-
-// {"Codigo":document.getElementById('codigoEquip').value}, {"CodigoLongo":document.getElementById('codigoLEquip').value}

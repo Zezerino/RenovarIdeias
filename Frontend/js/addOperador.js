@@ -9,8 +9,6 @@ $( document ).ready(function() {
 
 function postOperador(){
 
-	console.log("yo operador");
-
 	
 	console.log(document.getElementById('nomeOperador').value);
 	var form = {"nomeOperador":document.getElementById('nomeOperador').value, "estadoOperador":1};
@@ -29,14 +27,12 @@ function postOperador(){
 		if(response.ok){
 			return response.json();
 		}else{
-			throw new Error("something went wrong operadores");
+			throw new Error(" Problema ao adicionar um novo operador ");
 		}
 	}
 	).then(result=>{
 		
 		location.reload();
-		console.log("fixe");
-
 
 	});
 

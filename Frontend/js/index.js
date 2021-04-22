@@ -17,11 +17,6 @@ $( document ).ready(function() {
 function changeEntrega(estadoEntrega, id){
 
 
-
-	console.log(estadoEntrega)
-	console.log(id)
-
-
 	var comboE = document.getElementById("comboEquip");
 	var comboO = document.getElementById("comboObra");
 	var comboW = document.getElementById("comboOperador");
@@ -29,8 +24,6 @@ function changeEntrega(estadoEntrega, id){
 
 
 	var form = {"estadoEntrega":estadoEntrega};
-
-	console.log(form);
 
 	fetch("http://localhost:3000/equipamentos/entradas/" + id,{
 		headers:{
@@ -44,14 +37,12 @@ function changeEntrega(estadoEntrega, id){
 		if(response.ok){
 			return response.json();
 		}else{
-			throw new Error("something went wrong estadoEntrega");
+			throw new Error(" Problema ao alterar estado de entrega ");
 		}
 	}
 	).then(result=>{
 		
 		location.reload();
-		console.log("fixe");
-
 
 	});
 
@@ -127,10 +118,10 @@ function postEntrada(){
 		}
 		).then(result=>{
 
+			//Altera o estado da entrada
 			changeEntrega(checkE, idEquipamento);
-			alert("Entrada feita com sucesso");
-			console.log("fixe");
 
+			alert("Entrada feita com sucesso");
 
 		});
 	}else{
