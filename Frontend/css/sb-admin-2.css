@@ -48,6 +48,40 @@
 }
 
 
+#equipamentoInput{
+  font-size: 1.5rem;
+
+}
+#comboObra{
+  font-size: 1.5rem;
+
+}
+#comboOperador{
+  font-size: 1.5rem;
+
+}
+#checkboxFunciona{
+  font-size: 1.5rem;
+
+}
+#checkboxLimpar{
+  font-size: 1.5rem;
+
+}
+
+#adicionarEntrada{
+  font-size: 1.5rem;
+
+}
+
+
+
+
+#zoom{
+  transform: scale(1.25);
+  transform-origin: 0 0;
+}
+
 .greenClass{
   background-color: #cce5cc;
 }

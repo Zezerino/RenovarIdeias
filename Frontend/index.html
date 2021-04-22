@@ -19,7 +19,8 @@
 	rel="stylesheet">
 
 	<!-- Custom styles for this template-->
-	<link href="css/sb-admin-2.min.css" rel="stylesheet">
+	<link href="css/sb-admin-2.css" rel="stylesheet">
+	<!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
 	<link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
 
 
@@ -128,26 +129,30 @@
 
 
 		<!-- Page Heading entrada de Equipamento Start -->
-		<div class="container" id="content">
+		<div class="container-fluid">
 
 
 			<div class="row justify-content-center align-self-center mt-5">
-				<h1 class="text-success">Entrada de Equipamento</h1>
+				<h1 class="text-success" id="titleEntrada">Entrada de Equipamento</h1>
 			</div>
 
 
-			<div class="row justify-content-center align-self-center" id = "formMovEntrada">
+			<div class="row justify-content-center" id = "formMovEntrada">
 
 				<form id="formMovimento" class="">
 					<div class="row" >
 
-						<div class="d-inline-flex p-2" >
+						<div>
+							<div class="d-inline-flex p-2" >
 
-							<input placeholder="Select Equipamento" id="equipamentoInput" list="comboEquip" class="form-control" autocomplete="off">
+								<input placeholder="Select Equipamento" id="equipamentoInput" list="comboEquip" class="form-control" autocomplete="off">
 
-							<datalist id="comboEquip"></datalist>
+								<datalist id="comboEquip"></datalist>
+
+							</div>
 
 						</div>
+
 
 						<div class="d-inline-flex p-2">
 							<select name="" id="comboObra" class="form-control">
@@ -182,7 +187,7 @@
 						</div>
 					</div>
 
-					<div class="row justify-content-center">
+					<div class="row justify-content-center bigFont">
 						<input id="adicionarEntrada" type="button" value=" Adicionar " class="btn btn-primary" onclick="javascript:postEntrada();">
 					</div>
 				</form>
@@ -190,60 +195,62 @@
 
 			</div>
 
-			<!-- Page Heading entrada de Equipamento END -->
+		</div>	
 
-			<hr class="sidebar-divider mt-5 mb-5">
+		<!-- Page Heading entrada de Equipamento END -->
+		<div class="container-fluid mt-5 mb-5" id="divider">
 
-
-
-			<!-- Page Heading Saída de Equipamento START-->
-			<div class="container" id="content">
-
-				<div class="row justify-content-md-center">
-					<h1 class="text-danger">Saída de Equipamento</h1>
-				</div>
+			<hr class="sidebar-divider">
+		</div>
 
 
-				<div class="row justify-content-center" id = "formMovEntrada">
 
-					<form id="formMovimento" class="">
-						<div class="row" >
+		<!-- Page Heading Saída de Equipamento START-->
+		<div class="container-fluid" id="content">
 
-							<div class="d-inline-flex p-2" >
+			<div class="row justify-content-md-center">
+				<h1 class="text-danger">Saída de Equipamento</h1>
+			</div>
 
-								<input placeholder="Select Equipamento" id="equipamentoInputS" list="comboEquipS" class="form-control" autocomplete="off">
 
-								<datalist id="comboEquipS"></datalist>
+			<div class="row justify-content-center" id = "formMovEntrada">
 
-							</div>
+				<form id="formMovimento" class="">
+					<div class="row" >
 
-							<div class="d-inline-flex p-2">
-								<select name="" id="comboObraS" class="form-control">
-									<option value="">Select Obra</option>
-								</select>
-							</div>
+						<div class="d-inline-flex p-2" >
 
-							<div class="d-inline-flex p-2">
-								<select name="" id="comboOperadorS" class="form-control">
-									<option value="">Select Operador</option>
-								</select>
-							</div>
+							<input placeholder="Select Equipamento" id="equipamentoInputS" list="comboEquipS" class="form-control" autocomplete="off">
+
+							<datalist id="comboEquipS"></datalist>
 
 						</div>
 
-
-
-						<div class="row justify-content-center">
-							<input id="adicionarSaida" type="button" value=" Adicionar " class="btn btn-primary" onclick="javascript:postSaida();">
+						<div class="d-inline-flex p-2">
+							<select name="" id="comboObraS" class="form-control">
+								<option value="">Select Obra</option>
+							</select>
 						</div>
-					</form>
+
+						<div class="d-inline-flex p-2">
+							<select name="" id="comboOperadorS" class="form-control">
+								<option value="">Select Operador</option>
+							</select>
+						</div>
+
+					</div>
 
 
-				</div>
 
+					<div class="row justify-content-center p-2">
+						<input id="adicionarSaida" type="button" value=" Adicionar " class="btn btn-primary" onclick="javascript:postSaida();">
+					</div>
+				</form>
 
 
 			</div>
+
+
 
 		</div>
 
