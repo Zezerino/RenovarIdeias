@@ -49,7 +49,7 @@ $(document).ready(function() {
 		}
 	},
 	{ targets: [3], render:function(data){
-		return "<button class='btn'  type='button' id='"+ data + "' onClick=editarOperador("+ data +")> <i class='far fa-edit'> </i> </button>"
+		return "<button class='btn btn-dark'  type='button' id='"+ data + "' onClick=editarOperador("+ data +")> <i class='fas fa-user-edit'> </i> </button>"
 	}
 }
 ],		

@@ -58,6 +58,11 @@
 }
 
 
+#alignCenter{
+    text-align: center;
+
+}
+
 #equipamentoInput{
   font-size: 1.5rem;
 
@@ -1595,6 +1600,7 @@ pre code {
 
 .table th,
 .table td {
+  text-align: center;
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #e3e6f0;
@@ -2420,6 +2426,7 @@ textarea.form-control {
   border-radius: 0.35rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   .btn {
