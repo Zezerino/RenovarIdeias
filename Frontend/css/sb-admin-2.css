@@ -104,13 +104,6 @@
 
 
 
-
-
-#zoom{
-  transform: scale(1.25);
-  transform-origin: 0 0;
-}
-
 .greenClass{
   background-color: #cce5cc;
 }
