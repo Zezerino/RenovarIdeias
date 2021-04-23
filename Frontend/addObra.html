@@ -140,150 +140,153 @@
             <!-- The Modal -->
             <div id="myModal" class="modal">
 
-              <!-- Modal content -->
-              <div class="modal-content">
-                <span class="close">&times;</span>
+                <!-- Modal content -->
+                <div class="bootstrap-overrides" id="">
+                    <span class="close mb-5">&times;</span>
 
-                        <form name="formObra" id="formObra">
-                            <label class="" for="flexCheckDefault">ID da Obra</label>
-                            <input type="text" class="form-control mt-3" id="idObraEditar" aria-describedby="nomeObra">
-                            <label class="" for="flexCheckDefault">Nome da Obra</label>                            
-                            <input type="text" class="form-control mt-3" id="nomeObraEditar" aria-describedby="localObra">
-                            <label class="" for="flexCheckDefault">Local da Obra</label>
-                            <input type="text" class="form-control mt-3" id="localObraEditar" aria-describedby="localObra">
-                            <input class="form-check-input" type="checkbox" value=1 id="checkBoxObraEditar">
-                            <label class="form-check-label" for="flexCheckDefault">Ativo</label>
+                    <form name="formObra" id="formObra">
 
-                            <input type="button" id="botaoObra" value="Adicionar" class="btn btn-primary btn-block py-3 mt-3">
-                        </form> 
-            </div>
+                        <label class="mt-5" for="idObraEditar">ID da Obra</label>
+                        <input type="text" class="form-control mb-3" id="idObraEditar" aria-describedby="nomeObra">
 
-        </div>
+                        <label class="" for="nomeObraEditar">Nome da Obra</label>                            
+                        <input type="text" class="form-control mb-3" id="nomeObraEditar" aria-describedby="localObra">
 
+                        <label class="" for="localObraEditar">Local da Obra</label>
+                        <input type="text" class="form-control mb-3" id="localObraEditar" aria-describedby="localObra">
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-center mb-4">
-            <h1 class="h3 mb-0 text-gray-800 mt-5">Adicionar Obra</h1>
-        </div>
+                        <input class="form-check-input mb-3 ml-2" type="checkbox" value=1 id="checkBoxObraEditar">
+                        <label class="form-check-label ml-4" for="checkBoxObraEditar">Ativo</label>
 
-
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-7">
-            <form class="trip-form">
-
-                <div class="row justify-content-center align-items-center">
-
-                    <div class="form-group col-md-3 ">
-                        <label for="exampleInputEmail1">Criar uma nova Obra</label>
-
-                        <form name="formObra" id="formObra">
-                            <input type="text" class="form-control" id="nomeObra" aria-describedby="nomeObra" placeholder="Nome da Obra">
-                            <input type="text" class="form-control mt-3" id="localObra" aria-describedby="localObra" placeholder="Local da Obra">
-
-                            <input type="submit" value="Adicionar" class="btn btn-primary btn-block py-3 mt-3" onclick="javascript:postObra();">
-                        </form>
-
-                    </div>
+                        <input type="button" id="botaoObra" value="Adicionar" class="btn btn-primary btn-block py-3 mt-3">
+                    </form> 
                 </div>
 
-            </form>
-        </div>
-    </div>
-
-    <div class="container-fluid ">
-
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800 mt-5 text-center">Obras</h1>
-
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4 ">
-            <div class="">
             </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered text-gray-900" id="dataTableObras" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Local</th>
-                                <th>Estado</th>
-                                <th>Editar</th>
 
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Local</th>
-                                <th>Estado</th>
-                                <th>Editar</th>
 
-                            </tr>
-                        </tfoot>
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </div>
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-center mb-4">
+                <h1 class="h3 mb-0 text-gray-800 mt-5">Adicionar Obra</h1>
             </div>
-        </div>
 
-    </div>
-                <!--                   <div class="mb-3 mb-md-0 col-md-3">
-                                    <div class="form-control-wrap">
-                                      <input type="text" id="cf-3" placeholder="Pick up" class="form-control datepicker px-3">
-                                      <span class="icon icon-date_range"></span>
 
-                                    </div>
-                                </div> -->
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-7">
+                    <form class="trip-form">
 
+                        <div class="row justify-content-center align-items-center">
+
+                            <div class="form-group col-md-3 ">
+                                <label for="exampleInputEmail1">Criar uma nova Obra</label>
+
+                                <form name="formObra" id="formObra">
+                                    <input type="text" class="form-control" id="nomeObra" aria-describedby="nomeObra" placeholder="Nome da Obra">
+                                    <input type="text" class="form-control mt-3" id="localObra" aria-describedby="localObra" placeholder="Local da Obra">
+
+                                    <input type="submit" value="Adicionar" class="btn btn-primary btn-block py-3 mt-3" onclick="javascript:postObra();">
+                                </form>
 
                             </div>
-                            <!-- End of Main Content -->
-
-                            <!-- Footer -->
-                            <footer class="sticky-footer bg-white">
-                                <div class="container my-auto">
-                                    <div class="copyright text-center my-auto">
-                                        <span>Copyright &copy; Your Website 2020</span>
-                                    </div>
-                                </div>
-                            </footer>
-                            <!-- End of Footer -->
-
                         </div>
-                        <!-- End of Content Wrapper -->
 
+                    </form>
+                </div>
+            </div>
+
+            <div class="container-fluid ">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800 mt-5 text-center">Obras</h1>
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4 ">
+                    <div class="">
                     </div>
-                    <!-- End of Page Wrapper -->
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered text-gray-900" id="dataTableObras" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                        <th>Local</th>
+                                        <th>Estado</th>
+                                        <th>Editar</th>
 
-                    <!-- Scroll to Top Button-->
-                    <a class="scroll-to-top rounded" href="#page-top">
-                        <i class="fas fa-angle-up"></i>
-                    </a>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                        <th>Local</th>
+                                        <th>Estado</th>
+                                        <th>Editar</th>
 
-                    <!-- Logout Modal-->
-                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <a class="btn btn-primary" href="login.html">Logout</a>
-                            </div>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
+            </div>
+<!--                   <div class="mb-3 mb-md-0 col-md-3">
+<div class="form-control-wrap">
+<input type="text" id="cf-3" placeholder="Pick up" class="form-control datepicker px-3">
+<span class="icon icon-date_range"></span>
+
+</div>
+</div> -->
+
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2020</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+    </div>
+</div>
+</div>
 
 
 
@@ -293,32 +296,33 @@
 
 
 
-                <!-- Bootstrap core JavaScript-->
-                <script src="vendor/jquery/jquery.min.js"></script>
-                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Core plugin JavaScript-->
-                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Custom scripts for all pages-->
-                <script src="js/sb-admin-2.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                <!-- Page level plugins -->
-                <script src="vendor/chart.js/Chart.min.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
 
-
-
-    <!-- moment js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<!-- Page level plugins -->
+<script src="vendor/chart.js/Chart.min.js"></script>
 
 
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/addObra.js"></script>
-    <script src="js/tables/obraTable.js"></script>
+<!-- moment js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/addObra.js"></script>
+<script src="js/tables/obraTable.js"></script>
 
 
 </body>

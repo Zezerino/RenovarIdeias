@@ -48,6 +48,16 @@
 }
 
 
+.bootstrap-overrides {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; 
+  border-radius: 1rem;
+}
+
+
 #equipamentoInput{
   font-size: 1.5rem;
 
