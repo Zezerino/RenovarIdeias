@@ -20,7 +20,7 @@
 
 	<!-- Custom styles for this template-->
 	<link href="css/sb-admin-2.css" rel="stylesheet">
-	<!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
+	<link href="css/sb-admin-2.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
 
 
@@ -38,9 +38,12 @@
 			<!-- Sidebar - Brand -->
 			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
 				<div class="sidebar-brand-icon rotate-n-15">
-					<i class="fas fa-laugh-wink"></i>
+					<i class="fas fa-paint-roller"></i>
 				</div>
 				<div class="sidebar-brand-text mx-3">Gestão</div>
+				<div class="sidebar-brand-icon rotate-n-15">
+					<i class="fas fa-fill-drip"></i>
+				</div>
 			</a>
 
 			<!-- Divider -->
@@ -185,7 +188,7 @@
 					</div>
 
 					<div class="row justify-content-center bigFont">
-						<input id="adicionarEntrada" type="button" value=" Adicionar " class="btn btn-primary" onclick="javascript:postEntrada();">
+						<input id="adicionarEntrada" type="button" value=" Adicionar " class="btn btn-dark" onclick="javascript:postEntrada();">
 					</div>
 				</form>
 
@@ -206,7 +209,7 @@
 		<div class="container-fluid" id="content">
 
 			<div class="row justify-content-md-center">
-				<h1 class="text-danger">Saída de Equipamento</h1>
+				<h1 class="text-danger" id="titleSaida">Saída de Equipamento</h1>
 			</div>
 
 
@@ -240,7 +243,7 @@
 
 
 					<div class="row justify-content-center p-2">
-						<input id="adicionarSaida" type="button" value=" Adicionar " class="btn btn-primary" onclick="javascript:postSaida();">
+						<input id="adicionarSaida" type="button" value=" Adicionar " class="btn btn-dark" onclick="javascript:postSaida();">
 					</div>
 				</form>
 
@@ -274,25 +277,7 @@
 		<i class="fas fa-angle-up"></i>
 	</a>
 
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-			</div>
-			<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-			<div class="modal-footer">
-				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary" href="login.html">Logout</a>
-			</div>
-		</div>
-	</div>
-</div>
+
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

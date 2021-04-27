@@ -42,9 +42,12 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-paint-roller"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Gestão</div>
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-fill-drip"></i>
+                </div>
             </a>
 
             <!-- Divider -->
@@ -155,10 +158,15 @@
                         <label class="" for="localObraEditar">Local da Obra</label>
                         <input type="text" class="form-control mb-3" id="localObraEditar" aria-describedby="localObra">
 
-                        <input class="form-check-input mb-3 ml-2" type="checkbox" value=1 id="checkBoxObraEditar">
-                        <label class="form-check-label ml-4" for="checkBoxObraEditar">Ativo</label>
 
-                        <input type="button" id="botaoObra" value="Adicionar" class="btn btn-primary btn-block py-3 mt-3">
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox" value=1 id="checkBoxObraEditar" checked="checked">
+                            <label class="custom-control-label pl-3" id="checkboxFuncionaL" for="checkBoxObraEditar">Ativo</label>
+                        </div>
+
+
+
+                        <input type="button" id="botaoObra" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3">
                     </form> 
                 </div>
 
@@ -167,7 +175,7 @@
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-center mb-4">
-                <h1 class="h3 mb-0 text-gray-800 mt-5">Adicionar Obra</h1>
+                <h1 class="h3 mb-0 text-gray-800 mt-5" id="titleObra">Adicionar Obra</h1>
             </div>
 
 
@@ -184,7 +192,7 @@
                                     <input type="text" class="form-control" id="nomeObra" aria-describedby="nomeObra" placeholder="Nome da Obra">
                                     <input type="text" class="form-control mt-3" id="localObra" aria-describedby="localObra" placeholder="Local da Obra">
 
-                                    <input type="submit" value="Adicionar" class="btn btn-primary btn-block py-3 mt-3" onclick="javascript:postObra();">
+                                    <input type="submit" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postObra();">
                                 </form>
 
                             </div>

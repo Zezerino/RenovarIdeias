@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.css" rel="stylesheet">
-    <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -41,9 +41,12 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-paint-roller"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Gestão</div>
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-fill-drip"></i>
+                </div>
             </a>
 
             <!-- Divider -->
@@ -139,7 +142,7 @@
            <div id="myModal" class="modal">
 
               <!-- Modal content -->
-              <div class="bootstrap-overrides">
+              <div class="bootstrap-overrides custom-control custom-checkbox">
                 <span class="close mb-5">&times;</span>
 
                 <form name="formEquipamento" id="formEquipamento">
@@ -152,10 +155,14 @@
                     <label class="" for="flexCheckDefault">Nome do Equipamento</label>                            
                     <input type="text" class="form-control mb-3" id="nomeEquipamentoEditar" aria-describedby="nomeEquipamento">
 
-                    <input class="form-check-input mb-3 ml-2" type="checkbox" value=1 id="checkBoxEquipamentoEditar">
-                    <label class="form-check-label ml-4" for="flexCheckDefault">Ativo</label>
 
-                    <input type="button" id="botaoEquipamento" value="Adicionar" class="btn btn-primary btn-block py-3 mt-3">
+                    <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox" value=1 id="checkBoxEquipamentoEditar" checked="checked">
+                            <label class="custom-control-label pl-3" id="checkboxFuncionaL" for="checkBoxEquipamentoEditar">Ativo</label>
+                    </div>
+
+
+                    <input type="button" id="botaoEquipamento" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3">
                 </form> 
             </div>
 
@@ -166,7 +173,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-center mb-4">
-            <h1 class="h3 mb-0 text-gray-800 mt-5">Adicionar Equipamentos</h1>
+            <h1 class="h3 mb-0 text-gray-800 mt-5" id="titleEquip">Adicionar Equipamentos</h1>
         </div>
 
 
@@ -186,7 +193,7 @@
 
                             <input type="text" class="form-control mt-3" id="nomeEquipamento" aria-describedby="nomeEquipamento" placeholder="Nome do Equipamento">
 
-                            <input type="button" value=" Adicionar " class="btn btn-primary btn-block py-3 mt-3" onclick="javascript:postEquip();">
+                            <input type="button" value=" Adicionar " class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postEquip();">
                         </form>
 
                     </div>
@@ -291,7 +298,7 @@ aria-hidden="true">
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-dark" href="login.html">Logout</a>
         </div>
     </div>
 </div>

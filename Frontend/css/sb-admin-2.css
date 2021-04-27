@@ -63,6 +63,8 @@
 
 }
 
+
+
 #equipamentoInput{
   font-size: 1.5rem;
 
@@ -101,6 +103,60 @@
 }
 
 #titleEntrada{
+  font-size: 3.5rem;
+
+}
+
+#titleMovimento{
+  font-size: 3.5rem;
+
+}
+
+#titleOperador{
+  font-size: 2.5rem;
+
+}
+
+#titleObra{
+  font-size: 2.5rem;
+
+}
+
+#titleEquip{
+  font-size: 2.5rem;
+
+}
+
+
+#equipamentoInputS{
+  font-size: 1.5rem;
+
+}
+#comboObraS{
+  font-size: 1.5rem;
+
+}
+#comboOperadorS{
+  font-size: 1.5rem;
+
+}
+#checkboxFuncionaLS{
+  font-size: 1.5rem;
+
+}
+#checkboxLimparLS{
+  font-size: 1.5rem;
+
+}
+
+
+#adicionarSaida{
+  font-size: 1.5rem;
+  width: 50%;
+
+}
+
+#titleSaida{
   font-size: 3.5rem;
 
 }
@@ -2722,6 +2778,13 @@ fieldset:disabled a.btn {
   border-color: #5a5c69;
 }
 
+.btn-test {
+  color: #fff;
+  background-color: #c43d3d;
+  border-color: #c43d3d;
+}
+
+
 .btn-dark:hover {
   color: #fff;
   background-color: #484a54;
@@ -3669,11 +3732,14 @@ input[type="button"].btn-block {
 
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  border-color: #4e73df;
-  background-color: #4e73df;
+  border-color: #5a5c69;
+  background-color: #5a5c69;
   width: 25px;
   height: 25px;
 }
+
+
+
 
 .custom-control-input:focus ~ .custom-control-label::before {
   box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
