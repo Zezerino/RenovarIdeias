@@ -185,7 +185,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nome do novo Equipamento</label>
-                        <form name="formEquip" id="formEquip">
+                        <form name="formEquip" id="formEquip" > <!--action="http://localhost:3000/equipamentos" method="post"-->
 
                             <input type="text" class="form-control mt-3" id="idEquipamento" aria-describedby="idEquipamento" placeholder="ID">
 
@@ -193,7 +193,9 @@
 
                             <input type="text" class="form-control mt-3" id="nomeEquipamento" aria-describedby="nomeEquipamento" placeholder="Nome do Equipamento">
 
-                            <input type="button" value=" Adicionar " class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postEquip();">
+                            <input type="file"  class="form-control mt-3" id="myFile" name="filename">
+
+                            <input type="button" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postEquip();">
                         </form>
 
                     </div>

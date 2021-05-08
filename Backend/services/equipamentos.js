@@ -87,7 +87,6 @@ async function getAllInDisponivel(page = 1){
 
 
 // POST
-
 async function create(equipamento){
   const result = await db.query(
     `INSERT INTO equipamentos 

@@ -33,6 +33,7 @@ app.use(
   })
 );
 
+app.use('/uploads', express.static('uploads'));
 app.use('/operadores', operadoresRouter);
 app.use('/equipamentos', equipamentosRouter);
 app.use('/movimentos', movimentosRouter);
