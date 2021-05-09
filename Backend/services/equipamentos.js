@@ -21,7 +21,7 @@ async function getAll(page = 1){
 async function getView(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT e.idEquipamento, e.codigoLongo, e.nomeEquipamento, e.estadoEquipamento FROM equipamentos e`, 
+    `SELECT e.idEquipamento, e.codigoLongo, e.nomeEquipamento, c.nomeCategoria as nomeCategoria ,e.estadoEquipamento FROM equipamentos e, categoria c where e.idCategoria = c.idCategoria`, 
     [offset, config.listPerPage]
   );
   const data = helper.emptyOrRows(rows);
