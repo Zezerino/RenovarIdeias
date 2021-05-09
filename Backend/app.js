@@ -15,6 +15,8 @@ const operadoresRouter = require('./routes/operadores');
 const equipamentosRouter = require('./routes/equipamentos');
 const movimentosRouter = require('./routes/movimentos');
 const obrasRouter = require('./routes/obras');
+const categoriasRouter = require('./routes/categorias');
+
 
 
 var indexRouter = require('./routes/index');
@@ -35,6 +37,7 @@ app.use(
 
 app.use('/uploads', express.static('uploads'));
 app.use('/operadores', operadoresRouter);
+app.use('/categorias', categoriasRouter);
 app.use('/equipamentos', equipamentosRouter);
 app.use('/movimentos', movimentosRouter);
 app.use('/obras', obrasRouter);

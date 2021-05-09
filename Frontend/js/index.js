@@ -17,10 +17,10 @@ $( document ).ready(function() {
 function changeEntrega(estadoEntrega, id){
 
 
-	var comboE = document.getElementById("comboEquip");
-	var comboO = document.getElementById("comboObra");
-	var comboW = document.getElementById("comboOperador");
-	var idEquipamento = document.getElementById("equipamentoInput").value;
+	// var comboE = document.getElementById("comboEquip");
+	// var comboO = document.getElementById("comboObra");
+	// var comboW = document.getElementById("comboOperador");
+	// var idEquipamento = document.getElementById("equipamentoInput").value;
 
 
 	var form = {"estadoEntrega":estadoEntrega};
