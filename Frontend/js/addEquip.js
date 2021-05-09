@@ -1,7 +1,7 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 
 	console.log( "addEquip ready!" );
-	fillCategoria()
+	//fillCategoria()
 
 });
 
