@@ -47,6 +47,7 @@ $(document).ready(function () {
 				{ data: 'idEquipamento' },
 				{ data: 'codigoLongo' },
 				{ data: 'nomeEquipamento' },
+				{ data: 'nomeCategoria' },
 				{ data: 'estadoEquipamento' },
 				{
 					data: 'idEquipamento', // can be null or undefined
@@ -60,7 +61,7 @@ $(document).ready(function () {
 					}
 				},
 				{
-					targets: [3], render: function (data) {
+					targets: [4], render: function (data) {
 						if (data == 1) {
 							return "Ativo";
 						} else {
@@ -69,7 +70,7 @@ $(document).ready(function () {
 					}
 				},
 				{
-					targets: [4], render: function (data) {
+					targets: [5], render: function (data) {
 						return "<button class='btn'  type='button' id='" + data + "' onClick=editarEquipamento('" + data + "')> <i class='far fa-edit'> </i> </button>"
 					}
 				}

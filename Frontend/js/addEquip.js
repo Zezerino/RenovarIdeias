@@ -1,13 +1,12 @@
 $(document).ready(function() {
 
 	console.log( "addEquip ready!" );
-	//fillCategoria()
+	fillCategoria()
 
 });
 
 
 
-// POR FAZER
 function fillCategoria(){
 
 	fetch("http://localhost:3000/categorias/disponivel",{
@@ -83,6 +82,37 @@ function postEquip(){
 
 		location.reload();
 
+	});
+
+}
+
+function postCategoria(){
+
+
+	console.log(document.getElementById('nomeCategoria').value);
+	var form = {"nomeCategoria":document.getElementById('nomeCategoria').value};
+
+	console.log(form);
+
+	fetch("http://localhost:3000/categorias",{
+		headers:{
+			'Accept': 'application/json',
+			'Content-Type': 'application/json; charset=utf-8'
+		},       
+		method: 'POST',
+		body: JSON.stringify(form)
+	}).then(
+	response=>{
+		if(response.ok){
+			return response.json();
+		}else{
+			throw new Error(" Problema ao adicionar uma nova categoria ");
+		}
+	}
+	).then(result=>{
+		
+		location.reload();
+		
 	});
 
 }

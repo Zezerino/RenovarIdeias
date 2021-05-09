@@ -58,6 +58,34 @@
 }
 
 
+
+#nomeCategoriaButton{
+  display: inline-block;
+  width: 15%;
+  margin: 5% auto; /* 15% from the top and centered */
+  color: #6e707e;
+  border: 1px solid #d1d3e2;
+}
+
+#nomeCategoria{
+  display: inline-block;
+  width: 50%;
+  margin: 5% auto; /* 15% from the top and centered */
+  height: 30px;
+}
+
+#plusCategoria{
+  display: inline-block;
+  width: 15%;
+}
+
+#comboCategoria{
+  display: inline-block;
+  width: 80%;
+
+
+}
+
 #alignCenter{
     text-align: center;
 
@@ -2035,6 +2063,7 @@ pre code {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
 }
+
 
 .form-control::-webkit-input-placeholder {
   color: #858796;
