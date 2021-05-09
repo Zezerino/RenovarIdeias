@@ -201,34 +201,39 @@
                                             aria-describedby="codigoLongo" placeholder="Codigo Longo">
 
                                         <input type="text" class="form-control mt-3" id="nomeEquipamento"
-                                            aria-describedby="nomeEquipamento" placeholder="Nome do Equipamento">   
+                                            aria-describedby="nomeEquipamento" placeholder="Nome do Equipamento">
 
 
-                            
+
                                         <select name="" id="comboCategoria" class="form-control mt-3">
-                                             <option value="">Escolher Categoria</option>
+                                            <option value="">Escolher Categoria</option>
                                         </select>
 
 
-                                    <!-- Menu escondido para adicionar categoria START -->
-                                <a class="collapsed ml-4 mt-3" href="#" data-toggle="collapse" data-target="#collapseCategoria" aria-expanded="true" aria-controls="collapseCategoria">
-                                    <i class="far fa-plus-square fa-lg"></i>
-                                </a>
-                
-                                <div id="collapseCategoria" class="collapse" aria-labelledby="headingTwo" data-parent="">
-                                <div class="collapse-inner rounded">
-                
-                
-                                    <input type="text" class="form-control ml-5" id="nomeCategoria" aria-describedby="nomeCategoria" placeholder="Nome da Categoria">
-                                    <input type="button" class="" value="Add" id="nomeCategoriaButton" onclick="javascript:postCategoria();">
+                                        <!-- Menu escondido para adicionar categoria START -->
+                                        <a class="collapsed ml-4 mt-3" href="#" data-toggle="collapse"
+                                            data-target="#collapseCategoria" aria-expanded="true"
+                                            aria-controls="collapseCategoria">
+                                            <i class="far fa-plus-square fa-lg"></i>
+                                        </a>
 
-                
-                
-                                </div>
-                                </div>
+                                        <div id="collapseCategoria" class="collapse" aria-labelledby="headingTwo"
+                                            data-parent="">
+                                            <div class="collapse-inner rounded">
 
 
-                                    <!-- Menu escondido para adicionar categoria END -->
+                                                <input type="text" class="form-control ml-5" id="nomeCategoria"
+                                                    aria-describedby="nomeCategoria" placeholder="Nome da Categoria">
+                                                <input type="button" class="" value="Add" id="nomeCategoriaButton"
+                                                    onclick="javascript:postCategoria();">
+
+
+
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Menu escondido para adicionar categoria END -->
 
 
 
@@ -240,81 +245,81 @@
                                     </form>
 
                                 </div>
-                            </form>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+            <div class="container-fluid ">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800 mt-5 text-center">Equipamentos</h1>
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4 ">
+                    <div class="">
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered text-gray-900" id="dataTableEquipamento" width="100%"
+                                cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Codigo Longo</th>
+                                        <th>Nome Equipamento</th>
+                                        <th>Categoria</th>
+                                        <th>Estado</th>
+                                        <th>Editar</th>
+
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Codigo Longo</th>
+                                        <th>Nome Equipamento</th>
+                                        <th>Categoria</th>
+                                        <th>Estado</th>
+                                        <th>Editar</th>
+
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-    
-    
-    
-    
                 </div>
 
+            </div>
 
 
-                                <div class="container-fluid ">
-
-                                    <!-- Page Heading -->
-                                    <h1 class="h3 mb-2 text-gray-800 mt-5 text-center">Equipamentos</h1>
-
-                                    <!-- DataTales Example -->
-                                    <div class="card shadow mb-4 ">
-                                        <div class="">
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered text-gray-900"
-                                                    id="dataTableEquipamento" width="100%" cellspacing="0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>Codigo Longo</th>
-                                                            <th>Nome Equipamento</th>
-                                                            <th>Categoria</th>
-                                                            <th>Estado</th>
-                                                            <th>Editar</th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>Codigo Longo</th>
-                                                            <th>Nome Equipamento</th>
-                                                            <th>Categoria</th>
-                                                            <th>Estado</th>
-                                                            <th>Editar</th>
-
-                                                        </tr>
-                                                    </tfoot>
-                                                    <tbody>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-
-                            </div>
-
-
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
 
         </div>
-        <!-- End of Content Wrapper -->
+
+
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
