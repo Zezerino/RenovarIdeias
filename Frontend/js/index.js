@@ -69,6 +69,15 @@ function postEntrada(){
 	var validar = document.getElementById("comboEquip").children;
 	var souValido = false;
 
+	$("#entradaErroEquip").hide();
+	$("#entradaErroObra").hide();
+	$("#entradaErroOp").hide();
+
+	$("#saidaErroEquip").hide();
+	$("#saidaErroObra").hide();
+	$("#saidaErroOp").hide();
+
+
 	for(var i=0; i < validar.length; i++ ){
 
 		if (idEquipamento == validar[i].value){
@@ -78,25 +87,43 @@ function postEntrada(){
 
 	}
 
+
+	if (idEquipamento == ""){
+		console.log("Erro equip")
+		$("#entradaErroEquip").show();
+		$("#formMovEntrada" ).effect("shake");
+	}else{
+		for(var i=0; i < validar.length; i++ ){
+
+			if (idEquipamento == validar[i].value){
+	
+				if (comboO[comboO.selectedIndex].value == "" ){
+					//console.log("Erro Obra")
+					$("#entradaErroObra").show();
+					$("#formMovEntrada" ).effect("shake");
+				}else if (comboW[comboW.selectedIndex].value == "" ){
+					//console.log("Erro Op")
+					$("#entradaErroOp").show();
+					$("#formMovEntrada" ).effect("shake");
+				}else{
+					//console.log("Sou Válido")
+					souValido = true;
+				}	
+			}
+		}
+	}
+
+
 	
 	if(souValido){
 
-
-
-
 		if(document.getElementById("checkboxFunciona").checked){
 			checkF = 1;
-
 		}
 
 		if(document.getElementById("checkboxLimpar").checked){
 			checkL = 1;
-
 		}
-
-
-
-
 
 		var form = {"idEquipamento":idEquipamento, "idObra":comboO[comboO.selectedIndex].id, "idOperador":comboW[comboW.selectedIndex].id, "tipo":"Entrada", "estadoFunciona":checkF, "estadoLimpo":checkL, "estadoEntrega":checkE};
 
@@ -124,10 +151,11 @@ function postEntrada(){
 			alert("Entrada feita com sucesso");
 
 		});
-	}else{
-		$("#formMovEntrada" ).effect("shake");
-		alert(" Este equipamento já se encontra no armazem ou não existe");
 	}
+	// else{
+	// 	$("#formMovEntrada" ).effect("shake");
+	// 	alert(" Este equipamento já se encontra no armazem ou não existe");
+	// }
 
 
 }
@@ -146,14 +174,46 @@ function postSaida(){
 	var validar = document.getElementById("comboEquipS").children;
 	var souValido = false;
 
-	for(var i=0; i < validar.length; i++ ){
+	$("#saidaErroEquip").hide();
+	$("#saidaErroObra").hide();
+	$("#saidaErroOp").hide();
 
-		if (idEquipamentoS == validar[i].value){
-			souValido = true;
+	$("#entradaErroEquip").hide();
+	$("#entradaErroObra").hide();
+	$("#entradaErroOp").hide();
 
+	// console.log(idEquipamentoS)
+	// console.log(comboOS[comboOS.selectedIndex])
+	// console.log(comboWS)
+
+
+
+	if (idEquipamentoS == ""){
+		//console.log("Erro equip")
+		$("#saidaErroEquip").show();
+		$("#formMovSaida" ).effect("shake");
+	}else{
+		for(var i=0; i < validar.length; i++ ){
+
+			if (idEquipamentoS == validar[i].value){
+	
+				if (comboOS[comboOS.selectedIndex].value == "" ){
+					//console.log("Erro Obra")
+					$("#saidaErroObra").show();
+					$("#formMovSaida" ).effect("shake");
+				}else if (comboWS[comboWS.selectedIndex].value == "" ){
+					//console.log("Erro Op")
+					$("#saidaErroOp").show();
+					$("#formMovSaida" ).effect("shake");
+				}else{
+					//console.log("Sou Válido")
+					souValido = true;
+				}	
+			}
 		}
-
 	}
+
+
 
 
 	if(souValido){
@@ -183,17 +243,18 @@ function postSaida(){
 
 			alert("Saida feita com sucesso");
 
-			console.log("fixe");
+			//console.log("fixe");
 
 
 		});
 
-	}else{
-
-		$("#formMovSaida" ).effect("shake");
-		alert(" Este equipamento já se encontra fora do armazem ou não existe");
-
 	}
+	// else{
+
+	// 	$("#formMovSaida" ).effect("shake");
+	// 	alert(" Este equipamento já se encontra fora do armazem ou não existe");
+
+	// }
 }
 
 

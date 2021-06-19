@@ -57,6 +57,12 @@
   border-radius: 1rem;
 }
 
+#saidaErroEquip, #saidaErroObra, #saidaErroOp, #entradaErroEquip, #entradaErroObra, #entradaErroOp{
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 
 
 #nomeCategoriaButton{

@@ -131,11 +131,79 @@
 		<!-- Main Content -->
 
 
-		<!-- Page Heading entrada de Equipamento Start -->
+		<!-- Page Heading Saída de Equipamento START-->
 		<div class="container-fluid">
 
-
 			<div class="row justify-content-center align-self-center mt-5 p-3">
+				<h1 class="text-danger" id="titleSaida">Saída de Equipamento</h1>
+			</div>
+
+
+			<div class="row justify-content-center" id = "formMovSaida">
+
+				<form id="formMovimento" class="">
+					<div class="row" >
+
+						<div class="d-inline-flex p-2" >
+
+							<input placeholder="Escolher Equipamento" id="equipamentoInputS" list="comboEquipS" class="form-control" autocomplete="off">
+
+							<datalist id="comboEquipS"></datalist>
+
+						</div>
+
+						<div class="d-inline-flex p-2">
+							<select name="" id="comboObraS" class="form-control">
+								<option value="">Escolher Obra</option>
+							</select>
+						</div>
+
+						<div class="d-inline-flex p-2">
+							<select name="" id="comboOperadorS" class="form-control">
+								<option value="">Escolher Operador</option>
+							</select>
+						</div>
+
+					</div>
+
+					<div class="row justify-content-center p-2">
+						<label style="display:none;" id="saidaErroEquip"> Tem de escolher um equipamento </label>
+						<label style="display:none;" id="saidaErroObra"> Tem de escolher uma obra </label>
+						<label style="display:none;" id="saidaErroOp"> Tem de escolher um operador </label>
+					</div>
+
+					<div class="row justify-content-center p-2">
+						<input id="adicionarSaida" type="button" value=" Adicionar " class="btn btn-dark" onclick="javascript:postSaida();">
+					</div>
+				</form>
+
+
+			</div>
+
+
+
+		</div>
+
+
+		<!-- Page Heading Saída de Equipamento END -->
+
+
+		<!-- Page Heading Divider Start -->
+
+
+		<div class="container-fluid mt-5 mb-5" id="divider">
+
+			<hr class="sidebar-divider">
+		</div>
+
+		<!-- Page Heading Divider END -->
+
+
+		<!-- Page Heading entrada de Equipamento Start -->
+		<div class="container-fluid" id="content">
+
+
+			<div class="row justify-content-center align-self-center">
 				<h1 class="text-success" id="titleEntrada">Entrada de Equipamento</h1>
 			</div>
 
@@ -187,6 +255,12 @@
 
 					</div>
 
+					<div class="row justify-content-center p-2">
+						<label style="display:none;" id="entradaErroEquip"> Tem de escolher um equipamento </label>
+						<label style="display:none;" id="entradaErroObra"> Tem de escolher uma obra </label>
+						<label style="display:none;" id="entradaErroOp"> Tem de escolher um operador </label>
+					</div>
+
 					<div class="row justify-content-center bigFont">
 						<input id="adicionarEntrada" type="button" value=" Adicionar " class="btn btn-dark" onclick="javascript:postEntrada();">
 					</div>
@@ -198,64 +272,7 @@
 		</div>	
 
 		<!-- Page Heading entrada de Equipamento END -->
-		<div class="container-fluid mt-5 mb-5" id="divider">
 
-			<hr class="sidebar-divider">
-		</div>
-
-
-
-		<!-- Page Heading Saída de Equipamento START-->
-		<div class="container-fluid" id="content">
-
-			<div class="row justify-content-md-center">
-				<h1 class="text-danger" id="titleSaida">Saída de Equipamento</h1>
-			</div>
-
-
-			<div class="row justify-content-center" id = "formMovEntrada">
-
-				<form id="formMovimento" class="">
-					<div class="row" >
-
-						<div class="d-inline-flex p-2" >
-
-							<input placeholder="Escolher Equipamento" id="equipamentoInputS" list="comboEquipS" class="form-control" autocomplete="off">
-
-							<datalist id="comboEquipS"></datalist>
-
-						</div>
-
-						<div class="d-inline-flex p-2">
-							<select name="" id="comboObraS" class="form-control">
-								<option value="">Escolher Obra</option>
-							</select>
-						</div>
-
-						<div class="d-inline-flex p-2">
-							<select name="" id="comboOperadorS" class="form-control">
-								<option value="">Escolher Operador</option>
-							</select>
-						</div>
-
-					</div>
-
-
-
-					<div class="row justify-content-center p-2">
-						<input id="adicionarSaida" type="button" value=" Adicionar " class="btn btn-dark" onclick="javascript:postSaida();">
-					</div>
-				</form>
-
-
-			</div>
-
-
-
-		</div>
-
-
-		<!-- Page Heading Saída de Equipamento END -->
 
 
 		<!-- Footer START -->
@@ -268,6 +285,9 @@
 		</footer>
 
 		<!-- Footer END -->
+
+
+
 
 	</div>
 	<!-- End of Page Wrapper -->
@@ -283,7 +303,7 @@
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="jquery-ui/jquery-ui.min.js"></script>
-<script src="jquery/jquery.js"></script>
+<!-- <script src="jquery-ui/external/jquery/jquery.js"></script> -->
 
 <!-- Core plugin JavaScript-->
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
