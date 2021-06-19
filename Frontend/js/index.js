@@ -78,14 +78,18 @@ function postEntrada(){
 	$("#saidaErroOp").hide();
 
 
-	for(var i=0; i < validar.length; i++ ){
+	// console.log(idEquipamento)
+	// console.log(comboO[comboO.selectedIndex])
+	// console.log(comboW)
 
-		if (idEquipamento == validar[i].value){
-			souValido = true;
+	// for(var i=0; i < validar.length; i++ ){
 
-		}
+	// 	if (idEquipamento == validar[i].value){
+	// 		souValido = true;
 
-	}
+	// 	}
+
+	// }
 
 
 	if (idEquipamento == ""){
