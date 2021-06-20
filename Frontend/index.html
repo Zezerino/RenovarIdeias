@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
 
@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 
 
-	<title>Menu</title>
+	<title>Registo</title>
 
 	<!-- Custom fonts for this template-->
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -28,10 +28,8 @@
 
 <body id="page-top">
 
-
 	<!-- Page Wrapper -->
-	<div id="wrapper">
-
+	<div id="wrapper">		
 		<!-- Sidebar -->
 		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -40,7 +38,7 @@
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-paint-roller"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">Gestão</div>
+				<div class="sidebar-brand-text mx-3">Renovar Ideias</div>
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-fill-drip"></i>
 				</div>
@@ -49,12 +47,8 @@
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
-			<!-- Nav Item - Dashboard -->
 
-			<!-- Divider -->
-			<!-- Heading -->
-
-			<!-- Nav Item - Dashboard -->
+			<!-- Nav Item  -->
 			<li class="nav-item">
 				<a class="nav-link" href="index.html">
 					<i class="fas fa-fw fa-tachometer-alt"></i>
@@ -65,230 +59,222 @@
 					<i class="fas fa-fw fa-table"></i>
 					<span>Movimentos</span>
 				</a>
+
+				<!-- Divisor -->
+				<hr class="sidebar-divider">
+
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+					<i class="fas fa-fw fa-cog"></i>
+					<span>Interface</span>
+				</a>
+
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+					<div class="py-2 collapse-inner rounded">
+
+
+						<a class="nav-link" href="addOperador.html">
+							<i class="fas fa-fw fa-table"></i>
+							<span>Adicionar Operador</span>
+						</a>
+
+						<a class="nav-link" href="addObra.html">
+							<i class="fas fa-fw fa-table"></i>
+							<span>Adicionar Obra</span>
+						</a>
+
+						<a class="nav-link" href="addEquip.html">
+							<i class="fas fa-fw fa-table"></i>
+							<span>Adicionar Equipamento</span>
+						</a>
+
+
+					</div>
+				</div>
+
 			</li>
 
-			<!-- Divider -->
+
+
+			<!-- Divisor -->
 			<hr class="sidebar-divider">
 
-			<!-- Heading -->
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-				aria-expanded="true" aria-controls="collapseTwo">
-				<i class="fas fa-fw fa-cog"></i>
-				<span>Interface</span>
-			</a>
-			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-				<div class="py-2 collapse-inner rounded">
+			<!-- Esconder Barra Lateral) -->
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
+
+		</ul>
 
 
-					<a class="nav-link" href="addOperador.html">
-						<i class="fas fa-fw fa-table"></i>
-						<span>Adicionar Operador</span>
-					</a>
+		<!-- End of Sidebar -->
 
-					<a class="nav-link" href="addObra.html">
-						<i class="fas fa-fw fa-table"></i>
-						<span>Adicionar Obra</span>
-					</a>
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
 
-					<a class="nav-link" href="addEquip.html">
-						<i class="fas fa-fw fa-table"></i>
-						<span>Adicionar Equipamento</span>
-					</a>
+			<!-- Main Content -->
+
+
+			<!-- Page Heading Saída de Equipamento START-->
+			<div class="container-fluid">
+
+				<div class="row justify-content-center align-self-center mt-5 p-3">
+					<h1 class="text-danger" id="titleSaida">Saída de Equipamento</h1>
+				</div>
+
+
+				<div class="row justify-content-center" id = "formMovSaida">
+
+					<form>
+						<div class="row" >
+
+							<div class="d-inline-flex p-2" >
+
+								<input placeholder="Escolher Equipamento" id="equipamentoInputS" list="comboEquipS" class="form-control" autocomplete="off">
+
+								<datalist id="comboEquipS"></datalist>
+
+							</div>
+
+							<div class="d-inline-flex p-2">
+								<select name="" id="comboObraS" class="form-control">
+									<option value="">Escolher Obra</option>
+								</select>
+							</div>
+
+							<div class="d-inline-flex p-2">
+								<select name="" id="comboOperadorS" class="form-control">
+									<option value="">Escolher Operador</option>
+								</select>
+							</div>
+
+						</div>
+
+						<div class="row justify-content-center p-2">
+							<label style="display:none;" id="saidaErroEquip"> Tem de escolher um equipamento </label>
+							<label style="display:none;" id="saidaErroObra"> Tem de escolher uma obra </label>
+							<label style="display:none;" id="saidaErroOp"> Tem de escolher um operador </label>
+						</div>
+
+						<div class="row justify-content-center p-2">
+							<input id="adicionarSaida" type="button" value=" Adicionar " class="btn btn-dark" onclick="javascript:postSaida();">
+						</div>
+					</form>
 
 
 				</div>
-			</div>
-		</li>
 
-		<!-- Nav Item - Pages Collapse Menu -->
-
-		<!-- Divider -->
-
-		<!-- Heading -->
-
-
-
-		<!-- Nav Item - Tables -->
-
-		<!-- Divider -->
-		<hr class="sidebar-divider d-none d-md-block">
-
-		<!-- Sidebar Toggler (Sidebar) -->
-		<div class="text-center d-none d-md-inline">
-			<button class="rounded-circle border-0" id="sidebarToggle"></button>
-		</div>
-
-		<!-- Sidebar Message -->
-
-	</ul>
-
-	<!-- End of Sidebar -->
-
-	<!-- Content Wrapper -->
-	<div id="content-wrapper" class="d-flex flex-column">
-
-		<!-- Main Content -->
-
-
-		<!-- Page Heading Saída de Equipamento START-->
-		<div class="container-fluid">
-
-			<div class="row justify-content-center align-self-center mt-5 p-3">
-				<h1 class="text-danger" id="titleSaida">Saída de Equipamento</h1>
-			</div>
-
-
-			<div class="row justify-content-center" id = "formMovSaida">
-
-				<form id="formMovimento" class="">
-					<div class="row" >
-
-						<div class="d-inline-flex p-2" >
-
-							<input placeholder="Escolher Equipamento" id="equipamentoInputS" list="comboEquipS" class="form-control" autocomplete="off">
-
-							<datalist id="comboEquipS"></datalist>
-
-						</div>
-
-						<div class="d-inline-flex p-2">
-							<select name="" id="comboObraS" class="form-control">
-								<option value="">Escolher Obra</option>
-							</select>
-						</div>
-
-						<div class="d-inline-flex p-2">
-							<select name="" id="comboOperadorS" class="form-control">
-								<option value="">Escolher Operador</option>
-							</select>
-						</div>
-
-					</div>
-
-					<div class="row justify-content-center p-2">
-						<label style="display:none;" id="saidaErroEquip"> Tem de escolher um equipamento </label>
-						<label style="display:none;" id="saidaErroObra"> Tem de escolher uma obra </label>
-						<label style="display:none;" id="saidaErroOp"> Tem de escolher um operador </label>
-					</div>
-
-					<div class="row justify-content-center p-2">
-						<input id="adicionarSaida" type="button" value=" Adicionar " class="btn btn-dark" onclick="javascript:postSaida();">
-					</div>
-				</form>
 
 
 			</div>
 
 
-
-		</div>
-
-
-		<!-- Page Heading Saída de Equipamento END -->
+			<!-- Page Heading Saída de Equipamento END -->
 
 
-		<!-- Page Heading Divider Start -->
+			
+			<!-- Page Heading Divider Start -->
 
 
-		<div class="container-fluid mt-5 mb-5" id="divider">
+			<div class="container-fluid mt-5 mb-5" id="divider">
 
-			<hr class="sidebar-divider">
-		</div>
-
-		<!-- Page Heading Divider END -->
-
-
-		<!-- Page Heading entrada de Equipamento Start -->
-		<div class="container-fluid" id="content">
-
-
-			<div class="row justify-content-center align-self-center">
-				<h1 class="text-success" id="titleEntrada">Entrada de Equipamento</h1>
+				<hr class="sidebar-divider">
 			</div>
 
+			<!-- Page Heading Divider END -->
 
-			<div class="row justify-content-center" id = "formMovEntrada">
 
-				<form id="formMovimento" class="">
-					<div class="row" >
 
-						<div>
-							<div class="d-inline-flex p-2" >
+			<!-- Page Heading entrada de Equipamento Start -->
+			<div class="container-fluid" id="content">
 
-								<input placeholder="Escolher Equipamento" id="equipamentoInput" list="comboEquip" class="form-control" autocomplete="off">
 
-								<datalist id="comboEquip"></datalist>
+				<div class="row justify-content-center align-self-center">
+					<h1 class="text-success" id="titleEntrada">Entrada de Equipamento</h1>
+				</div>
 
+
+				<div class="row justify-content-center" id = "formMovEntrada">
+
+					<form id="formMovimento" class="">
+						<div class="row" >
+
+							<div>
+								<div class="d-inline-flex p-2" >
+
+									<input placeholder="Escolher Equipamento" id="equipamentoInput" list="comboEquip" class="form-control" autocomplete="off">
+
+									<datalist id="comboEquip"></datalist>
+
+								</div>
+
+							</div>
+
+
+							<div class="d-inline-flex p-2">
+								<select name="" id="comboObra" class="form-control">
+									<option value="">Escolher Obra</option>
+								</select>
+							</div>
+
+							<div class="d-inline-flex p-2">
+								<select name="" id="comboOperador" class="form-control">
+									<option value="">Escolher Operador</option>
+								</select>
 							</div>
 
 						</div>
 
 
-						<div class="d-inline-flex p-2">
-							<select name="" id="comboObra" class="form-control">
-								<option value="">Escolher Obra</option>
-							</select>
+						<div class="row justify-content-center" >
+
+							<div class="custom-control custom-checkbox p-3">
+								<input class="custom-control-input" type="checkbox" value=1 id="checkboxFunciona" checked="checked">
+								<label class="custom-control-label pl-3" id="checkboxFuncionaL" for="checkboxFunciona">Funciona</label>
+							</div>
+
+
+							<div class="custom-control custom-checkbox p-3 pl-5">
+								<input type="checkbox" value=1 class="custom-control-input" id="checkboxLimpar" checked="checked">
+								<label class="custom-control-label pl-3" id="checkboxLimparL" for="checkboxLimpar">Limpo</label>
+							</div>
+
 						</div>
 
-						<div class="d-inline-flex p-2">
-							<select name="" id="comboOperador" class="form-control">
-								<option value="">Escolher Operador</option>
-							</select>
+						<div class="row justify-content-center p-2">
+							<label style="display:none;" id="entradaErroEquip"> Tem de escolher um equipamento </label>
+							<label style="display:none;" id="entradaErroObra"> Tem de escolher uma obra </label>
+							<label style="display:none;" id="entradaErroOp"> Tem de escolher um operador </label>
 						</div>
 
-					</div>
-
-
-					<div class="row justify-content-center" >
-
-						<div class="custom-control custom-checkbox p-3">
-							<input class="custom-control-input" type="checkbox" value=1 id="checkboxFunciona" checked="checked">
-							<label class="custom-control-label pl-3" id="checkboxFuncionaL" for="checkboxFunciona">Funciona</label>
+						<div class="row justify-content-center bigFont">
+							<input id="adicionarEntrada" type="button" value=" Adicionar " class="btn btn-dark" onclick="javascript:postEntrada();">
 						</div>
+					</form>
 
 
-						<div class="custom-control custom-checkbox p-3 pl-5">
-							<input type="checkbox" value=1 class="custom-control-input" id="checkboxLimpar" checked="checked">
-							<label class="custom-control-label pl-3" id="checkboxLimparL" for="checkboxLimpar">Limpo</label>
-						</div>
-
-					</div>
-
-					<div class="row justify-content-center p-2">
-						<label style="display:none;" id="entradaErroEquip"> Tem de escolher um equipamento </label>
-						<label style="display:none;" id="entradaErroObra"> Tem de escolher uma obra </label>
-						<label style="display:none;" id="entradaErroOp"> Tem de escolher um operador </label>
-					</div>
-
-					<div class="row justify-content-center bigFont">
-						<input id="adicionarEntrada" type="button" value=" Adicionar " class="btn btn-dark" onclick="javascript:postEntrada();">
-					</div>
-				</form>
-
-
-			</div>
-
-		</div>	
-
-		<!-- Page Heading entrada de Equipamento END -->
-
-
-
-		<!-- Footer START -->
-		<footer class="sticky-footer bg-white">
-			<div class="container my-auto">
-				<div class="copyright text-center my-auto">
-					<span>Copyright &copy; Your Website 2020</span>
 				</div>
-			</div>
-		</footer>
 
-		<!-- Footer END -->
+			</div>	
 
-
+			<!-- Page Heading entrada de Equipamento END -->
 
 
+
+			<!-- Footer START -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2020</span>
+					</div>
+				</div>
+			</footer>
+
+			<!-- Footer END -->
+
+
+
+
+		</div>
 	</div>
 	<!-- End of Page Wrapper -->
 
@@ -299,23 +285,23 @@
 
 
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="jquery-ui/jquery-ui.min.js"></script>
-<!-- <script src="jquery-ui/external/jquery/jquery.js"></script> -->
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="jquery-ui/jquery-ui.min.js"></script>
+	<!-- <script src="jquery-ui/external/jquery/jquery.js"></script> -->
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-<script src="vendor/chart.js/Chart.min.js"></script>
+	<!-- Page level plugins -->
+	<script src="vendor/chart.js/Chart.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="js/index.js"></script>
+	<!-- Page level custom scripts -->
+	<script src="js/index.js"></script>
 
 </body>
 
