@@ -23,11 +23,11 @@ function postObra(){
 	if (nomeObra == ""){
 		console.log("Erro nome")
 		$("#erroNomeObra").show();
-		//$("#formOperador").effect("shake");
+		$("#formObra").effect("shake");
 	}else if(localObra == ""){
 			//console.log("Erro nome")
 			$("#erroLocalObra").show();
-			//$("#formOperador").effect("shake");
+			$("#formObra").effect("shake");
 	}else{
 		souValido = true;
 	}

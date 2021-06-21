@@ -136,7 +136,7 @@
             <div class="bootstrap-overrides" id="">
                 <span class="close mb-5">&times;</span>
 
-                <form name="formObra" id="formObra">
+                <form name="formObraModal" id="formObraModal">
 
                     <label class="mt-5" for="idObraEditar">ID da Obra</label>
                     <input type="text" class="form-control mb-3" id="idObraEditar" aria-describedby="nomeObra">
@@ -170,8 +170,6 @@
 
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-7">
-                <form class="trip-form">
-
                     <div class="row justify-content-center align-items-center">
 
                         <div class="form-group col-md-3 ">
@@ -180,17 +178,15 @@
                             <form name="formObra" id="formObra">
                                 <input type="text" class="form-control" id="nomeObra" aria-describedby="nomeObra" placeholder="Nome da Obra">
                                 <input type="text" class="form-control mt-3" id="localObra" aria-describedby="localObra" placeholder="Local da Obra">
-                                <div class="row justify-content-center p-2">
+                                <div class="row justify-content-center mt-4">
                                     <label style="display:none;" id="erroNomeObra"> Tem de escrever o nome da obra</label>
                                     <label style="display:none;" id="erroLocalObra"> Tem de escrever o local da obra </label>
                                 </div>
-                                <input type="button" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postObra();">
+                                <input type="button" value="Adicionar" class="btn btn-dark btn-block py-3" onclick="javascript:postObra();">
                             </form>
 
                         </div>
                     </div>
-
-                </form>
             </div>
         </div>
 
@@ -267,6 +263,7 @@
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
+<script src="jquery-ui/jquery-ui.min.js"></script>
 
 
 

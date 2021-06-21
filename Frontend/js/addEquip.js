@@ -63,19 +63,19 @@ function postEquip(){
 	if (idEquip == ""){
 //console.log("Erro equip")
 $("#erroNomeId").show();
-//$("#formMovSaida" ).effect("shake");
+$("#formEquip" ).effect("shake");
 }else if (codL == "" ){
 //console.log("Erro Obra")
 $("#erroCodigoLongo").show();
-//$("#formMovSaida" ).effect("shake");
+$("#formEquip" ).effect("shake");
 }else if (nomeEquip == "" ){
 //console.log("Erro Op")
 $("#erroNomeEquip").show();
-//$("#formMovSaida" ).effect("shake");
+$("#formEquip" ).effect("shake");
 }else if (comboC[comboC.selectedIndex].value == ""){
 //console.log("Erro Op")
 $("#erroCategoria").show();
-//$("#formMovSaida" ).effect("shake");
+$("#formEquip" ).effect("shake");
 }else{
 //console.log("Sou Válido")
 souValido = true;

@@ -19,7 +19,7 @@ function postOperador(){
 	if (nomeOp == ""){
 		//console.log("Erro nome")
 		$("#erroNome").show();
-		//$("#formOperador").effect("shake");
+		$("#formOperador").effect("shake");
 	}else{
 		souValido = true;
 	}
