@@ -52,9 +52,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-
-            <!-- Divider -->
             <!-- Heading -->
 
             <!-- Nav Item - Dashboard -->
@@ -176,6 +173,9 @@
 
                                 <form name="formOperador" id="formOperador">
                                     <input type="text" class="form-control" id="nomeOperador" aria-describedby="nomeOperador" placeholder="Nome">
+                                    <div class="row justify-content-center p-2">
+                                        <label style="display:none;" id="erroNome"> Tem de escrever um nome </label>
+                                    </div>
                                     <input type="button" value=" Adicionar " class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postOperador();">
                                 </form>
 

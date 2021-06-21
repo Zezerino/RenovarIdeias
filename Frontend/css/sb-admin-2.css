@@ -63,7 +63,11 @@
   font-size: 20px;
 }
 
-
+#erroNome {
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 15px;
+}
 
 #nomeCategoriaButton{
   display: inline-block;

@@ -9,11 +9,27 @@ $( document ).ready(function() {
 
 function postOperador(){
 
-	
-	console.log(document.getElementById('nomeOperador').value);
-	var form = {"nomeOperador":document.getElementById('nomeOperador').value, "estadoOperador":1};
 
-	console.log(form);
+	var nomeOp = document.getElementById("nomeOperador").value;
+	var souValido = false;
+
+
+	$("#erroNome").hide();
+
+	if (nomeOp == ""){
+		//console.log("Erro nome")
+		$("#erroNome").show();
+		//$("#formOperador").effect("shake");
+	}else{
+		souValido = true;
+	}
+	
+	if(souValido){
+
+	//console.log(document.getElementById('nomeOperador').value);
+	var form = {"nomeOperador":nomeOp, "estadoOperador":1};
+
+	//console.log(form);
 
 	fetch("http://localhost:3000/operadores",{
 		headers:{
@@ -35,6 +51,7 @@ function postOperador(){
 		location.reload();
 
 	});
+}
 
 }
 
