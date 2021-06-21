@@ -180,8 +180,11 @@
                             <form name="formObra" id="formObra">
                                 <input type="text" class="form-control" id="nomeObra" aria-describedby="nomeObra" placeholder="Nome da Obra">
                                 <input type="text" class="form-control mt-3" id="localObra" aria-describedby="localObra" placeholder="Local da Obra">
-
-                                <input type="submit" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postObra();">
+                                <div class="row justify-content-center p-2">
+                                    <label style="display:none;" id="erroNomeObra"> Tem de escrever o nome da obra</label>
+                                    <label style="display:none;" id="erroLocalObra"> Tem de escrever o local da obra </label>
+                                </div>
+                                <input type="button" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postObra();">
                             </form>
 
                         </div>

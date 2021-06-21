@@ -189,10 +189,17 @@
 									</div>
 								</div>
 
-								<!-- Menu escondido para adicionar categoria END -->
+								<!-- Menu escondido para adicionar categoria END style="display:none;"-->
 
 								<input type="file" class="form-control-file mt-3" id="myFile" name="filename">
+								<div class="row justify-content-center mt-4">
+									<label style="display:none;" id="erroNomeId"> Tem de escrever um ID </label>
+									<label style="display:none;" id="erroCodigoLongo"> Tem de escrever um codigo longo </label>
+									<label style="display:none;" id="erroNomeEquip"> Tem de escrever um nome </label>
+									<label style="display:none;" id="erroCategoria"> Tem de escolher uma categoria </label>
+									<!-- <label style="display:none;" id="erroImagem"> Tem de escolher uma imagem </label> -->
 
+								</div>
 								<input type="button" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postEquip();">
 							</form>
 						</div>
