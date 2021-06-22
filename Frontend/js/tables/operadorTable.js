@@ -20,7 +20,23 @@ $(document).ready(function() {
 	}
 	).then(result=>{
 
-		$('#dataTableOperador').DataTable({
+
+
+		$('#dataTableOperador thead tr').clone(true).appendTo('#dataTableOperador thead');
+		$('#dataTableOperador thead tr:eq(1) th').each(function (i) {
+			var title = $(this).text();
+			$(this).html('<input type="text" placeholder="Pesquisar ' + title + '" />');
+
+			$('input', this).on('keyup change', function () {
+				if (table.column(i).search() !== this.value) {
+					table.column(i).search(this.value).draw();
+				}
+			});
+		});
+
+
+		
+		var table = $('#dataTableOperador').DataTable({
 
 			data: result.data,
 

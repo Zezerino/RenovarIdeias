@@ -26,8 +26,22 @@ $(document).ready(function() {
 	}
 	).then(result=>{
 		
+
+		$('#dataTableMovimentacoes thead tr').clone(true).appendTo('#dataTableMovimentacoes thead');
+		$('#dataTableMovimentacoes thead tr:eq(1) th').each(function (i) {
+			var title = $(this).text();
+			$(this).html('<input type="text" placeholder="Pesquisar ' + title + '" />');
+
+			$('input', this).on('keyup change', function () {
+				if (table.column(i).search() !== this.value) {
+					table.column(i).search(this.value).draw();
+				}
+			});
+		});
+
+
 		
-		$('#dataTableMovimentacoes').DataTable({
+		var table = $('#dataTableMovimentacoes').DataTable({
 			data: result.data,
 			"createdRow": function( row, data, dataIndex){
 				if( data.tipo ==  'entrada' || data.tipo ==  'Entrada'){

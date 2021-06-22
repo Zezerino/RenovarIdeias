@@ -23,7 +23,7 @@ $(document).ready(function () {
 		$('#dataTableObras thead tr').clone(true).appendTo('#dataTableObras thead');
 		$('#dataTableObras thead tr:eq(1) th').each(function (i) {
 			var title = $(this).text();
-			$(this).html('<input type="text" placeholder="Search ' + title + '" />');
+			$(this).html('<input type="text" placeholder="Pesquisar ' + title + '" />');
 
 			$('input', this).on('keyup change', function () {
 				if (table.column(i).search() !== this.value) {

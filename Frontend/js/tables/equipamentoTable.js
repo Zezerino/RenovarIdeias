@@ -22,7 +22,7 @@ $(document).ready(function () {
 		$('#dataTableEquipamento thead tr').clone(true).appendTo('#dataTableEquipamento thead');
 		$('#dataTableEquipamento thead tr:eq(1) th').each(function (i) {
 			var title = $(this).text();
-			$(this).html('<input type="text" placeholder="Search ' + title + '" />');
+			$(this).html('<input type="text" placeholder="Pesquisar ' + title + '" />');
 
 			$('input', this).on('keyup change', function () {
 				if (table.column(i).search() !== this.value) {
