@@ -37,9 +37,9 @@ $(document).ready(function() {
 
 		
 		var table = $('#dataTableOperador').DataTable({
-
 			data: result.data,
-
+			orderCellsTop: true,
+			fixedHeader: true,
 			"createdRow": function( row, data, dataIndex){
 				if( data.estadoOperador == 1){
 					$(row).addClass('greenClass');

@@ -43,6 +43,8 @@ $(document).ready(function() {
 		
 		var table = $('#dataTableMovimentacoes').DataTable({
 			data: result.data,
+			orderCellsTop: true,
+			fixedHeader: true,
 			"createdRow": function( row, data, dataIndex){
 				if( data.tipo ==  'entrada' || data.tipo ==  'Entrada'){
 					$(row).addClass('greenClass');
@@ -60,7 +62,7 @@ $(document).ready(function() {
 			{ data: 'estadoLimpo'}
 			],
 			columnDefs: [
-			{ targets: [1], render:function(data){return moment(data).format('LL HH:mm');}},
+			{ targets: [1], render:function(data){return moment(data).format('YYYY/MM/DD, h:mm:ss');}}, // 
 			{ targets: [5], render:function(data){
 				if(data == "Funciona" || data.tipo ==  'funciona' ){
 					return  "<i class='fas fa-check d-flex justify-content-center mt-1'></i>";

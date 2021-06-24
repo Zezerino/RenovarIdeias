@@ -35,6 +35,8 @@ $(document).ready(function () {
 
 		var table = $('#dataTableObras').DataTable({
 			data: result.data,
+			orderCellsTop: true,
+			fixedHeader: true,
 			"createdRow": function (row, data, dataIndex) {
 				if (data.estadoObra == 1) {
 					$(row).addClass('greenClass');
