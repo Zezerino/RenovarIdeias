@@ -193,7 +193,6 @@
 											</select>
 											<input type="button" value="X" id="removerCategoriaButton" title="Remover uma categoria" onclick="javascript:removeCategoria();">
 										</div>
-
 									</div>
 								</div>
 
@@ -202,9 +201,14 @@
 								<input type="file" class="form-control-file mt-3" id="myFile" name="filename">
 								<div class="row justify-content-center mt-4">
 									<label style="display:none;" id="erroNomeId"> Tem de escrever um ID </label>
+									<label style="display:none;" id="erroSameId"> Este ID já está em uso </label>
 									<label style="display:none;" id="erroCodigoLongo"> Tem de escrever um codigo longo </label>
 									<label style="display:none;" id="erroNomeEquip"> Tem de escrever um nome </label>
 									<label style="display:none;" id="erroCategoria"> Tem de escolher uma categoria </label>
+									<label style="display:none;" id="erroAdicionarCategoria"> Não pode estar em branco </label>
+									<label style="display:none;" id="erroEscolherCategoria"> Tem de selecionar uma categoria para apagar </label>
+
+									<label style="display:none;" id="erroApagarCategoria"> Só pode apagar categorias que nunca foram usadas </label>
 									<!-- <label style="display:none;" id="erroImagem"> Tem de escolher uma imagem </label> -->
 
 								</div>

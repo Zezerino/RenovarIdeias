@@ -68,6 +68,8 @@ function postEquip() {
 	$("#erroCodigoLongo").hide();
 	$("#erroNomeEquip").hide();
 	$("#erroCategoria").hide();
+	$("#erroSameId").hide();
+
 
 
 
@@ -86,6 +88,10 @@ function postEquip() {
 	} else if (comboC[comboC.selectedIndex].value == "") {
 		//console.log("Erro Op")
 		$("#erroCategoria").show();
+		$("#formEquip").effect("shake");
+	} else if (idEquip == "") { // Falta fazer uma validação para IDS repetidos
+		//console.log("Erro Op")
+		$("#erroSameId").show();
 		$("#formEquip").effect("shake");
 	} else {
 		//console.log("Sou Válido")
@@ -137,37 +143,62 @@ function postEquip() {
 }
 
 function postCategoria() {
+	var nomeCat = document.getElementById('nomeCategoria').value
+	var souValido = false;
+
+	$("#erroAdicionarCategoria").hide();
 
 
-	console.log(document.getElementById('nomeCategoria').value);
-	var form = { "nomeCategoria": document.getElementById('nomeCategoria').value };
+	//console.log(document.getElementById('nomeCategoria').value);
+	var form = { "nomeCategoria": nomeCat};
 
-	console.log(form);
+	//console.log(form);
 
-	fetch("http://localhost:3000/categorias", {
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json; charset=utf-8'
-		},
-		method: 'POST',
-		body: JSON.stringify(form)
-	}).then(
-		response => {
-			if (response.ok) {
-				return response.json();
-			} else {
-				throw new Error(" Problema ao adicionar uma nova categoria ");
+	if (nomeCat == "") {
+		//console.log("Erro equip")
+		$("#erroAdicionarCategoria").show();
+		$("#formEquip").effect("shake");
+	} else {
+		//console.log("Sou Válido")
+		souValido = true;
+	}
+
+	if (souValido) {
+
+
+		fetch("http://localhost:3000/categorias", {
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json; charset=utf-8'
+			},
+			method: 'POST',
+			body: JSON.stringify(form)
+		}).then(
+			response => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					throw new Error(" Problema ao adicionar uma nova categoria ");
+				}
 			}
-		}
-	).then(result => {
+		).then(result => {
 
-		location.reload();
+			location.reload();
 
-	});
+		});
+	}
 
 }
 
 function removeCategoria() {
+
+	var souValido = false;
+
+	$("#erroApagarCategoria").hide();
+
+	
+
+	
 
 	var remCategoria = document.getElementById("removerCategoria");
 	var id = remCategoria[remCategoria.selectedIndex].id
@@ -176,27 +207,39 @@ function removeCategoria() {
 	const formData = new FormData();
 	formData.append("idCategoria", remCategoria[remCategoria.selectedIndex].id);
 
+	if (remCategoria[remCategoria.selectedIndex].value == "") {
+		//console.log("Erro equip")
+		$("#erroEscolherCategoria").show();
+		$("#formEquip").effect("shake");
+	} else {
+		//console.log("Sou Válido")
+		souValido = true;
+	}
 
-	fetch("http://localhost:3000/categorias/" + id, {
-		/*
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json; charset=utf-8'
-		},*/
-		method: 'DELETE',
-		body: formData
-	}).then(
-		response => {
-			if (response.ok) {
-				return response.json();
-			} else {
-				throw new Error(" Erro a apagar uma categoria (F: botaoApagar) ");
+	if (souValido) {
+
+
+		fetch("http://localhost:3000/categorias/" + id, {
+			/*
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json; charset=utf-8'
+			},*/
+			method: 'DELETE',
+			body: formData
+		}).then(
+			response => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					throw new Error(" Erro a apagar uma categoria (F: botaoApagar) ");
+				}
 			}
-		}
-	).then(result => {
+		).then(result => {
 
-		location.reload();
+			location.reload();
 
-	});
+		});
+	}
 }
 
