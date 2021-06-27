@@ -27,6 +27,8 @@ function fillCategoria() {
 
 
 		var comboCategoria = document.getElementById("comboCategoria");
+		var removerCategoria = document.getElementById("removerCategoria");
+
 
 		for (var i = 0; i < (result.data).length; i++) {
 
@@ -35,6 +37,15 @@ function fillCategoria() {
 			option.value = result.data[i].nomeCategoria;
 			option.innerHTML = result.data[i].nomeCategoria;
 			comboCategoria.appendChild(option);
+		}
+
+		for (var i = 0; i < (result.data).length; i++) {
+
+			var option = document.createElement("option");
+			option.id = result.data[i].idCategoria;
+			option.value = result.data[i].nomeCategoria;
+			option.innerHTML = result.data[i].nomeCategoria;
+			removerCategoria.appendChild(option);
 		}
 
 
@@ -155,3 +166,37 @@ function postCategoria() {
 	});
 
 }
+
+function removeCategoria() {
+
+	var remCategoria = document.getElementById("removerCategoria");
+	var id = remCategoria[remCategoria.selectedIndex].id
+	console.log(id);
+
+	const formData = new FormData();
+	formData.append("idCategoria", remCategoria[remCategoria.selectedIndex].id);
+
+
+	fetch("http://localhost:3000/categorias/" + id, {
+		/*
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json; charset=utf-8'
+		},*/
+		method: 'DELETE',
+		body: formData
+	}).then(
+		response => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw new Error(" Erro a apagar uma categoria (F: botaoApagar) ");
+			}
+		}
+	).then(result => {
+
+		location.reload();
+
+	});
+}
+

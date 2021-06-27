@@ -161,7 +161,6 @@
 				<div class="col-lg-7">
 					<div class="row justify-content-center align-items-center">
 						<div class="form-group">
-							<label for="exampleInputEmail1">Nome do novo Equipamento</label>
 							<form name="formEquip" id="formEquip">
 								<!--action="http://localhost:3000/equipamentos" method="post"-->
 
@@ -179,14 +178,22 @@
 
 
 								<!-- Menu escondido para adicionar categoria START -->
-								<a class="collapsed ml-4 mt-3" href="#" data-toggle="collapse" data-target="#collapseCategoria" aria-expanded="true" aria-controls="collapseCategoria">
+								<a class="collapsed ml-4 mt-3" href="#" data-toggle="collapse" title="Opções Categoria" data-target="#collapseCategoria" aria-expanded="true" aria-controls="collapseCategoria">
 									<i class="far fa-plus-square fa-lg"></i>
 								</a>
 
 								<div id="collapseCategoria" class="collapse" aria-labelledby="headingTwo" data-parent="">
 									<div class="collapse-inner rounded">
-										<input type="text" class="form-control ml-5" id="nomeCategoria" aria-describedby="nomeCategoria" placeholder="Nome da Categoria">
-										<input type="button" class="" value="Add" id="nomeCategoriaButton" onclick="javascript:postCategoria();">
+										
+										<input type="text" class="form-control ml-5" id="nomeCategoria" placeholder="Nome da Categoria">
+										<input type="button" value="Add" id="nomeCategoriaButton" title="Adicionar uma categoria" onclick="javascript:postCategoria();">
+										<div>
+											<select class="form-control ml-5" id="removerCategoria">
+												<option value="">Remover Categoria</option>
+											</select>
+											<input type="button" value="X" id="removerCategoriaButton" title="Remover uma categoria" onclick="javascript:removeCategoria();">
+										</div>
+
 									</div>
 								</div>
 

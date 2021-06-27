@@ -77,9 +77,23 @@
   border: 1px solid #d1d3e2;
 }
 
+
+#removerCategoria{
+  display: inline-block;
+  width: 57%;
+  height: 35px;
+}
+
+#removerCategoriaButton{
+  display: inline-block;
+  width: 15%;
+  color: #6e707e;
+  border: 1px solid #d1d3e2;
+}
+
 #nomeCategoria{
   display: inline-block;
-  width: 50%;
+  width: 57%;
   margin: 5% auto; /* 15% from the top and centered */
   height: 30px;
 }
