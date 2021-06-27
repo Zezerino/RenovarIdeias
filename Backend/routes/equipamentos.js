@@ -2,8 +2,12 @@ const express = require('express');
 const router = express.Router();
 const equipamentos = require('../services/equipamentos');
 const multer = require('multer');
-const storage = multer.diskStorage({
+
+
+const storage = multer.diskStorage(
+  {
   destination: function(req, file, cb){
+    console.log(req.body.idEquipamento);
     cb(null, './uploads/');
   },
   filename: function(req, file, cb){
@@ -74,8 +78,9 @@ router.post('/', upload.single('imagemEquipamento') ,async function(req, res, ne
 });
 
 /* PUT equipamentos */
-router.put('/:id', async function(req, res, next) {
+router.put('/:id',  upload.single('imagemEquipamento'),async function(req, res, next) {
   try {
+    console.log(req.body);
     res.json(await equipamentos.update(req.params.id, req.body));
   } catch (err) {
     console.error(`Error while updating equipamentos`, err.message);

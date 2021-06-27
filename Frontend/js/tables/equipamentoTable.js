@@ -57,7 +57,7 @@ $(document).ready(function () {
 			columnDefs: [
 				{
 					targets: [0], render: function (data) {
-						return "<div class='hover_img'><a href='http://localhost:3000/uploads/" +data +".png' target='_blank'>" + data + "<span><img src='http://localhost:3000/uploads/" +data +".png' alt='" + data + "' height='150' /></span></a></div>"
+						return "<div class='hover_img'><a href='http://localhost:3000/uploads/" + data + ".png' target='_blank'>" + data + "<span><img src='http://localhost:3000/uploads/" + data + ".png' alt='" + data + "' height='150' /></span></a></div>"
 					}
 				},
 				{
@@ -166,28 +166,38 @@ $('#botaoEquipamento').click(function () {
 
 
 
-	var idText = document.getElementById("idEquipamentoEditar");
-	var codigoText = document.getElementById("idCodigoEditar");
-	var nomeText = document.getElementById("nomeEquipamentoEditar");
+	var idText = document.getElementById("idEquipamentoEditar").value;
+	var codigoText = document.getElementById("idCodigoEditar").value;
+	var nomeText = document.getElementById("nomeEquipamentoEditar").value;
 	var estadoCheck = document.getElementById("checkBoxEquipamentoEditar");
 	var checkF = 0;
 
 
-	if (estadoCheck.checked) {
-		checkF = 1;
+	const formData = new FormData();
 
+	if (estadoCheck.checked) {
+		checkF = 1;	
 	}
 
 
-	var form = { "idEquipamento": idText.value, "codigoLongo": codigoText.value, "nomeEquipamento": nomeText.value, "estadoEquipamento": checkF };
+	formData.append("idEquipamento", idText);
+	formData.append("codigoLongo", codigoText);
+	formData.append("nomeEquipamento", nomeText);
+	//formData.append("idCategoria", comboC[comboC.selectedIndex].id);
+	formData.append("estadoEquipamento", checkF);
+	formData.append("imagemEquipamento", document.getElementById('myFileUpdate').files[0]);
 
-	fetch("http://localhost:3000/equipamentos/" + idText.value, {
+	console.log(formData.values());
+	//var form = { "idEquipamento": idText.value, "codigoLongo": codigoText.value, "nomeEquipamento": nomeText.value, "estadoEquipamento": checkF };
+
+	fetch("http://localhost:3000/equipamentos/" + idText, {
+		/*
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
-		},
+		},*/
 		method: 'PUT',
-		body: JSON.stringify(form)
+		body: formData
 	}).then(
 		response => {
 			if (response.ok) {

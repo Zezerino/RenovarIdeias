@@ -117,7 +117,7 @@ async function update(id, equip){
     SET idEquipamento=?, codigoLongo=?, nomeEquipamento=?, estadoEquipamento=?
     WHERE idEquipamento=?`, 
     [
-      equip.idEquipamento, equip.codigoLongo,equip.nomeEquipamento, equip.estadoEquipamento , id
+      equip.idEquipamento, equip.codigoLongo, equip.nomeEquipamento, equip.estadoEquipamento , id
     ]
   );
 
