@@ -33,6 +33,22 @@ async function getView(page = 1){
   }
 }
 
+async function getCategoriaId(id){
+  const offset = helper.getOffset(config.listPerPage);
+  const rows = await db.query(
+    `SELECT * 
+    FROM equipamentos
+    WHERE idCategoria=?`, 
+    [id
+    ]
+  );
+  const data = helper.emptyOrRows(rows);
+
+  return {
+    data
+  }
+}
+
 
 async function getId(id){
   const offset = helper.getOffset(config.listPerPage);
@@ -177,6 +193,7 @@ module.exports = {
   updateEntradas,
   remove,
   getView,
+  getCategoriaId,
   getId,
   getAllDisponivel,
   getAllInDisponivel

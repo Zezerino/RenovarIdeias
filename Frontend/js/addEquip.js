@@ -248,27 +248,61 @@ function removeCategoria() {
 	if (souValido) {
 
 
-		fetch("http://localhost:3000/categorias/" + id, {
-			/*
+		fetch("http://localhost:3000/equipamentos/categoria/" + id, {
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json; charset=utf-8'
-			},*/
-			method: 'DELETE',
-			body: formData
+			},
+			method: 'GET'
 		}).then(
 			response => {
 				if (response.ok) {
 					return response.json();
 				} else {
-					throw new Error(" Erro a apagar uma categoria (F: botaoApagar) ");
+					throw new Error("something went wrong");
 				}
 			}
 		).then(result => {
+			
+			
+			if(result.data.length == 0){
 
-			location.reload();
+				fetch("http://localhost:3000/categorias/" + id, {
+					/*
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json; charset=utf-8'
+					},*/
+					method: 'DELETE',
+					body: formData
+				}).then(
+					response => {
+						if (response.ok) {
+							return response.json();
+						} else {
+							throw new Error(" Erro a apagar uma categoria (F: botaoApagar) ");
+						}
+					}
+				).then(result => {
+		
+					location.reload();
+		
+				});
 
+			}else{
+				$("#erroApagarCategoria").show();
+				$("#formEquip").effect("shake");
+			}
+	
 		});
+
+
+
+
+		
+
+
+
 	}
 }
 

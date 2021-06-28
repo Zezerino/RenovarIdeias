@@ -56,6 +56,17 @@ router.get('/view', async function(req, res, next) {
   }
 });
 
+//ficar sempre no fim dos gets
+router.get('/categoria/:id', async function(req, res, next) {
+  try {
+    res.json(await equipamentos.getCategoriaId(req.params.id));
+  } catch (err) {
+    console.error(`Erro a receber categorias id`, err.message);
+    next(err);
+  }
+});
+
+
 
 //ficar sempre no fim dos gets
 router.get('/:id', async function(req, res, next) {
