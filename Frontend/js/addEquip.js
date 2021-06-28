@@ -53,14 +53,11 @@ function fillCategoria() {
 
 }
 
-function checkIfExist(checkId) {
+function checkIfExist(idEquip,codL,nomeEquip,comboC) {
 
-	
-	var idEquip = document.getElementById("idEquipamento").value;
-	var codL = document.getElementById("codigoLongo").value;
-	var nomeEquip = document.getElementById("nomeEquipamento").value;
-	var comboC = document.getElementById("comboCategoria");
-	
+
+	var upperIdEquip = idEquip.toUpperCase();
+	var upperCodL = codL.toUpperCase();
 
 	fetch("http://localhost:3000/equipamentos/", {
 		headers: {
@@ -82,7 +79,7 @@ function checkIfExist(checkId) {
 
 		for (var i = 0; i < (result.data).length; i++) {
 
-			if (result.data[i].idEquipamento == checkId) {
+			if (result.data[i].idEquipamento == idEquip || result.data[i].idEquipamento == idEquip.toUpperCase() || result.data[i].idEquipamento == idEquip.toLowerCase() ) {
 				$("#erroSameId").show();
 				$("#formEquip").effect("shake");
 				insert = false
@@ -93,8 +90,8 @@ function checkIfExist(checkId) {
 		if(insert){
 
 			const formData = new FormData();
-			formData.append("idEquipamento", idEquip);
-			formData.append("codigoLongo", codL);
+			formData.append("idEquipamento", upperIdEquip);
+			formData.append("codigoLongo", upperCodL);
 			formData.append("nomeEquipamento", nomeEquip);
 			formData.append("idCategoria", comboC[comboC.selectedIndex].id);		
 			formData.append("estadoEquipamento", 1);
@@ -168,7 +165,8 @@ function postEquip() {
 
 	if (souValido) {
 
-		checkIfExist(idEquip)
+		// Faz o check e depois o post
+		checkIfExist(idEquip,codL,nomeEquip,comboC)
 
 	}
 }

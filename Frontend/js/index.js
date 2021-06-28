@@ -53,8 +53,11 @@ function changeEntrega(estadoEntrega, id) {
 
 function postEntrada() {
 
+	var idEquip = document.getElementById("equipamentoInput").value;
 
-	var idEquipamento = document.getElementById("equipamentoInput").value;
+
+
+	var idEquipamento = idEquip.toUpperCase();
 	var comboO = document.getElementById("comboObra");
 	var comboW = document.getElementById("comboOperador");
 
@@ -170,7 +173,9 @@ function postEntrada() {
 
 function postSaida() {
 
-	var idEquipamentoS = document.getElementById("equipamentoInputS").value;
+	var idEquip = document.getElementById("equipamentoInputS").value;
+
+	var idEquipamentoS = idEquip.toUpperCase()
 	var comboOS = document.getElementById("comboObraS");
 	var comboWS = document.getElementById("comboOperadorS");
 	var checkE = 0;
