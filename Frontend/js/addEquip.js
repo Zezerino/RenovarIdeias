@@ -53,6 +53,78 @@ function fillCategoria() {
 
 }
 
+function checkIfExist(checkId) {
+
+	
+	var idEquip = document.getElementById("idEquipamento").value;
+	var codL = document.getElementById("codigoLongo").value;
+	var nomeEquip = document.getElementById("nomeEquipamento").value;
+	var comboC = document.getElementById("comboCategoria");
+	
+
+	fetch("http://localhost:3000/equipamentos/", {
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json; charset=utf-8'
+		},
+		method: 'GET'
+	}).then(
+		response => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw new Error("something went wrong");
+			}
+		}
+	).then(result => {
+
+		var insert = true;
+
+		for (var i = 0; i < (result.data).length; i++) {
+
+			if (result.data[i].idEquipamento == checkId) {
+				$("#erroSameId").show();
+				$("#formEquip").effect("shake");
+				insert = false
+			}
+		}
+		
+		// Se existir não entra aqui
+		if(insert){
+
+			const formData = new FormData();
+			formData.append("idEquipamento", idEquip);
+			formData.append("codigoLongo", codL);
+			formData.append("nomeEquipamento", nomeEquip);
+			formData.append("idCategoria", comboC[comboC.selectedIndex].id);		
+			formData.append("estadoEquipamento", 1);
+			formData.append("imagemEquipamento", document.getElementById('myFile').files[0]);
+
+			fetch("http://localhost:3000/equipamentos", {
+				method: 'POST',
+				body: formData
+			}).then(
+				response => {
+					if (response.ok) {
+						return response.json();
+					} else {
+						throw new Error(" Problema ao adicionar um novo equipamento ");
+					}
+				}
+			).then(result => {
+
+				location.reload();
+
+			});
+
+		}
+
+		
+	});
+
+}
+
+
 
 function postEquip() {
 
@@ -70,9 +142,7 @@ function postEquip() {
 	$("#erroCategoria").hide();
 	$("#erroSameId").hide();
 
-
-
-
+	
 	if (idEquip == "") {
 		//console.log("Erro equip")
 		$("#erroNomeId").show();
@@ -89,10 +159,6 @@ function postEquip() {
 		//console.log("Erro Op")
 		$("#erroCategoria").show();
 		$("#formEquip").effect("shake");
-	} else if (idEquip == "") { // Falta fazer uma validação para IDS repetidos
-		//console.log("Erro Op")
-		$("#erroSameId").show();
-		$("#formEquip").effect("shake");
 	} else {
 		//console.log("Sou Válido")
 		souValido = true;
@@ -102,43 +168,8 @@ function postEquip() {
 
 	if (souValido) {
 
-		//var form = {"idEquipamento":document.getElementById('idEquipamento').value, "codigoLongo":document.getElementById('codigoLongo').value, "nomeEquipamento":document.getElementById('nomeEquipamento').value, "estadoEquipamento":1};
-		const formData = new FormData();
-		formData.append("idEquipamento", idEquip);
-		formData.append("codigoLongo", codL);
-		formData.append("nomeEquipamento", nomeEquip);
-		formData.append("idCategoria", comboC[comboC.selectedIndex].id);
+		checkIfExist(idEquip)
 
-		formData.append("estadoEquipamento", 1);
-
-		// console.log(document.getElementById('comboCategoria').value)
-		// console.log('yooo fsfsfsf');
-		// console.log(document.getElementById('myFile').files[0]);
-
-		formData.append("imagemEquipamento", document.getElementById('myFile').files[0]);
-
-
-		fetch("http://localhost:3000/equipamentos", {
-			/*headers:{
-			'Accept': 'application/json',
-			'Content-Type': 'application/json; charset=utf-8'
-			},*/
-			method: 'POST',
-			body: formData
-			/*body: JSON.stringify(form)*/
-		}).then(
-			response => {
-				if (response.ok) {
-					return response.json();
-				} else {
-					throw new Error(" Problema ao adicionar um novo equipamento ");
-				}
-			}
-		).then(result => {
-
-			location.reload();
-
-		});
 	}
 }
 
