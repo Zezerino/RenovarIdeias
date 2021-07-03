@@ -2,6 +2,13 @@ $( document ).ready(function() {
 
 	console.log( "addObra ready!" );
 
+	if (sessionStorage.getItem('loggedIn') == 'true') {
+
+	}else {
+		console.log("here");
+		window.location.replace("../index.html");
+
+	}
 
 });
 

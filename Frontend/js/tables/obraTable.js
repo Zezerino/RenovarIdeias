@@ -1,81 +1,84 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
 
-
-	fetch("http://localhost:3000/obras/view", {
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json; charset=utf-8'
-		},
-		method: 'GET'
-	}).then(
-		response => {
-			if (response.ok) {
-
-				return response.json();
-			} else {
-
-				throw new Error(" Erro a receber dados da BD da tabela obras ");
-			}
-		}
-	).then(result => {
-
-		$('#dataTableObras thead tr').clone(true).appendTo('#dataTableObras thead');
-		$('#dataTableObras thead tr:eq(1) th').each(function (i) {
-			var title = $(this).text();
-			$(this).html('<input type="text" placeholder="Pesquisar ' + title + '" />');
-
-			$('input', this).on('keyup change', function () {
-				if (table.column(i).search() !== this.value) {
-					table.column(i).search(this.value).draw();
-				}
-			});
-		});
-
-
-		var table = $('#dataTableObras').DataTable({
-			data: result.data,
-			orderCellsTop: true,
-			fixedHeader: true,
-			"createdRow": function (row, data, dataIndex) {
-				if (data.estadoObra == 1) {
-					$(row).addClass('greenClass');
-				} else {
-					$(row).addClass('redClass');
-				}
+	if (sessionStorage.getItem('loggedIn') == 'true') {
+		fetch("http://localhost:3000/obras/view", {
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json; charset=utf-8'
 			},
-			columns: [
-				{ data: 'idObra' },
-				{ data: 'nomeObra' },
-				{ data: 'localObra' },
-				{ data: 'estadoObra' },
-				{
-					data: 'idObra', // can be null or undefined
-					"defaultContent": ""
+			method: 'GET'
+		}).then(
+			response => {
+				if (response.ok) {
+
+					return response.json();
+				} else {
+
+					throw new Error(" Erro a receber dados da BD da tabela obras ");
 				}
-			],
-			columnDefs: [
-				{
-					targets: [3], render: function (data) {
-						if (data == 1) {
-							return "Ativo";
-						} else {
-							return "Desativado";
-						}
+			}
+		).then(result => {
+
+			$('#dataTableObras thead tr').clone(true).appendTo('#dataTableObras thead');
+			$('#dataTableObras thead tr:eq(1) th').each(function (i) {
+				var title = $(this).text();
+				$(this).html('<input type="text" placeholder="Pesquisar ' + title + '" />');
+
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table.column(i).search(this.value).draw();
+					}
+				});
+			});
+
+
+			var table = $('#dataTableObras').DataTable({
+				data: result.data,
+				orderCellsTop: true,
+				fixedHeader: true,
+				"createdRow": function (row, data, dataIndex) {
+					if (data.estadoObra == 1) {
+						$(row).addClass('greenClass');
+					} else {
+						$(row).addClass('redClass');
 					}
 				},
-				{
-					targets: [4], render: function (data) {
-						return "<button class='btn btn-test'  type='button' id='" + data + "' onClick=editarObra(" + data + ")> <i class='far fa-edit fa-lg'> </i> </button>"
+				columns: [
+					{ data: 'idObra' },
+					{ data: 'nomeObra' },
+					{ data: 'localObra' },
+					{ data: 'estadoObra' },
+					{
+						data: 'idObra', // can be null or undefined
+						"defaultContent": ""
 					}
-				}
-			],
-			"order": [[0, "desc"]]
-		}
-		);
+				],
+				columnDefs: [
+					{
+						targets: [3], render: function (data) {
+							if (data == 1) {
+								return "Ativo";
+							} else {
+								return "Desativado";
+							}
+						}
+					},
+					{
+						targets: [4], render: function (data) {
+							return "<button class='btn btn-test'  type='button' id='" + data + "' onClick=editarObra(" + data + ")> <i class='far fa-edit fa-lg'> </i> </button>"
+						}
+					}
+				],
+				"order": [[0, "desc"]]
+			}
+			);
 
-	})
-		.catch(error => alert(' Erro a colocar dados na tabela obras' + error.message));
+		})
+			.catch(error => alert(' Erro a colocar dados na tabela obras' + error.message));
+	} else {
+		window.location.replace("index.html");
+	}
 
 });
 

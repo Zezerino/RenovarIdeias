@@ -15,8 +15,8 @@
 	<!-- Custom fonts for this template-->
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link
-	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
 
 
 
@@ -66,9 +66,10 @@
 				</a>
 
 				<!-- Divisor -->
-				<hr class="sidebar-divider">
+				<hr class="sidebar-divider" id="hideThis">
 
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+					aria-expanded="true" aria-controls="collapseTwo" id="adminStuff">
 					<i class="fas fa-fw fa-cog"></i>
 					<span>Interface</span>
 				</a>
@@ -98,7 +99,38 @@
 
 			</li>
 
+			<!-- Divisor -->
+			<hr class="sidebar-divider">
 
+			<li class="nav-item">
+				<a class="nav-link login" id="loginBtn" href="#" onclick="loginModal();">
+					<i class="fas fa-sign-in-alt"></i>
+					<span>Login</span>
+				</a>
+			</li>
+
+			<!-- The Modal -->
+			<div id="myModalLogin" class="modal">
+
+				<!-- Modal content -->
+				<div class="bootstrap-overrides custom-control custom-checkbox">
+					<span class="close mb-5">&times;</span>
+
+					<form name="loginForm" id="loginForm">
+						<label class="mt-5" for="flexCheckDefault">Nome de utilizador</label>
+						<input type="text" class="form-control mb-3" id="username" aria-describedby="idEquipamento">
+
+						<label class="" for="flexCheckDefault">Password</label>
+						<input type="password" class="form-control mb-3" id="password" aria-describedby="idCodigo">
+
+						<input type="button" id="botaologin" value="Login" class="btn btn-dark btn-block py-3 mt-3">
+					</form>
+					<div class="mt-3" id="divErroLogin">
+
+					</div>
+				</div>
+
+			</div>
 
 			<!-- Divisor -->
 			<hr class="sidebar-divider">
@@ -126,23 +158,28 @@
 
 					<form name="formEquipamento" id="formEquipamento">
 						<label class="mt-5" for="flexCheckDefault">ID do Equipamento</label>
-						<input type="text" class="form-control mb-3" id="idEquipamentoEditar" aria-describedby="idEquipamento">
+						<input type="text" class="form-control mb-3" id="idEquipamentoEditar"
+							aria-describedby="idEquipamento">
 
 						<label class="" for="flexCheckDefault">Codigo Longo</label>
 						<input type="text" class="form-control mb-3" id="idCodigoEditar" aria-describedby="idCodigo">
 
 						<label class="" for="flexCheckDefault">Nome do Equipamento</label>
-						<input type="text" class="form-control mb-3" id="nomeEquipamentoEditar" aria-describedby="nomeEquipamento">
+						<input type="text" class="form-control mb-3" id="nomeEquipamentoEditar"
+							aria-describedby="nomeEquipamento">
 
 						<input type="file" class="form-control-file mt-3 mb-3" id="myFileUpdate" name="filename">
 
 						<div class="custom-control custom-checkbox">
-							<input class="custom-control-input" type="checkbox" value=1 id="checkBoxEquipamentoEditar" checked="checked">
-							<label class="custom-control-label pl-3" id="checkboxFuncionaL" for="checkBoxEquipamentoEditar">Ativo</label>
+							<input class="custom-control-input" type="checkbox" value=1 id="checkBoxEquipamentoEditar"
+								checked="checked">
+							<label class="custom-control-label pl-3" id="checkboxFuncionaL"
+								for="checkBoxEquipamentoEditar">Ativo</label>
 						</div>
 
 
-						<input type="button" id="botaoEquipamento" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3">
+						<input type="button" id="botaoEquipamento" value="Adicionar"
+							class="btn btn-dark btn-block py-3 mt-3">
 					</form>
 				</div>
 
@@ -164,11 +201,14 @@
 							<form name="formEquip" id="formEquip">
 								<!--action="http://localhost:3000/equipamentos" method="post"-->
 
-								<input type="text" class="form-control mt-3" id="idEquipamento" aria-describedby="idEquipamento" placeholder="ID">
+								<input type="text" class="form-control mt-3" id="idEquipamento"
+									aria-describedby="idEquipamento" placeholder="ID">
 
-								<input type="text" class="form-control mt-3" id="codigoLongo" aria-describedby="codigoLongo" placeholder="Codigo Longo">
+								<input type="text" class="form-control mt-3" id="codigoLongo"
+									aria-describedby="codigoLongo" placeholder="Codigo Longo">
 
-								<input type="text" class="form-control mt-3" id="nomeEquipamento" aria-describedby="nomeEquipamento" placeholder="Nome do Equipamento">
+								<input type="text" class="form-control mt-3" id="nomeEquipamento"
+									aria-describedby="nomeEquipamento" placeholder="Nome do Equipamento">
 
 
 
@@ -178,20 +218,26 @@
 
 
 								<!-- Menu escondido para adicionar categoria START -->
-								<a class="collapsed ml-4 mt-3" href="#" data-toggle="collapse" title="Opções Categoria" data-target="#collapseCategoria" aria-expanded="true" aria-controls="collapseCategoria">
+								<a class="collapsed ml-4 mt-3" href="#" data-toggle="collapse" title="Opções Categoria"
+									data-target="#collapseCategoria" aria-expanded="true"
+									aria-controls="collapseCategoria">
 									<i class="far fa-plus-square fa-lg"></i>
 								</a>
 
-								<div id="collapseCategoria" class="collapse" aria-labelledby="headingTwo" data-parent="">
+								<div id="collapseCategoria" class="collapse" aria-labelledby="headingTwo"
+									data-parent="">
 									<div class="collapse-inner rounded">
-										
-										<input type="text" class="form-control ml-5" id="nomeCategoria" placeholder="Nome da Categoria">
-										<input type="button" value="Add" id="nomeCategoriaButton" title="Adicionar uma categoria" onclick="javascript:postCategoria();">
+
+										<input type="text" class="form-control ml-5" id="nomeCategoria"
+											placeholder="Nome da Categoria">
+										<input type="button" value="Add" id="nomeCategoriaButton"
+											title="Adicionar uma categoria" onclick="javascript:postCategoria();">
 										<div>
 											<select class="form-control ml-5" id="removerCategoria">
 												<option value="">Remover Categoria</option>
 											</select>
-											<input type="button" value="X" id="removerCategoriaButton" title="Remover uma categoria" onclick="javascript:removeCategoria();">
+											<input type="button" value="X" id="removerCategoriaButton"
+												title="Remover uma categoria" onclick="javascript:removeCategoria();">
 										</div>
 									</div>
 								</div>
@@ -202,17 +248,23 @@
 								<div class="row justify-content-center mt-4">
 									<label style="display:none;" id="erroNomeId"> Tem de escrever um ID </label>
 									<label style="display:none;" id="erroSameId"> Este ID já está em uso </label>
-									<label style="display:none;" id="erroCodigoLongo"> Tem de escrever um codigo longo </label>
+									<label style="display:none;" id="erroCodigoLongo"> Tem de escrever um codigo longo
+									</label>
 									<label style="display:none;" id="erroNomeEquip"> Tem de escrever um nome </label>
-									<label style="display:none;" id="erroCategoria"> Tem de escolher uma categoria </label>
-									<label style="display:none;" id="erroAdicionarCategoria"> Não pode estar em branco </label>
-									<label style="display:none;" id="erroEscolherCategoria"> Tem de selecionar uma categoria para apagar </label>
+									<label style="display:none;" id="erroCategoria"> Tem de escolher uma categoria
+									</label>
+									<label style="display:none;" id="erroAdicionarCategoria"> Não pode estar em branco
+									</label>
+									<label style="display:none;" id="erroEscolherCategoria"> Tem de selecionar uma
+										categoria para apagar </label>
 
-									<label style="display:none;" id="erroApagarCategoria"> Só pode apagar categorias que nunca foram usadas </label>
+									<label style="display:none;" id="erroApagarCategoria"> Só pode apagar categorias que
+										nunca foram usadas </label>
 									<!-- <label style="display:none;" id="erroImagem"> Tem de escolher uma imagem </label> -->
 
 								</div>
-								<input type="button" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3" onclick="javascript:postEquip();">
+								<input type="button" value="Adicionar" class="btn btn-dark btn-block py-3 mt-3"
+									onclick="javascript:postEquip();">
 							</form>
 						</div>
 					</div>
@@ -232,7 +284,8 @@
 				<div class="card shadow mb-4 ">
 					<div class="card-body">
 						<div class="table-responsive">
-							<table class="table table-bordered text-gray-900" id="dataTableEquipamento" width="100%" cellspacing="0">
+							<table class="table table-bordered text-gray-900" id="dataTableEquipamento" width="100%"
+								cellspacing="0">
 								<thead>
 									<tr>
 										<th>ID</th>
@@ -269,7 +322,7 @@
 			</footer>
 
 
-		</div>  <!-- 2ndContent Wrapper -->
+		</div> <!-- 2ndContent Wrapper -->
 
 	</div> <!-- 1st Wrapper -->
 
@@ -314,6 +367,7 @@
 	<!-- Page level custom scripts -->
 	<script src="js/addEquip.js"></script>
 	<script src="js/tables/equipamentoTable.js"></script>
+	<script src="js/common-functions.js"></script>
 
 </body>
 

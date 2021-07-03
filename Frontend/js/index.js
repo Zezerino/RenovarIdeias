@@ -13,7 +13,6 @@ $(document).ready(function () {
 
 
 
-
 function changeEntrega(estadoEntrega, id) {
 
 
@@ -166,7 +165,6 @@ function postEntrada() {
 
 
 }
-
 
 
 

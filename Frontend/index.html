@@ -61,9 +61,9 @@
 				</a>
 
 				<!-- Divisor -->
-				<hr class="sidebar-divider">
+				<hr class="sidebar-divider" id="hideThis">
 
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+				<a class="nav-link collapsed admin" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id="adminStuff">
 					<i class="fas fa-fw fa-cog"></i>
 					<span>Interface</span>
 				</a>
@@ -91,8 +91,40 @@
 					</div>
 				</div>
 
+				<!-- Divisor -->
+				<hr class="sidebar-divider">
+
+			
+				<a class="nav-link login" id="loginBtn" href="#" onclick="loginModal();">
+					<i class="fas fa-sign-in-alt"></i>
+					<span>Login</span>
+				</a>
+
 			</li>
 
+			<!-- The Modal -->
+			<div id="myModalLogin" class="modal">
+
+				<!-- Modal content -->
+				<div class="bootstrap-overrides custom-control custom-checkbox">
+					<span class="close mb-5">&times;</span>
+
+					<form name="loginForm" id="loginForm">
+						<label class="mt-5" for="flexCheckDefault">Nome de utilizador</label>
+						<input type="text" class="form-control mb-3" id="username" aria-describedby="idEquipamento">
+
+						<label class="" for="flexCheckDefault">Password</label>
+						<input type="password" class="form-control mb-3" id="password" aria-describedby="idCodigo">
+
+						<input type="button" id="botaologin" value="Login" class="btn btn-dark btn-block py-3 mt-3">
+					</form>
+					<div class="mt-3" id="divErroLogin">
+
+					</div>
+				</div>
+
+			</div>
+			
 
 
 			<!-- Divisor -->
@@ -302,6 +334,7 @@
 
 	<!-- Page level custom scripts -->
 	<script src="js/index.js"></script>
+	<script src="js/common-functions.js"></script>
 
 </body>
 

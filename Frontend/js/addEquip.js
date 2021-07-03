@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+
+	if(true){
+		window.location.replace("file:///C:/Users/Dumbr/Desktop/RenovarIdeias/RenovarIdeias/Frontend/addObra.html");
+
+	}
+
 	console.log("addEquip ready!");
 	fillCategoria()
 

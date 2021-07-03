@@ -1,87 +1,89 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
 
-
-	fetch("http://localhost:3000/equipamentos/view", {
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json; charset=utf-8'
-		},
-		method: 'GET'
-	}).then(
-		response => {
-			if (response.ok) {
-				return response.json();
-			} else {
-				throw new Error(" Erro a receber dados da BD da tabela equipamentos ");
-			}
-		}
-	).then(result => {
-
-		// Setup - add a text input to each footer cell
-		$('#dataTableEquipamento thead tr').clone(true).appendTo('#dataTableEquipamento thead');
-		$('#dataTableEquipamento thead tr:eq(1) th').each(function (i) {
-			var title = $(this).text();
-			$(this).html('<input type="text" placeholder="Pesquisar ' + title + '" />');
-
-			$('input', this).on('keyup change', function () {
-				if (table.column(i).search() !== this.value) {
-					table.column(i).search(this.value).draw();
-				}
-			});
-		});
-
-		var table = $('#dataTableEquipamento').DataTable({
-
-			orderCellsTop: true,
-			fixedHeader: true,
-			data: result.data,
-			"createdRow": function (row, data, dataIndex) {
-				if (data.estadoEquipamento == 1) {
-					$(row).addClass('greenClass');
-				} else {
-					$(row).addClass('redClass');
-				}
+	if (sessionStorage.getItem('loggedIn') == 'true') {
+		fetch("http://localhost:3000/equipamentos/view", {
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json; charset=utf-8'
 			},
-			columns: [
-				{ data: 'idEquipamento' },
-				{ data: 'codigoLongo' },
-				{ data: 'nomeEquipamento' },
-				{ data: 'nomeCategoria' },
-				{ data: 'estadoEquipamento' },
-				{
-					data: 'idEquipamento', // can be null or undefined
-					"defaultContent": ""
+			method: 'GET'
+		}).then(
+			response => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					throw new Error(" Erro a receber dados da BD da tabela equipamentos ");
 				}
-			],
-			columnDefs: [
-				{
-					targets: [0], render: function (data) {
-						return "<div class='hover_img'><a href='http://localhost:3000/uploads/" + data + ".png' target='_blank'>" + data + "<span><img src='http://localhost:3000/uploads/" + data + ".png' alt='" + data + "' height='150' /></span></a></div>"
+			}
+		).then(result => {
+
+			// Setup - add a text input to each footer cell
+			$('#dataTableEquipamento thead tr').clone(true).appendTo('#dataTableEquipamento thead');
+			$('#dataTableEquipamento thead tr:eq(1) th').each(function (i) {
+				var title = $(this).text();
+				$(this).html('<input type="text" placeholder="Pesquisar ' + title + '" />');
+
+				$('input', this).on('keyup change', function () {
+					if (table.column(i).search() !== this.value) {
+						table.column(i).search(this.value).draw();
+					}
+				});
+			});
+
+			var table = $('#dataTableEquipamento').DataTable({
+
+				orderCellsTop: true,
+				fixedHeader: true,
+				data: result.data,
+				"createdRow": function (row, data, dataIndex) {
+					if (data.estadoEquipamento == 1) {
+						$(row).addClass('greenClass');
+					} else {
+						$(row).addClass('redClass');
 					}
 				},
-				{
-					targets: [4], render: function (data) {
-						if (data == 1) {
-							return "Ativo";
-						} else {
-							return "Desativado";
+				columns: [
+					{ data: 'idEquipamento' },
+					{ data: 'codigoLongo' },
+					{ data: 'nomeEquipamento' },
+					{ data: 'nomeCategoria' },
+					{ data: 'estadoEquipamento' },
+					{
+						data: 'idEquipamento', // can be null or undefined
+						"defaultContent": ""
+					}
+				],
+				columnDefs: [
+					{
+						targets: [0], render: function (data) {
+							return "<div class='hover_img'><a href='http://localhost:3000/uploads/" + data + ".png' target='_blank'>" + data + "<span><img src='http://localhost:3000/uploads/" + data + ".png' alt='" + data + "' height='150' /></span></a></div>"
+						}
+					},
+					{
+						targets: [4], render: function (data) {
+							if (data == 1) {
+								return "Ativo";
+							} else {
+								return "Desativado";
+							}
+						}
+					},
+					{
+						targets: [5], render: function (data) {
+							return "<button class='btn'  type='button' id='" + data + "' onClick=editarEquipamento('" + data + "')> <i class='far fa-edit'> </i> </button>"
 						}
 					}
-				},
-				{
-					targets: [5], render: function (data) {
-						return "<button class='btn'  type='button' id='" + data + "' onClick=editarEquipamento('" + data + "')> <i class='far fa-edit'> </i> </button>"
-					}
-				}
-			],
-			"order": [[0, "desc"]]
-		}
-		);
+				],
+				"order": [[0, "desc"]]
+			}
+			);
 
-	})
-		.catch(error => alert(' Erro a colocar os dados na tabela equipamento ' + error.message));
-
+		})
+			.catch(error => alert(' Erro a colocar os dados na tabela equipamento ' + error.message));
+	} else {
+		window.location.replace("index.html");
+	}
 
 });
 
@@ -176,7 +178,7 @@ $('#botaoEquipamento').click(function () {
 	const formData = new FormData();
 
 	if (estadoCheck.checked) {
-		checkF = 1;	
+		checkF = 1;
 	}
 
 

@@ -2,7 +2,6 @@ $( document ).ready(function() {
 
 	console.log( "addOperador ready!" );
 
-
 });
 
 

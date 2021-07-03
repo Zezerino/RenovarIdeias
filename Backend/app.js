@@ -16,6 +16,7 @@ const equipamentosRouter = require('./routes/equipamentos');
 const movimentosRouter = require('./routes/movimentos');
 const obrasRouter = require('./routes/obras');
 const categoriasRouter = require('./routes/categorias');
+const utilizadoresRouter = require('./routes/utilizadores');
 
 
 
@@ -41,6 +42,7 @@ app.use('/categorias', categoriasRouter);
 app.use('/equipamentos', equipamentosRouter);
 app.use('/movimentos', movimentosRouter);
 app.use('/obras', obrasRouter);
+app.use('/utilizadores', utilizadoresRouter);
 
 
 app.use(logger('dev'));
