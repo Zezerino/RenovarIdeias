@@ -109,10 +109,12 @@ function editarOperador(id) {
 	).then(result => {
 
 		console.log(result.data)
+		
 
 		var idText = document.getElementById("idOperadorEditar");
 		var nomeText = document.getElementById("nomeOperadorEditar");
 		var estadoCheck = document.getElementById("checkBoxOperadorEditar");
+
 
 
 		idText.value = result.data[0].idOperador;
@@ -128,22 +130,20 @@ function editarOperador(id) {
 		}
 
 
-	}).catch(error => alert(' Erro a colocar dados na tabela obras' + error.message));
+	}).catch(error => alert(' Erro a colocar dados na tabela operadores' + error.message));
 
 
 
 	var modal = document.getElementById("myModal");
 
 	// Get the button that opens the modal
-	var btn = document.getElementById(id);
+	//var btn = document.getElementById(id);
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
 
 	// When the user clicks on the button, open the modal
-	btn.onclick = function () {
-		modal.style.display = "block";
-	}
+	modal.style.display = "block";
 
 	// When the user clicks on <span> (x), close the modal
 	span.onclick = function () {
