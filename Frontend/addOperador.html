@@ -211,7 +211,9 @@
                             <label>Nome do novo operador</label>
 
                             <form name="formOperador" id="formOperador">
-                                <input type="text" class="form-control" id="nomeOperador" placeholder="Nome">
+                                <input type="text" class="form-control" id="nomeOperador" placeholder="Nome" aria-describedby="nomeOperador">
+
+                                <input style="display:none;" type="text" class="form-control" id="nulo" placeholder="nulo" aria-describedby="nulo">
 
                                 <div class="row justify-content-center mt-4">
                                     <label style="display:none;" id="erroNome"> Tem de escrever um nome </label>

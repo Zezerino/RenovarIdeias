@@ -2,6 +2,10 @@ $( document ).ready(function() {
 
 	console.log( "addOperador ready!" );
 	
+	$('#nomeOperador').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoOperador').click();
+	});
 
 });
 
