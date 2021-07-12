@@ -63,7 +63,7 @@
   font-size: 20px;
 }
 
-#erroNome, #erroNomeId, #erroCodigoLongo, #erroNomeEquip, #erroCategoria, #erroNomeObra, #erroLocalObra, #erroAdicionarCategoria, #erroApagarCategoria, #erroSameId, #erroEscolherCategoria{
+#erroNome, #erroNomeId, #erroCodigoLongo, #erroNomeEquip, #erroCategoria, #erroNomeObra, #erroLocalObra, #erroAdicionarCategoria, #erroApagarCategoria, #erroSameId, #erroEscolherCategoria, #erroCategoriaEditar{
   color: #ff0000;
   font-weight: bold;
   font-size: 15px;

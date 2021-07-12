@@ -147,6 +147,8 @@ function editarEquipamento(id) {
 
 		nomeText.value = result.data[0].nomeEquipamento;
 
+		
+
 		if (result.data[0].estadoEquipamento == 1) {
 			estadoCheck.checked = true;
 		} else {
@@ -186,6 +188,7 @@ function editarEquipamento(id) {
 $('#botaoEquipamentoEditar').click(function () {
 
 
+	$("#erroCategoriaEditar").hide();
 
 
 	var idText = document.getElementById("idEquipamentoEditar").value;
@@ -213,27 +216,38 @@ $('#botaoEquipamentoEditar').click(function () {
 	console.log(formData.values());
 	//var form = { "idEquipamento": idText.value, "codigoLongo": codigoText.value, "nomeEquipamento": nomeText.value, "estadoEquipamento": checkF };
 
-	fetch("http://localhost:3000/equipamentos/" + idText, {
-		/*
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json; charset=utf-8'
-		},*/
-		method: 'PUT',
-		body: formData
-	}).then(
-		response => {
-			if (response.ok) {
-				return response.json();
-			} else {
-				throw new Error(" Erro a receber dados da BD da tabela equipamentos (F: botaoEquipamento) ");
+
+
+	if (comboC[comboC.selectedIndex].value == "") {
+		//console.log("Erro Op")
+		$("#erroCategoriaEditar").show();
+		$("#formEquipamento").effect("shake");
+
+	}else{
+
+		fetch("http://localhost:3000/equipamentos/" + idText, {
+			/*
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json; charset=utf-8'
+			},*/
+			method: 'PUT',
+			body: formData
+		}).then(
+			response => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					throw new Error(" Erro a receber dados da BD da tabela equipamentos (F: botaoEquipamento) ");
+				}
 			}
-		}
-	).then(result => {
+		).then(result => {
+	
+			location.reload();
+	
+		});
+	}
 
-		location.reload();
-
-	});
 
 
 });
