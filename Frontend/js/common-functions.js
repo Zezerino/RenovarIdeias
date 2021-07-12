@@ -13,6 +13,16 @@ $(document).ready(function () {
 		$("#hideThis").hide();
 
 	}
+
+	$('#username').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaologin').click();
+	  });
+
+	$('#password').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaologin').click();
+	});
 });
 
 
