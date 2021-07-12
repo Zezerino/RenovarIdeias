@@ -2,6 +2,16 @@ $( document ).ready(function() {
 
 	console.log( "addObra ready!" );
 
+	$('#nomeObra').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoObra').click();
+	});
+
+	$('#localObra').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoObra').click();
+	});
+
 	if (sessionStorage.getItem('loggedIn') == 'true') {
 
 	}else {

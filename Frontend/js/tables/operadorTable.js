@@ -1,6 +1,8 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
 
+
+
 	if (sessionStorage.getItem('loggedIn') == 'true') {
 
 		fetch("http://localhost:3000/operadores/view", {
@@ -140,7 +142,7 @@ function editarOperador(id) {
 	//var btn = document.getElementById(id);
 
 	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
+	var span = document.getElementById("closeOperadorEditar");
 
 	// When the user clicks on the button, open the modal
 	modal.style.display = "block";
@@ -158,7 +160,7 @@ function editarOperador(id) {
 	}
 };
 
-$('#botaoOperador').click(function () {
+$('#botaoOperadorEditar').click(function () {
 
 
 	var idText = document.getElementById("idOperadorEditar");

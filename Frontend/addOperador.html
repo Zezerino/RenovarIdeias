@@ -169,7 +169,7 @@
 
                 <!-- Modal content -->
                 <div class="bootstrap-overrides">
-                    <span class="close mb-5">&times;</span>
+                    <span id="closeOperadorEditar" class="close mb-5">&times;</span>
 
                     <form name="formOperadorModal" id="formOperadorModal">
                         <label class="mt-5" for="flexCheckDefault">ID do Operador</label>
@@ -188,7 +188,7 @@
                         </div>
 
 
-                        <input type="button" id="botaoOperador" value="Adicionar"
+                        <input type="button" id="botaoOperadorEditar" value="Adicionar"
                             class="btn btn-dark btn-block py-3 mt-3">
                     </form>
                 </div>
@@ -208,16 +208,16 @@
 
                         <div class="form-group col-md-3 ">
 
-                            <label for="exampleInputEmail1" id="">Nome do novo operador</label>
+                            <label>Nome do novo operador</label>
 
                             <form name="formOperador" id="formOperador">
-                                <input type="text" class="form-control" id="nomeOperador"
-                                    aria-describedby="nomeOperador" placeholder="Nome">
+                                <input type="text" class="form-control" id="nomeOperador" placeholder="Nome">
+
                                 <div class="row justify-content-center mt-4">
                                     <label style="display:none;" id="erroNome"> Tem de escrever um nome </label>
                                 </div>
-                                <input type="button" value=" Adicionar " class="btn btn-dark btn-block py-3"
-                                    onclick="javascript:postOperador();">
+                                
+                                <input type="button" id="botaoOperador" value=" Adicionar " class="btn btn-dark btn-block py-3" onclick="javascript:postOperador();">
                             </form>
 
                         </div>

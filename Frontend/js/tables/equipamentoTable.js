@@ -1,6 +1,28 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
 
+	$('#idEquipamentoEditar').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamentoEditar').click();
+	});
+
+	$('#idCodigoEditar').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamentoEditar').click();
+	});
+	$('#nomeEquipamentoEditar').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamentoEditar').click();
+	});
+	$('#comboCategoriaEditar').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamentoEditar').click();
+	});
+	$('#myFileUpdate').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamentoEditar').click();
+	});
+
 	if (sessionStorage.getItem('loggedIn') == 'true') {
 		fetch("http://localhost:3000/equipamentos/view", {
 			headers: {
@@ -114,6 +136,7 @@ function editarEquipamento(id) {
 		var idText = document.getElementById("idEquipamentoEditar");
 		var codigoText = document.getElementById("idCodigoEditar");
 		var nomeText = document.getElementById("nomeEquipamentoEditar");
+		var comboC = document.getElementById("comboCategoriaEditar");
 		var estadoCheck = document.getElementById("checkBoxEquipamentoEditar");
 
 
@@ -123,7 +146,6 @@ function editarEquipamento(id) {
 		codigoText.value = result.data[0].codigoLongo;
 
 		nomeText.value = result.data[0].nomeEquipamento;
-
 
 		if (result.data[0].estadoEquipamento == 1) {
 			estadoCheck.checked = true;
@@ -143,12 +165,10 @@ function editarEquipamento(id) {
 	var btn = document.getElementById(id);
 
 	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
+	var span = document.getElementById("closeEquipamentosEditar");
 
 	// When the user clicks on the button, open the modal
-	//btn.onclick = function () {
-		modal.style.display = "block";
-	//}
+	modal.style.display = "block";
 
 	// When the user clicks on <span> (x), close the modal
 	span.onclick = function () {
@@ -163,7 +183,7 @@ function editarEquipamento(id) {
 	}
 };
 
-$('#botaoEquipamento').click(function () {
+$('#botaoEquipamentoEditar').click(function () {
 
 
 
@@ -171,6 +191,7 @@ $('#botaoEquipamento').click(function () {
 	var idText = document.getElementById("idEquipamentoEditar").value;
 	var codigoText = document.getElementById("idCodigoEditar").value;
 	var nomeText = document.getElementById("nomeEquipamentoEditar").value;
+	var comboC = document.getElementById("comboCategoriaEditar");
 	var estadoCheck = document.getElementById("checkBoxEquipamentoEditar");
 	var checkF = 0;
 
@@ -185,7 +206,7 @@ $('#botaoEquipamento').click(function () {
 	formData.append("idEquipamento", idText);
 	formData.append("codigoLongo", codigoText);
 	formData.append("nomeEquipamento", nomeText);
-	//formData.append("idCategoria", comboC[comboC.selectedIndex].id);
+	formData.append("idCategoria", comboC[comboC.selectedIndex].id);
 	formData.append("estadoEquipamento", checkF);
 	formData.append("imagemEquipamento", document.getElementById('myFileUpdate').files[0]);
 

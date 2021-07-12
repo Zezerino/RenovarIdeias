@@ -3,6 +3,28 @@ $(document).ready(function () {
 	console.log("addEquip ready!");
 	fillCategoria()
 
+	$('#idEquipamento').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamento').click();
+	});
+
+	$('#codigoLongo').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamento').click();
+	});
+	$('#nomeEquipamento').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamento').click();
+	});
+	$('#comboCategoria').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamento').click();
+	});
+	$('#myFile').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoEquipamento').click();
+	});
+
 });
 
 
@@ -46,6 +68,15 @@ function fillCategoria() {
 			option.value = result.data[i].nomeCategoria;
 			option.innerHTML = result.data[i].nomeCategoria;
 			removerCategoria.appendChild(option);
+		}
+
+		for (var i = 0; i < (result.data).length; i++) {
+
+			var option = document.createElement("option");
+			option.id = result.data[i].idCategoria;
+			option.value = result.data[i].nomeCategoria;
+			option.innerHTML = result.data[i].nomeCategoria;
+			comboCategoriaEditar.appendChild(option);
 		}
 
 

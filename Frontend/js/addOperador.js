@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 
 	console.log( "addOperador ready!" );
+	
 
 });
 
@@ -8,9 +9,9 @@ $( document ).ready(function() {
 
 function postOperador(){
 
+	console.log("Entrou no postOperador")
 
 	var nomeOp = document.getElementById("nomeOperador").value;
-	var souValido = false;
 
 
 	$("#erroNome").hide();
@@ -20,16 +21,9 @@ function postOperador(){
 		$("#erroNome").show();
 		$("#formOperador").effect("shake");
 	}else{
-		souValido = true;
-	}
-	
-	if(souValido){
 
-	//console.log(document.getElementById('nomeOperador').value);
-	var form = {"nomeOperador":nomeOp, "estadoOperador":1};
-
-	//console.log(form);
-
+		var form = {"nomeOperador":nomeOp, "estadoOperador":1};
+		
 	fetch("http://localhost:3000/operadores",{
 		headers:{
 			'Accept': 'application/json',
@@ -50,7 +44,8 @@ function postOperador(){
 		location.reload();
 
 	});
-}
+
+	}
 
 }
 

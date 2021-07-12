@@ -1,6 +1,16 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
 
+	$('#nomeObraEditar').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoObraEditar').click();
+	});
+
+	$('#localObraEditar').keypress(function(e){
+		if(e.keyCode==13)
+		$('#botaoObraEditar').click();
+	});
+
 	if (sessionStorage.getItem('loggedIn') == 'true') {
 		fetch("http://localhost:3000/obras/view", {
 			headers: {
@@ -137,7 +147,7 @@ function editarObra(id) {
 	var btn = document.getElementById(id);
 
 	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
+	var span = document.getElementById("closeObrasEditar");
 
 	// When the user clicks on the button, open the modal
 	modal.style.display = "block";
@@ -155,7 +165,7 @@ function editarObra(id) {
 	}
 };
 
-$('#botaoObra').click(function () {
+$('#botaoObraEditar').click(function () {
 
 
 	var idText = document.getElementById("idObraEditar");
