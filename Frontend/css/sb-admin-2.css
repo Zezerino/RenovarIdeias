@@ -57,6 +57,12 @@
   border-radius: 1rem;
 }
 
+#collapseOptions {
+  background-color: #6e707e;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 1rem;
+}
+
 #saidaErroEquip, #saidaErroObra, #saidaErroOp, #entradaErroEquip, #entradaErroObra, #entradaErroOp{
   color: #ff0000;
   font-weight: bold;
