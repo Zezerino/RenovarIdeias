@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-html5-1.5.1/b-print-1.5.1/datatables.min.css"/>
+	<!-- Custom fonts for this template -->
+	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+	<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-html5-1.5.1/b-print-1.5.1/datatables.min.js"></script>
+	<link href="https://nightly.datatables.net/responsive/css/responsive.dataTables.css?_=0733d80df58ca2854b640850303e9ae6.css" rel="stylesheet" type="text/css" />
+	<script src="https://nightly.datatables.net/responsive/js/dataTables.responsive.js?_=0733d80df58ca2854b640850303e9ae6"></script>
+	<link href="https://nightly.datatables.net/scroller/css/scroller.dataTables.css?_=cd11977a9e85e84b9a1ebeb03f7b1a10.css" rel="stylesheet" type="text/css" />
+	<script src="https://nightly.datatables.net/scroller/js/dataTables.scroller.js?_=cd11977a9e85e84b9a1ebeb03f7b1a10"></script>
+
+	<!-- Custom styles for this template -->
+	<link href="css/sb-admin-2.css" rel="stylesheet">
+	<link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+	<!-- moment js library -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<script src="jquery-ui/jquery-ui.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+
+	<script src="js/common-functions.js"></script>
+	<script src="js/tables/movimentosTable.js"></script>
+
+	<meta charset=utf-8 />
+
+	<title>Movimentos</title>
+
+</head>
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+			<!-- Sidebar - Brand -->
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+				<div class="sidebar-brand-icon rotate-n-15">
+					<i class="fas fa-paint-roller"></i>
+				</div>
+				<div class="sidebar-brand-text mx-3">Renovar Ideias</div>
+				<div class="sidebar-brand-icon rotate-n-15">
+					<i class="fas fa-fill-drip"></i>
+				</div>
+			</a>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+			<!-- Nav Item - Dashboard -->
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">
+					<i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Registo</span></a>
+
+					<a class="nav-link" href="movimentos.html">
+						<i class="fas fa-fw fa-table"></i>
+						<span>Movimentos</span>
+					</a>    
+				</li>
+
+				<!-- Divider -->
+				<hr class="sidebar-divider" id="hideThis">
+
+				<!-- Heading -->
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id="adminStuff">
+						<i class="fas fa-fw fa-cog"></i>
+						<span>Interface</span>
+					</a>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+						<div class="py-2 rounded" id="collapseOptions">
+
+
+							<a class="nav-link" href="addOperador.html">
+								<i class="fas fa-fw fa-table"></i>
+								<span>Novo Operador</span>
+							</a>
+
+							<a class="nav-link" href="addObra.html">
+								<i class="fas fa-fw fa-table"></i>
+								<span>Nova Obra</span>
+							</a>
+
+							<a class="nav-link" href="addEquip.html">
+								<i class="fas fa-fw fa-table"></i>
+								<span>Novo Equipamento</span>
+							</a>
+
+
+						</div>
+					</div>
+
+					<!-- Divisor -->
+					<hr class="sidebar-divider">
+
+
+					<a class="nav-link login" id="loginBtn" href="#" onclick="loginModal();">
+						<i class="fas fa-sign-in-alt"></i>
+						<span>Login</span>
+					</a>
+
+				</li>
+
+				<!-- The Modal -->
+				<div id="myModalLogin" class="modal">
+
+					<!-- Modal content -->
+					<div class="bootstrap-overrides custom-control custom-checkbox">
+						<span class="close mb-5">&times;</span>
+
+						<form name="loginForm" id="loginForm">
+							<label class="mt-5" for="flexCheckDefault">Nome de utilizador</label>
+							<input type="text" class="form-control mb-3" id="username" aria-describedby="idEquipamento">
+
+							<label class="" for="flexCheckDefault">Password</label>
+							<input type="password" class="form-control mb-3" id="password" aria-describedby="idCodigo">
+
+							<input type="button" id="botaologin" value="Login" class="btn btn-dark btn-block py-3 mt-3">
+						</form>
+						<div class="mt-3" id="divErroLogin">
+
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Divider -->
+				<hr class="sidebar-divider d-none d-md-block">
+
+				<!-- Sidebar Toggler (Sidebar) -->
+				<div class="text-center d-none d-md-inline">
+					<button class="rounded-circle border-0" id="sidebarToggle"></button>
+				</div>
+
+			</ul>
+			<!-- End of Sidebar -->
+
+			<!-- Content Wrapper -->
+			<div id="content-wrapper" class="d-flex flex-column">
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid" id="content">
+
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800 mt-5 text-center" id="titleMovimento">Movimentos</h1>
+
+
+					<table id="dataTableMovimentacoes" class="display nowrap" width="100%">
+						<thead>
+							<tr>
+								<th>Tipo</th>
+								<th>Data</th>
+								<th>Operador</th>
+								<th>Obra</th>
+								<th>Equipamento</th>
+								<th>Funciona</i></th>
+								<th>Limpar</th>
+
+							</tr>
+							<tr>
+								<th class="filterhead">Tipo</th>
+								<th class="filterhead">Data</th>
+								<th class="filterhead">Operador</th>
+								<th class="filterhead">Obra</th>
+								<th class="filterhead">Equipamento</th>
+								<th class="filterhead">Funciona</th>
+								<th class="filterhead">Limpar</th>
+
+							</tr>
+						</thead>
+
+						<tfoot>
+							<tr>
+								<th>Tipo</th>
+								<th>Data</th>
+								<th>Operador</th>
+								<th>Obra</th>
+								<th>Equipamento</th>
+								<th>Funciona</i></th>
+								<th>Limpar</th>
+
+							</tr>
+						</tfoot>
+
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+
+
+				<!-- Footer -->
+				<footer class="sticky-footer bg-white">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>Copyright &copy; Your Website 2020</span>
+						</div>
+					</div>
+				</footer>
+
+			</div>
+			<!-- End of Content Wrapper -->
+
+		</div>
+		<!-- End of Page Wrapper -->
+
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top">
+			<i class="fas fa-angle-up"></i>
+		</a>
+
+
+
+	</body>
+	</html>
