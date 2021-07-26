@@ -40,6 +40,13 @@ $(document).ready(function() {
 					],
 			  	orderCellsTop: true,
 				dom: 'Bfrtip',
+				"createdRow": function( row, data, dataIndex){
+					if( data.tipo ==  'entrada' || data.tipo ==  'Entrada'){
+						$(row).addClass('greenClass');
+					}else{
+						$(row).addClass('redClass');
+					}
+				},
 				responsive: {
 					details: {
 						display: $.fn.dataTable.Responsive.display.modal( {

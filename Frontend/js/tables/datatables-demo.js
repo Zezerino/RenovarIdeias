@@ -44,7 +44,14 @@ $(document).ready(function() {
 		var table = $('#dataTableMovimentacoes').DataTable({
 			data: result.data,
 			orderCellsTop: true,
-			fixedHeader: true,			
+			fixedHeader: true,
+			"createdRow": function( row, data, dataIndex){
+				if( data.tipo ==  'entrada' || data.tipo ==  'Entrada'){
+					$(row).addClass('greenClass');
+				}else{
+					$(row).addClass('redClass');
+				}
+			},
 			columns: [
 			{ data: 'tipo' },
 			{ data: 'data'},
@@ -55,14 +62,6 @@ $(document).ready(function() {
 			{ data: 'estadoLimpo'}
 			],
 			columnDefs: [
-			{ targets: [0], "createdCell": function (td, cellData, rowData, row, col) {
-				if( data.tipo ==  'entrada' || data.tipo ==  'Entrada'){
-					$(row).addClass('greenClass');
-				}else{
-					$(row).addClass('redClass');
-				}
-			}}, 
-
 			{ targets: [1], render:function(data){return moment(data).format('YYYY/MM/DD, HH:mm');}}, 
 			{ targets: [5], render:function(data){
 				if(data == "Funciona" || data.tipo ==  'funciona' ){
