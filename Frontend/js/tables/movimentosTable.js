@@ -51,13 +51,15 @@ $(document).ready(function() {
 						renderer: $.fn.dataTable.Responsive.renderer.tableAll()
 					}
 				},
-				scrollY:        200,
+				scrollY:        500,
 				scrollCollapse: true,
 				scroller:       true,
 				buttons: [
 					'excel', 'pdf'
 				],
-				
+				columnDefs: [
+					{ targets: [1], render:function(data){return moment(data).format('YYYY/MM/DD, HH:mm');}}, 
+				],					
 				"order": [[ 1, "desc" ]],
 				initComplete: function () {
 				  var api = this.api();
