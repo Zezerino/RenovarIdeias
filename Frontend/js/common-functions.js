@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	var loginBtn = document.getElementById("loginBtn");
 
-
+	console.log("here");
 	if (sessionStorage.getItem('loggedIn') == 'true') {
 		loginBtn.innerHTML = "<i class='fas fa-sign-in-alt'></i><span>Logout</span>";
 		$("#adminStuff").show();
